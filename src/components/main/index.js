@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import styled from '../../theme';
 import Landing from '../landing';
+import SignUp from '../signup';
 import NotFound from '../notFound';
 
 // TODO: add redirect and auth
@@ -11,20 +11,18 @@ import {
   Switch,
 } from 'react-router-dom';
 
-const StyledMain = styled.div`
-`;
-
 class Main extends Component {
   render() {
     return (
-      <StyledMain>
+      <>
         <Router>
           <Switch>
             <Route exact={true} path="/" component={Landing} />
+            <Route exact={true} path="/signup" component={SignUp} />
             <Route component={NotFound} />
           </Switch>
         </Router>
-      </ StyledMain>
+      </>
     );
   }
 }

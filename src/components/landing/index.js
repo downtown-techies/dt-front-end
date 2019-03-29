@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from '../../theme';
+import Link from '../shared/link';
+import Input from '../shared/input';
 
 const StyledLanding = styled.div`
       height: 100vh;
@@ -15,9 +17,11 @@ const StyledLanding = styled.div`
 class Landing extends Component {
   render() {
     return (
-      <StyledLanding>
-        Landing
-      </ StyledLanding>
+      <>
+        <StyledLanding />
+        <Link text='foo' address='http://www.google.com' name='Foo' />
+        <Input defaultValue="@probablyup" type="text" />
+      </>
     );
   }
 }
