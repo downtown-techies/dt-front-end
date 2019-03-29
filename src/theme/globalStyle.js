@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import './fonts.css';
+import primaryTheme from './primaryTheme';
 
 const GlobalStyle = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -62,6 +63,104 @@ const GlobalStyle = createGlobalStyle`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+
+  /* end reset */
+
+  html,
+  body,
+  #root {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  html {
+    /* Make rems easier to calculate. 62.5% of 16px is 10px, so 1rem = 10px */
+    font-size: 62.5%;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Akkurat', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: ${primaryTheme.colors.primary};
+    background-color: #ffffff;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    margin: 0;
+  }
+
+  em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  strong {
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    font-size: 1em;
+    font-weight: inherit;
+  }
+
+  sup {
+    /* 'top' matches designs better than 'super' */
+    vertical-align: top;
+    font-size: smaller;
+  }
+
+  /* Maybe not the best place for this helper class... */
+  .is-scroll-locked {
+    overflow: hidden;
   }
 `;
 
