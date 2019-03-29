@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
      v2.0 | 20110126
      License: none (public domain)
   */
-  
+
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -33,11 +33,19 @@ const GlobalStyle = createGlobalStyle`
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
+
+  html {
+    font-size: 10px;
+  }
   
   body {
     line-height: 1;
+    margin: 0;
+    padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
   }
-  
+
   ol, ul {
     list-style: none;
   }
@@ -45,6 +53,7 @@ const GlobalStyle = createGlobalStyle`
   blockquote, q {
     quotes: none;
   }
+
   blockquote:before, blockquote:after,
   q:before, q:after {
     content: '';
@@ -54,21 +63,6 @@ const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-  
-  /* End Reset */
-  
-  .main__header {
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-      -webkit-transform: skewY(-12deg);
-      transform: skewY(-12deg);
-      -webkit-transform-origin: 0;
-      transform-origin: 0;
-      background: linear-gradient(192deg,#ff33a4 0%,#2c0fa0 50%,#00c8e2 90%);
-  }
-
 `;
 
 export default GlobalStyle;
-
