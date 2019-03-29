@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'Akkurat';
+  font-weight: 300;
+  font-style: normal;
+  src: url('./fonts/AkkuratStd-Light.woff2') format('woff2'),
+    url('./fonts/AkkuratStd-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Akkurat';
+  font-weight: 300;
+  font-style: italic;
+  src: url('./fonts/AkkuratStd-LightItalic.woff2') format('woff2'),
+    url('./fonts/AkkuratStd-LightItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Akkurat';
+  font-weight: 400;
+  font-style: normal;
+  src: url('./fonts/AkkuratStd.woff2') format('woff2'),
+    url('./fonts/AkkuratStd.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Akkurat';
+  font-weight: 400;
+  font-style: italic;
+  src: url('./fonts/AkkuratStd-Italic.woff2') format('woff2'),
+    url('./fonts/AkkuratStd-Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Akkurat';
+  font-weight: 700;
+  font-style: normal;
+  src: url('./fonts/AkkuratStd-Bold.woff2') format('woff2'),
+    url('./fonts/AkkuratStd-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Akkurat';
+  font-weight: 700;
+  font-style: italic;
+  src: url('./fonts/AkkuratStd-BoldItalic.woff2') format('woff2'),
+    url('./fonts/AkkuratStd-BoldItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Publico';
+  font-weight: 700;
+  font-style: normal;
+  src: url('./fonts/PublicoText-Bold.woff2') format('woff2'),
+    url('./fonts/PublicoText-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Publico';
+  font-weight: 700;
+  font-style: italic;
+  src: url('./fonts/PublicoText-BoldItalic.woff2') format('woff2'),
+    url('./fonts/PublicoText-BoldItalic.woff') format('woff');
+}
+
