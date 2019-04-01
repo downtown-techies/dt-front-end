@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import styled from '../../theme';
-import Link from '../shared/link';
-import Button from '../shared/button';
 import Text from '../shared/text';
-import Label from '../shared/label';
-import Input from '../shared/input';
 import SimpleSlider from '../shared/carousel';
 
 const StyledLanding = styled.div`
@@ -23,12 +19,8 @@ class Landing extends Component {
     return (
       <>
         <StyledLanding />
-        <Link text='foo' address='http://www.google.com' name='Foo' />
-        <Input defaultValue="@probablyup" type="text" />
-        <Label />
-        <Text>Foo Bar</Text>
-        <Button>Foo</ Button>
         <SimpleSlider />
+        <Text>Foo Bar</Text>
       </>
     );
   }

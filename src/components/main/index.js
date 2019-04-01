@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Landing from '../landing';
-import SignUp from '../signup';
 import NotFound from '../notFound';
+import SignUp from '../signup';
 
 // TODO: add redirect and auth
 
