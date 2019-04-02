@@ -4,7 +4,7 @@ import Text from '../shared/text';
 import SimpleSlider from '../shared/carousel';
 
 const StyledLanding = styled.div`
-  height: 100vh;
+  height: 120vh;
   width: 100vw;
   overflow: hidden;
   -webkit-transform: skewY(-12deg);

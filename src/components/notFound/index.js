@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import styled from '../../theme';
+import Image from '../shared/image';
+import badPathImage from '../../assets/images/404.png';
 
-const StylednotFound = styled.div`
+const StyledNotFound = styled.div`
 `;
 
 class notFound extends Component {
   render() {
     return (
-      <StylednotFound>
-        404 not found
-      </ StylednotFound>
+      <StyledNotFound>
+        <Image src={badPathImage} />
+      </ StyledNotFound>
     );
   }
 }
