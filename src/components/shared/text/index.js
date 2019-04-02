@@ -7,11 +7,22 @@ const textStyles = {
   eyebrow: css`
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 1.4rem;
-    color: blue;
+    font-size: 0.8rem;
+
+    @media (min-width: 700px) {
+      font-size: 2.8rem;
+    }
   `,
-  tagline: css`
+  tagLine: css`
     font-size: 1.6rem;
+
+    @media (orientation: landscape) {
+      font-size: 1.2rem;
+    }
+
+    @media (min-width: 1200px) {
+      font-size: 2.6rem;
+    }
   `,
   headline: css`
     font-size: 2.4rem;

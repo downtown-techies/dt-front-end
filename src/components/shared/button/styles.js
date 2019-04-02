@@ -1,10 +1,11 @@
 import styled from '../../../theme';
 import { css } from '../../../theme';
+import theme from '../../../theme/primaryTheme';
 
 const base = css`
-  background-color: black;
+  background-color: ${theme.colors.accent};
   border-radius: 0.5rem;
-  color: #fff;
+  color: ${theme.colors.tertiary};
   position: relative;
 
   &:after {
@@ -22,7 +23,7 @@ const base = css`
   }
 
   :hover {
-    background-color: black;
+    background-color: ${theme.colors.accent};
 
     &:after {
       opacity: 1;
@@ -39,18 +40,18 @@ export const baseStyles = css`
   border: none;
   box-shadow: none;
   cursor: pointer;
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-weight: 700;
-  padding: 1em 1.2em;
+  padding: 0.5rem 1.4rem;
   transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
 
   &:disabled {
-    background-color: black;
+    background-color: ${theme.colors.accent};
     opacity: 0.5;
     cursor: not-allowed;
 
     &:hover {
-      background-color: black;
+      background-color: ${theme.colors.accent};
     }
 
     &:after {
@@ -62,12 +63,12 @@ export const baseStyles = css`
 export const buttonStyles = {
   outlined: css`
     border-radius: 0.5rem;
-    box-shadow: inset 0 0 0 0.2rem black;
-    color: black;
+    box-shadow: inset 0 0 0 0.2rem ${theme.colors.accent};
+    color: ${theme.colors.accent};
     transition: background-color 0.25s ease, color 0.25s ease;
 
     &:hover {
-      background: black;
+      background: ${theme.colors.accent};
       color: #fff;
     }
   `,
@@ -77,7 +78,7 @@ export const buttonStyles = {
     border: 0;
     padding: 0;
     background-color: transparent;
-    color: black;
+    color: ${theme.colors.accent};
     position: relative;
 
     &:after {
@@ -90,7 +91,7 @@ export const buttonStyles = {
     }
 
     &:hover {
-      color: black;
+      color: ${theme.colors.accent};
     }
   `,
   'icon-toggle': css`
@@ -104,7 +105,7 @@ export const buttonStyles = {
     text-align: left;
 
     &:hover {
-      color: black;
+      color: ${theme.colors.accent};
     }
   `,
   toggle: css`
@@ -115,7 +116,7 @@ export const buttonStyles = {
     text-align: left;
 
     &:hover {
-      color: black;
+      color: ${theme.colors.accent};
     }
   `,
   full: css`

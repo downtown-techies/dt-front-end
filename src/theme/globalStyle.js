@@ -68,6 +68,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  body {
+    max-height: 110vh;
+    overflow: hidden;
+  }
+
   html,
   body,
   #root {

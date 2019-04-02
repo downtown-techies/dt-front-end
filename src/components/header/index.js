@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { 
   HeaderContainer, 
-  MenuRight, 
+  // MenuRight, 
   StyledHeader 
 } from './styles';
 import theme from '../../theme/primaryTheme';
@@ -18,7 +18,7 @@ class Header extends Component {
             width={322.67}
             viewBox='0 0 322.67 28'
             fill={theme.colors.reverse}/>
-          <MenuRight>
+          {/* <MenuRight>
             <SvgIcon
               name={'menu'}
               same={false}
@@ -29,6 +29,7 @@ class Header extends Component {
               fill='#fff'
             />
           </MenuRight>
+          */}
         </ StyledHeader>
       </HeaderContainer>
     );

@@ -5,8 +5,14 @@ import styled from '../../../theme';
 const StyledLink = styled.a`
 `;
 
-const Link = ({address, name, text, target = '_blank'}) => {
-  const LinkText = text || address;
+const Link = ({
+  address, 
+  name, 
+  text, 
+  target = '_blank', 
+  children
+}) => {
+  const LinkText = text || children || address;
 
   return (
     <StyledLink href={address}

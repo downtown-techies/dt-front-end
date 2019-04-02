@@ -13,7 +13,6 @@ class App extends Component {
       <StyledApp>
         <Header />
         <Main />
-        <Footer />
       </StyledApp>
     );
   }
