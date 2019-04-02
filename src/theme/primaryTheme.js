@@ -8,7 +8,7 @@ const primaryTheme = {
     borderLight: '#ECF2F7',
     confirmation: '#81CB3F',
     error: '#FC5E47',
-    primary: '#243647',
+    primary: 'rgba( 45, 45, 45, 1 )',
     secondary: '#8DA3B5',
     reverse: '#FFFFFF',
   },

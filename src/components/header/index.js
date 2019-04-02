@@ -4,6 +4,7 @@ import {
   MenuRight, 
   StyledHeader 
 } from './styles';
+import theme from '../../theme/primaryTheme';
 import SvgIcon from '../../assets/svgs'; 
 
 class Header extends Component {
@@ -11,8 +12,12 @@ class Header extends Component {
     return (
       <HeaderContainer>
         <StyledHeader className="header">
-          
-          <h1> Downtown Techies</h1>
+          <SvgIcon
+            name='altLogo'
+            height={28}
+            width={322.67}
+            viewBox='0 0 322.67 28'
+            fill={theme.colors.reverse}/>
           <MenuRight>
             <SvgIcon
               name={'menu'}

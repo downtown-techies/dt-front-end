@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import styled from '../../theme';
+import theme from '../../theme/primaryTheme';
 
 const StyledFooter = styled.div`
-  background-color: red;
+  background-color: ${theme.colors.primary};
+  color: ${theme.colors.reverse};
   display: flex;
   align-items: center;
   flex-wrap: nowrap;

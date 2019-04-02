@@ -157,9 +157,14 @@ const GlobalStyle = createGlobalStyle`
     font-size: smaller;
   }
 
-  /* Maybe not the best place for this helper class... */
+  /* helper class */
   .is-scroll-locked {
     overflow: hidden;
+  }
+
+  /* TODO-figure out why this has bottom padding */
+  .slick-track { 
+    margin-bottom: -0.75rem;
   }
 `;
 

@@ -54,7 +54,7 @@ const SvgIcon = ({
       <svg
         name={name}
         style={style}
-        height={width}
+        height={height}
         width={width}
         viewBox={viewBox}
         transform={transform}

@@ -1,26 +1,40 @@
 import React, { Component } from 'react';
-import styled from '../../theme';
+import Carousel from '../shared/carousel';
 import Text from '../shared/text';
-import SimpleSlider from '../shared/carousel';
+import theme from '../../theme/primaryTheme';
+import styled from '../../theme';
 
-const StyledLanding = styled.div`
-  height: 120vh;
-  width: 100vw;
-  overflow: hidden;
-  -webkit-transform: skewY(-12deg);
-  transform: skewY(-12deg);
-  -webkit-transform-origin: 0;
-  transform-origin: 0;
-  background: linear-gradient(192deg,#ff33a4 0%,#2c0fa0 50%,#00c8e2 90%);
+const Tagline = styled.div`
+  position: relative;
+  bottom: 30vh;
+  height: 0;
+  z-index: 1;
+`;
+
+const EyeBrow = styled.div`
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  height: 0;
+  top: 0.5rem;
+  z-index: 1;
 `;
 
 class Landing extends Component {
   render() {
     return (
       <>
-        <StyledLanding />
-        <SimpleSlider />
-        <Text>Foo Bar</Text>
+        <EyeBrow>
+          <Text textStyle='eyebrow' color={theme.colors.reverse}>
+            #gigLifeHustle
+          </Text>
+        </EyeBrow>
+        <Carousel />
+        <Tagline>
+          <Text textStyle='tagLine' color={theme.colors.reverse}>
+            We partner with local influencers to bring techies together through the best events and community
+          </Text>
+        </Tagline>
       </>
     );
   }
