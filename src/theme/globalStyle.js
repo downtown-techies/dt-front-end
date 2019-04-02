@@ -35,10 +35,6 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
 
-  html {
-    font-size: 10px;
-  }
-  
   body {
     line-height: 1;
     margin: 0;
@@ -67,17 +63,16 @@ const GlobalStyle = createGlobalStyle`
 
   /* end reset */
 
+  html {
+    font-size: 20px;
+    box-sizing: border-box;
+  }
+
   html,
   body,
   #root {
     min-height: 100vh;
     overflow-x: hidden;
-  }
-
-  html {
-    /* Make rems easier to calculate. 62.5% of 16px is 10px, so 1rem = 10px */
-    font-size: 62.5%;
-    box-sizing: border-box;
   }
 
   body {
@@ -150,6 +145,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-size: 1em;
     font-weight: inherit;
+  }
+
+  h1 {
+    font-size: 1.2rem;
   }
 
   sup {
