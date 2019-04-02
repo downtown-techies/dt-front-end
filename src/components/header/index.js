@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { HeaderContainer , StyledHeader } from './styles';
+import { 
+  HeaderContainer, 
+  MenuRight, 
+  StyledHeader 
+} from './styles';
 import SvgIcon from '../../assets/svgs'; 
 
 class Header extends Component {
@@ -7,13 +11,19 @@ class Header extends Component {
     return (
       <HeaderContainer>
         <StyledHeader className="header">
-          Downtown Techies 
-          <SvgIcon
-            name={'menu'}
-            width={20}
-            height={20}
-            viewBox="0 0 12 12"
-          />
+          
+          <h1> Downtown Techies</h1>
+          <MenuRight>
+            <SvgIcon
+              name={'menu'}
+              same={false}
+              height={42}
+              width={42}
+              viewBox='0 0 32 32' 
+              position='relative'
+              fill='#fff'
+            />
+          </MenuRight>
         </ StyledHeader>
       </HeaderContainer>
     );
