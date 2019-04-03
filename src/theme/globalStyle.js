@@ -171,6 +171,11 @@ const GlobalStyle = createGlobalStyle`
   .slick-track { 
     margin-bottom: -0.75rem;
   }
+
+  .slick-slider {
+    top: -1px;
+  }
+
 `;
 
 export default GlobalStyle;
