@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from '../theme';
 import Header from '../components/header';
-import Footer from '../components/footer';
+// import Footer from '../components/footer';
 import Main from '../components/main';
 
 const StyledApp = styled.div`

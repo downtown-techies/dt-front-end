@@ -69,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    max-height: 110vh;
+    max-height: 120vh;
     overflow: hidden;
   }
 

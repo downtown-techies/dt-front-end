@@ -19,9 +19,6 @@ const TaglineWrapper = styled.div`
   position: absolute;
   top: 20vh;
   width 100vw;
-  /* border-radius: 0.25rem;
-  background-color: ${theme.colors.backgroundTransparent}
-  */
 
   @media (min-width: 700px) {
     top: 30vh;
@@ -40,10 +37,20 @@ const Tagline = styled.div`
   }
 `;
 
-const ButtonWrapper = styled.form`
+const ButtonContainer = styled.div`
   margin-top: 2rem;
   width: 100%;
   text-align: center;
+`;
+
+const ButtonWrapper = styled.form`
+  margin-right: 2rem;
+  width: fit-content;
+  display: inline;
+
+  &:last-child {
+    margin-right: 0;
+  }
 `;
 
 class Landing extends Component {
@@ -60,9 +67,14 @@ class Landing extends Component {
             <Text textStyle='tagLine' color={theme.colors.reverse}>
               We partner with local influencers to bring techies together through the best events and community
             </Text>
-            <ButtonWrapper action='https://www.meetup.com/Downtown-Techies/'>
-              <Button type='submit'>Join Us</ Button>
-            </ ButtonWrapper>
+            <ButtonContainer>
+              <ButtonWrapper ref='Raleigh' action='https://www.meetup.com/Downtown-Techies/'>
+                <Button type='submit'>Join Us - Raleigh</ Button>
+              </ ButtonWrapper>
+              <ButtonWrapper ref='Durham' action='https://www.meetup.com/Downtown-Techies-Durham-Edition-by-popular-demand/'>
+                <Button type='submit'>Join Us - Durham</ Button>
+              </ ButtonWrapper>
+            </ButtonContainer>
           </Tagline>
         </TaglineWrapper>
         <Carousel />

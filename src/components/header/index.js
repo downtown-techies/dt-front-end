@@ -16,7 +16,7 @@ class Header extends Component {
             name='altLogo'
             height={28}
             width={322.67}
-            viewBox='0 0 322.67 28'
+            viewBox='0 0 355 28'
             fill={theme.colors.reverse}/>
           {/* <MenuRight>
             <SvgIcon
