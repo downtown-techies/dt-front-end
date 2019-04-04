@@ -15,6 +15,7 @@ const textStyles = {
   `,
   tagLine: css`
     font-size: 1.6rem;
+    text-align: center;
 
     @media (orientation: landscape) {
       font-size: 1.2rem;
