@@ -63,15 +63,24 @@ const GlobalStyle = createGlobalStyle`
 
   /* end reset */
 
+  /* TODO replace color after flight */
+
   html {
     font-size: 20px;
     box-sizing: border-box;
+    background-color: ${primaryTheme.colors.primary};
   }
 
   body {
     max-height: 120vh;
     overflow: hidden;
+    background-color: ${primaryTheme.colors.primary};
   }
+
+  #root {
+    background-color: ${primaryTheme.colors.primary};
+  }
+
 
   html,
   body,

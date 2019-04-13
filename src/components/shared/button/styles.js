@@ -28,6 +28,9 @@ const baseStyles = css`
 `;
 
 export const buttonStyles = {
+  submit: css`
+    padding: 0.5rem 3rem;
+  `,
   default: css`
   `,
 };

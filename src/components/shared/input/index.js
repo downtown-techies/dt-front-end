@@ -8,9 +8,9 @@ export const StyledInput = styled.input`
       props.hasError ? props.theme.colors.error : props.theme.colors.border};
   border-radius: 0.5rem;
   width: 100%;
-  height: 5rem;
+  height: 3rem;
   padding: 1.2rem 1rem;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   background-color: #fff;
 `;
 
