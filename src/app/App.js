@@ -6,6 +6,7 @@ import Main from '../components/main';
 import { apiRequest, apiBaseUrl } from '../helpers/api';
 
 // TODO: add SRI...subresource integrity or some additional security measure
+// TODO: add call to get and store uuid 
 
 function getToken(publicKey){
   return apiRequest.getJwtKey(
@@ -13,14 +14,14 @@ function getToken(publicKey){
     publicKey
   )
   .then(function (response) {
-    console.log(response.data.jwtKey);
+    const jwtKey = ( response.data && response.data.jwtKey ) || 'iEmpty';
+    localStorage.setItem('token', jwtKey);
   })
   .catch(function (error) {
-    // handle error
     console.log(error);
   })
   .then(function () {
-    // always executed
+    console.log('Something went wrong if you end up here');
   });
 }
 
@@ -30,7 +31,7 @@ function App() {
   const [publicKey] = useState(`${process.env.REACT_APP_PUBLIC_KEY}`);
 
   useEffect(() => {
-    localStorage.setItem('token', getToken(publicKey));
+    getToken(publicKey);
   });
 
   return (
