@@ -5,11 +5,26 @@ import Input from '../shared/input';
 import Label from '../shared/label';
 import ErrorMessage from '../shared/ErrorMessage';
 import Button from '../shared/button';
+import { apiRequest, apiBaseUrl } from '../../helpers/api';
 
 const StyledSignUp = styled.form`
   width: 80%;
   margin: 0 auto;
 ` ;
+
+const jwtToken = localStorage.token
+
+  apiRequest.get(
+    `${apiBaseUrl}/meetups`,
+    jwtToken 
+  )
+  .then(function (response) {
+    console.log('response', response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+
 
 const StyledSubmit = styled(Button)`
   margin-top: 1.5rem;

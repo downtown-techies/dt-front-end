@@ -20,9 +20,6 @@ function getToken(publicKey){
   .catch(function (error) {
     console.log(error);
   })
-  .then(function () {
-    console.log('Something went wrong if you end up here');
-  });
 }
 
 
