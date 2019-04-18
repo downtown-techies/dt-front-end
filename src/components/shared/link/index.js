@@ -1,13 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from '../../../theme';
+import styled, { css } from '../../../theme';
+import theme from '../../../theme/primaryTheme';
+
+const linkStyles = {
+  inlineFooter: css`
+    margin-right: 0.5rem;
+  `,
+  default: css`
+  `,
+};
 
 const StyledLink = styled.a`
+  ${({ linkStyle = 'default' }) => linkStyles[linkStyle]};
+  color: ${({ color }) => (color ? color : theme.colors.primary)};
 `;
+
+
 
 const Link = ({
   address, 
   name, 
+  linkStyle,
+  color,
   text, 
   target = '_blank', 
   children
@@ -16,6 +31,8 @@ const Link = ({
 
   return (
     <StyledLink href={address}
+       color={color}
+       linkStyle={linkStyle}
        name={name}
     >
       {LinkText}

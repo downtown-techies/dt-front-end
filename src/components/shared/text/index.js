@@ -29,6 +29,10 @@ const textStyles = {
     font-size: 2.4rem;
     line-height: 1.2;
   `,
+  small: css`
+    font-weight: 700;
+    font-size: 0.6rem;
+  `,
   default: css`
     font-size: 1rem;
   `,

@@ -64,7 +64,6 @@ class Landing extends Component {
                 <Button type='submit'>Join Us</ Button>
               </ ButtonWrapper>
             </ButtonContainer>
-
           </Tagline>
         </TaglineWrapper>
         <CarouselWrapper>
