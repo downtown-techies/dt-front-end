@@ -1,22 +1,8 @@
 import React, { Component } from 'react';
-import styled from '../../theme';
-import theme from '../../theme/primaryTheme';
 import SvgIcon from '../../assets/svgs';
 import Link from '../shared/link';
 import Text from '../shared/text';
-import Button from '../shared/button';
-import { ButtonWrapper, ButtonContainer } from '../shared/button/styles';
-
-const StyledFooter = styled.div`
-  background-color: ${theme.colors.primary};
-  color: ${theme.colors.reverse};
-  padding: 1rem 10vw;
-  z-index: 1;
-  position: relative;
-`;
-
-const Links = styled.div`
-`;
+import { StyledFooter, Links } from './styles';
 
 class Footer extends Component {
   render() {

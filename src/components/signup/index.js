@@ -9,6 +9,8 @@ import { apiRequest, apiBaseUrl } from '../../helpers/api';
 
 const StyledSignUp = styled.div`
   width: 80%;
+  padding-top: 5vh;
+  min-height: 70vh;
   margin: 0 auto;
 ` ;
 
@@ -34,9 +36,12 @@ const submitNewUser = (values) => {
   })
 } 
 
+const SubmitContainer = styled.div`
+  text-align: right;
+` ;
+
 const StyledSubmit = styled(Button)`
   margin-top: 1.5rem;
-  float: right;
 ` ;
 
 class SignUp extends Component {
@@ -113,13 +118,15 @@ class SignUp extends Component {
               <ErrorMessage color='red'>
                 {errors.email && touched.email && errors.email}
               </ ErrorMessage>
-              <StyledSubmit 
-                buttonStyle='submit'
-                type='submit' 
-                disabled={isSubmitting}
-              >
-                Submit
-              </StyledSubmit>
+              <SubmitContainer>
+                <StyledSubmit 
+                  buttonStyle='submit'
+                  type='submit' 
+                  disabled={isSubmitting}
+                >
+                  Submit
+                </StyledSubmit>
+              </SubmitContainer>
             </form>
           )}
         </Formik>

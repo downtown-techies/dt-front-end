@@ -7,6 +7,9 @@ const linkStyles = {
   inlineFooter: css`
     margin-right: 0.5rem;
   `,
+  headerLogo: css`
+    margin-top: -0.4rem;  
+  `,
   default: css`
   `,
 };
@@ -15,8 +18,6 @@ const StyledLink = styled.a`
   ${({ linkStyle = 'default' }) => linkStyles[linkStyle]};
   color: ${({ color }) => (color ? color : theme.colors.primary)};
 `;
-
-
 
 const Link = ({
   address, 

@@ -1,10 +1,20 @@
 import styled from '../../theme';
 import theme from '../../theme/primaryTheme';
 
-const FooterContainer = styled.div`
+const Links = styled.div`
+`;
+
+const StyledFooter = styled.div`
+  margin-top: 2rem;
+  background-color: ${theme.colors.primary};
+  color: ${theme.colors.reverse};
+  padding: 1rem 10vw;
+  z-index: 1;
+  position: relative;
 `;
 
 export {
-  FooterContainer,
+  StyledFooter,
+  Links
 };
 
