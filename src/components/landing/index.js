@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Button from '../shared/button';
+import { ButtonWrapper, ButtonContainer } from '../shared/button/styles';
 import Carousel from '../shared/carousel';
 import Text from '../shared/text';
 import theme from '../../theme/primaryTheme';
 import styled from '../../theme';
+import Modal from 'react-modal';
 
 const EyeBrow = styled.div`
   position: relative;
@@ -12,6 +14,11 @@ const EyeBrow = styled.div`
   height: 0;
   top: 0.5rem;
   z-index: 1;
+`;
+
+const CarouselWrapper = styled.div`
+  max-height: 95vh;
+  overflow:hidden;
 `;
  
 const TaglineWrapper = styled.div`
@@ -37,21 +44,6 @@ const Tagline = styled.div`
   }
 `;
 
-const ButtonContainer = styled.div`
-  margin-top: 2rem;
-  width: 100%;
-  text-align: center;
-`;
-
-const ButtonWrapper = styled.form`
-  margin-right: 2rem;
-  width: fit-content;
-  display: inline;
-
-  &:last-child {
-    margin-right: 0;
-  }
-`;
 
 class Landing extends Component {
   render() {
@@ -68,16 +60,16 @@ class Landing extends Component {
               We partner with local influencers to bring techies together through the best events and community
             </Text>
             <ButtonContainer>
-              <ButtonWrapper ref='Raleigh' action='https://www.meetup.com/Downtown-Techies/'>
-                <Button type='submit'>Join Us - Raleigh</ Button>
-              </ ButtonWrapper>
-              <ButtonWrapper ref='Durham' action='https://www.meetup.com/Downtown-Techies-Durham-Edition-by-popular-demand/'>
-                <Button type='submit'>Join Us - Durham</ Button>
+              <ButtonWrapper ref='signup' action='/signup'>
+                <Button type='submit'>Join Us</ Button>
               </ ButtonWrapper>
             </ButtonContainer>
+
           </Tagline>
         </TaglineWrapper>
-        <Carousel />
+        <CarouselWrapper>
+          <Carousel />
+        </CarouselWrapper>
       </>
     );
   }

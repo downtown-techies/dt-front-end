@@ -2,6 +2,29 @@ import styled from '../../../theme';
 import { css } from '../../../theme';
 import theme from '../../../theme/primaryTheme';
 
+const ButtonContainer = styled.div`
+  margin-top: 2rem;
+  width: 100%;
+  text-align: center;
+`;
+
+const ButtonWrapper = styled.form`
+  margin-right: 2rem;
+  width: fit-content;
+  display: inline;
+
+  &:last-child {
+    margin-right: 0;
+  }
+`;
+
+export {
+  ButtonContainer,
+  ButtonWrapper
+};
+
+
+
 const baseStyles = css`
   display: inline-block;
   font-family: 'Akkurat', sans-serif;

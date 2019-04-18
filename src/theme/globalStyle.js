@@ -72,8 +72,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    max-height: 120vh;
-    overflow: hidden;
     background-color: ${primaryTheme.colors.primary};
   }
 

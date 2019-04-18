@@ -3,6 +3,7 @@ import styled from '../theme';
 import Header from '../components/header';
 // import Footer from '../components/footer';
 import Main from '../components/main';
+import Footer from '../components/footer';
 import { apiRequest, apiBaseUrl } from '../helpers/api';
 
 // TODO: add SRI...subresource integrity or some additional security measure
@@ -35,6 +36,7 @@ function App() {
     <>
       <Header />
       <Main />
+      <Footer />
     </>
   );
 }

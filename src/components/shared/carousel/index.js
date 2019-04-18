@@ -20,7 +20,7 @@ export default class Carousel extends React.Component {
       slidesToScroll: 1,
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 768,
           settings: {
             adaptiveHeight: true,
             variableWidth: true,
