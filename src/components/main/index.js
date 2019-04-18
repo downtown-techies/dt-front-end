@@ -10,13 +10,14 @@ import {
   Switch,
 } from 'react-router-dom';
 
+// <Route exact={true} path="/nested_admin/add_meetup" component={AddMeetup} /> 
+
 function Main() {
   return (
     <>
       <Router>
         <Switch>
           <Route exact={true} path="/signup" component={SignUp} /> 
-          <Route exact={true} path="/nested_admin/add_meetup" component={AddMeetup} /> 
           <Route exact={true} path="/" component={Landing} />
           <Route component={NotFound} />
         </Switch>
