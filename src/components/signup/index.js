@@ -7,24 +7,32 @@ import ErrorMessage from '../shared/ErrorMessage';
 import Button from '../shared/button';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
 
-const StyledSignUp = styled.form`
+const StyledSignUp = styled.div`
   width: 80%;
   margin: 0 auto;
 ` ;
 
 const jwtToken = localStorage.token
 
-  apiRequest.get(
-    `${apiBaseUrl}/meetups`,
-    jwtToken 
+const submitNewUser = (values) => {
+  apiRequest.post(
+    `${apiBaseUrl}/users`,
+    values,
+    jwtToken
   )
   .then(function (response) {
-    console.log('response', response);
+    // make this more robust to check if user already exists
+    
+    if (response.status === 200){
+      alert('yayyyy');
+    } else {
+      alert('oops');
+    };
   })
   .catch(function (error) {
     console.log(error);
   })
-
+} 
 
 const StyledSubmit = styled(Button)`
   margin-top: 1.5rem;
@@ -36,23 +44,29 @@ class SignUp extends Component {
     return (
       <StyledSignUp>
         <Formik
-          initialValues={{ frstName: '', lastName: '', email: '' }}
+          initialValues={{ 
+            first_name: '', 
+            last_name: '', 
+            email: '',
+            name: '',
+            type: 'admin',
+            active: true
+          }}
           validate={values => {
+
             let errors = {};
+
             if (!values.email) {
               errors.email = '* Email required';
             } else if (
-              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.name)
+              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
             ) {
               errors.email = 'Invalid email address';
             }
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400);
+            submitNewUser(JSON.stringify(values, null, 2));
           }}
         >
           {({
@@ -63,28 +77,27 @@ class SignUp extends Component {
             handleBlur,
             handleSubmit,
             isSubmitting,
-            /* and other goodies */
           }) => (
             <form onSubmit={handleSubmit}>
               <Label color='white'>
                 First Name
               </Label>
               <Input
-                type='firstName'
-                name='firstName'
+                type='first_name'
+                name='first_name'
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.name}
+                value={values.first_name}
               />
               <Label color='white'>
                 Last Name
               </Label>
               <Input
-                type='lastName'
-                name='lastName'
+                type='last_name'
+                name='last_name'
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.name}
+                value={values.last_name}
               />
               {errors.name && touched.name && errors.name}
               <Label color='white'>

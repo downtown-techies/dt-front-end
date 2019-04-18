@@ -6,9 +6,6 @@ const instance = axios.create({
   baseUrl: apiBaseUrl,
 });
 const getJwtKey = (path, token) => {
-  console.log('path', path);
-  console.log('token', token);
-
   return instance.request({
     url: path,
     method: 'get',
@@ -41,6 +38,7 @@ const post = (path, data, token, config) => {
     data,
     headers: {
       Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
     },
     crossdomain: true,
     ...config,

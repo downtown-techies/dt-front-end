@@ -14,16 +14,20 @@ export const StyledInput = styled.input`
   background-color: #fff;
 `;
 
-class Input extends Component {
-  render() {
-    return (
-      <StyledInput />
-    );
-  }
-}
-
-Input.propTypes = {
-  type: PropTypes.string,
-}
+const Input = ({
+  type,
+  name,
+  onChange,
+  onBlur,
+  value
+}) =>  (
+  <StyledInput 
+    type={type}
+    name={name}
+    onChange={onChange}
+    onBlur={onBlur}
+    value={value}
+  />
+);
 
 export default Input;
