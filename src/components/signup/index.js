@@ -26,9 +26,11 @@ const submitNewUser = (values) => {
     // make this more robust to check if user already exists
     
     if (response.status === 200){
-      alert('yayyyy');
+      alert('Submitted Successfully');
+      window.location.href = '/';
     } else {
-      alert('oops');
+      alert('Something Went Wrong');
+      window.location.href = '/';
     };
   })
   .catch(function (error) {
