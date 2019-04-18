@@ -8,6 +8,12 @@ const ButtonContainer = styled.div`
   text-align: center;
 `;
 
+const HeaderButtonContainer = styled.div`
+  margin-top: -0.75rem;
+  width: 100%;
+  text-align: center;
+`;
+
 const ButtonWrapper = styled.form`
   margin-right: 2rem;
   width: fit-content;
@@ -19,11 +25,10 @@ const ButtonWrapper = styled.form`
 `;
 
 export {
+  HeaderButtonContainer,
   ButtonContainer,
   ButtonWrapper
 };
-
-
 
 const baseStyles = css`
   display: inline-block;

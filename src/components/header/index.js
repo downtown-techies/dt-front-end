@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { 
   HeaderContainer, 
-  // MenuRight, 
+  MenuRight, 
   StyledHeader 
 } from './styles';
+import Button from '../shared/button';
+import { ButtonWrapper, HeaderButtonContainer } from '../shared/button/styles';
 import Link from '../shared/link';
 import theme from '../../theme/primaryTheme';
 import SvgIcon from '../../assets/svgs'; 
+
+// TODO FIX The render of join us
 
 class Header extends Component {
   render() {
@@ -21,18 +25,19 @@ class Header extends Component {
               viewBox='0 0 355 21.75'
               fill={theme.colors.reverse}/>
           </ Link>
-          {/* <MenuRight>
-            <SvgIcon
-              name={'menu'}
-              same={false}
-              height={42}
-              width={42}
-              viewBox='0 0 32 32' 
-              position='relative'
-              fill='#fff'
-            />
+          <MenuRight>
+            {
+              window.location.href.indexOf('signup') < 0 ? 
+                <HeaderButtonContainer>
+                  <ButtonWrapper ref='signup' action='/signup'>
+                    <Button type='submit'>Join Us</ Button>
+                  </ ButtonWrapper>
+                </HeaderButtonContainer> :
+              null
+
+            }
+
           </MenuRight>
-          */}
         </ StyledHeader>
       </HeaderContainer>
     );
