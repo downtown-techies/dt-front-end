@@ -51,14 +51,9 @@ class SignUp extends Component {
     return (
       <StyledSignUp>
         <Formik
-          initialValues={{ 
-            first_name: '', 
-            last_name: '', 
-            email: '',
-            name: '',
-            type: 'admin',
-            active: true
-          }}
+          initialValues={
+            { first_name: 'foo', last_name: '', email: '', name: '', type: 'admin', active: true }
+          }
           validate={values => {
 
             let errors = {};
