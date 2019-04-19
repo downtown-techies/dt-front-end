@@ -1,3 +1,14 @@
+const hiddenFields = [
+  {
+    label: 'type',
+    value: 'user'
+  },
+  {
+    label: 'active',
+    value: true
+  }
+];
+
 const inputFields = [
   {
     label: 'first_name',
@@ -68,5 +79,6 @@ const inputFields = [
 ];
 
 export {
-  inputFields
+  inputFields,
+  hiddenFields
 };

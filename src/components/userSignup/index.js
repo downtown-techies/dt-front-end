@@ -3,9 +3,10 @@ import styled from '../../theme';
 import { Formik } from 'formik';
 import Input from '../shared/input';
 import Label from '../shared/label';
+import ToggleSwitch from '../shared/toggleSwitch';
 import ErrorMessage from '../shared/ErrorMessage';
 import Button from '../shared/button';
-import { inputFields } from './fields.js';
+import { inputFields, hiddenFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
 
 const StyledUserSignup = styled.div`
@@ -45,19 +46,33 @@ inputFields.map((field) => {
   const label = field.label;
   const initialValue = field.initialValue || '';
 
-  initializeValues[label] = `${initialValue}`;
+  initializeValues[label] = initialValue;
+});
+
+let hiddenValues = {};
+
+hiddenFields.map((field) => { 
+  const label = field.label;
+  const value = field.value || '';
+
+  hiddenValues[label] = value;
 });
 
 class UserSignup extends Component {
   render() {
-    console.log(initializeValues);
+    console.log(
+            {
+              ...hiddenValues,
+              ...initializeValues
+            }
+    );
+
     return (
       <StyledUserSignup>
         <Formik
           initialValues={ 
             {
-              type: 'user', 
-              active: true, 
+              ...hiddenValues,
               ...initializeValues
             }
           }
@@ -79,20 +94,33 @@ class UserSignup extends Component {
           }) => (
             <form onSubmit={handleSubmit}>
               {
-                inputFields.map((field) => 
-                  <div key={field.label}>
-                    <Label color='white'>
-                      {field.displayName}
-                    </Label>
-                    <Input
-                      type='input'
-                      name={field.label}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values[field.label]}
-                    />
-                  </div>
-                )
+                inputFields.map((field) => {
+                  if (field.type === 'input') {
+                    return (
+                      <div key={field.label}>
+                        <Label color='white'>
+                          {field.displayName}
+                        </Label>
+                        <Input
+                          type='input'
+                          name={field.label}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values[field.label]}
+                        />
+                      </div>
+                    )
+                  } else if (field.type === 'selection') {
+                    return (
+                      <div key={field.label}>
+                        <Label color='white'>
+                          {field.displayName}
+                        </Label>
+                        <ToggleSwitch />
+                      </div>
+                    )
+                  }
+                })
               }
 
               <StyledSubmit 
