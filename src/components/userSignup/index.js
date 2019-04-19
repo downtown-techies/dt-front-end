@@ -11,7 +11,13 @@ import { apiRequest, apiBaseUrl } from '../../helpers/api';
 
 const StyledUserSignup = styled.div`
   width: 80%;
+  padding-top: 5vh;
+  min-height: 70vh;
   margin: 0 auto;
+` ;
+
+const SubmitContainer = styled.div`
+  text-align: right;
 ` ;
 
 const jwtToken = localStorage.token;
@@ -36,8 +42,7 @@ const submitNewUser= (values) => {
 } 
 
 const StyledSubmit = styled(Button)`
-  margin-top: 1.5rem;
-  float: right;
+  margin-top: 2rem;
 ` ;
 
 let initializeValues = {};
@@ -109,14 +114,15 @@ class UserSignup extends Component {
                   } 
                 })
               }
-
-              <StyledSubmit 
-                buttonStyle='submit'
-                type='submit' 
-                disabled={isSubmitting}
-              >
-                Submit
-              </StyledSubmit>
+              <SubmitContainer>
+                <StyledSubmit 
+                  buttonStyle='submit'
+                  type='submit' 
+                  disabled={isSubmitting}
+                >
+                  Submit
+                </StyledSubmit>
+              </SubmitContainer>
             </form>
           )}
         </Formik>
