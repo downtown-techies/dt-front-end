@@ -6,7 +6,11 @@ const hiddenFields = [
   {
     label: 'active',
     value: true
-  }
+  },
+  {
+    label: 'opt_in',
+    value: true
+  },
 ];
 
 const inputFields = [
@@ -70,13 +74,17 @@ const inputFields = [
     initialValue: '',
     type: 'input'
   },
-  {
-    label: 'opt_in',
-    displayName: 'Opt in to Notifications',
-    initialValue: 'true',
-    type: 'selection'
-  },
 ];
+
+//TODO build paths for selection inside of formik
+
+//  {
+//    label: 'opt_in',
+//    displayName: 'Opt in to Notifications',
+//    initialValue: 'true',
+//    type: 'selection'
+//  },
+
 
 export {
   inputFields,

@@ -14,7 +14,7 @@ const StyledUserSignup = styled.div`
   margin: 0 auto;
 ` ;
 
-const jwtToken = localStorage.token
+const jwtToken = localStorage.token;
 
 const submitNewUser= (values) => {
   apiRequest.post(
@@ -59,13 +59,9 @@ hiddenFields.map((field) => {
 });
 
 class UserSignup extends Component {
+
   render() {
-    console.log(
-            {
-              ...hiddenValues,
-              ...initializeValues
-            }
-    );
+
 
     return (
       <StyledUserSignup>
@@ -110,16 +106,7 @@ class UserSignup extends Component {
                         />
                       </div>
                     )
-                  } else if (field.type === 'selection') {
-                    return (
-                      <div key={field.label}>
-                        <Label color='white'>
-                          {field.displayName}
-                        </Label>
-                        <ToggleSwitch />
-                      </div>
-                    )
-                  }
+                  } 
                 })
               }
 

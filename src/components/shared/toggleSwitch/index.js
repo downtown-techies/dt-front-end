@@ -23,16 +23,30 @@ const StyledSlider = styled.span`
   background: #fff;
   transition: transform 0.3s;
   left: 5px;
-  transform: ${props => (props.on ? 'translateX(20px)' : 'translateX(0)')};
+  transform: ${
+    props => {
+      console.log('props', props);
+      return (props.on ? 'translateX(20px)' : 'translateX(0)')
+    }
+  }
 `;
 
 const ToggleSwitch = ({
+  field,
+  value,
+  onClick,
   on, 
   hasFocus
-}) =>  (
-  <Switch on={on}>
-    <StyledSlider on={on} hasFocus={hasFocus} />
-  </Switch>
-);
+}) =>  {
+  console.log('field', field)
+  console.log('values', value)
+  console.log(onClick)
+
+  return (
+    <Switch on={on} onClick={onClick}>
+      <StyledSlider on={on} hasFocus={hasFocus} />
+    </Switch>
+  );
+}
 
 export default ToggleSwitch;
