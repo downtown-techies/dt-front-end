@@ -17,7 +17,7 @@ const inputFields = [
   {
     label: 'first_name',
     displayName: 'First Name',
-    initialValue: 'foo',
+    initialValue: '',
     type: 'input'
   },
   {

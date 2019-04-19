@@ -34,7 +34,7 @@ const submitNewUser = (values) => {
     };
   })
   .catch(function (error) {
-    console.log(error);
+    // console.log(error);
   })
 } 
 
@@ -52,7 +52,14 @@ class SignUp extends Component {
       <StyledSignUp>
         <Formik
           initialValues={
-            { first_name: 'foo', last_name: '', email: '', name: '', type: 'admin', active: true }
+            { 
+              first_name: '', 
+              last_name: '', 
+              email: '', 
+              name: '', 
+              type: 'admin', 
+              active: true 
+            }
           }
           validate={values => {
 
