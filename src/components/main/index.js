@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Landing from '../landing';
 import NotFound from '../notFound';
-import SignUp from '../signup';
 import UserSignup from '../userSignup';
 import AddMeetup from '../addMeetup';
 
