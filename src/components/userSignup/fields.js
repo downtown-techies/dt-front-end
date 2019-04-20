@@ -33,38 +33,8 @@ const inputFields = [
     type: 'input'
   },
   {
-    label: 'address_line_1',
-    displayName: 'Street Address Line 1',
-    initialValue: '',
-    type: 'input'
-  },
-  {
-    label: 'address_line_2',
-    displayName: 'Street Address Line 2',
-    initialValue: '',
-    type: 'input'
-  },
-  {
-    label: 'city',
-    displayName: 'City',
-    initialValue: '',
-    type: 'input'
-  },
-  {
-    label: 'state',
-    displayName: 'State',
-    initialValue: '',
-    type: 'dropdown'
-  },
-  {
     label: 'postal_code',
     displayName: 'Postal Code',
-    initialValue: '',
-    type: 'input'
-  },
-  {
-    label: 'country',
-    displayName: 'Country',
     initialValue: '',
     type: 'input'
   },
