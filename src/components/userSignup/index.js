@@ -9,6 +9,9 @@ import { inputFields, hiddenFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
 import * as yup from 'yup';
 
+// TODO Yup validation
+// TODO zip code autocomplete data 
+
 const jwtToken = localStorage.token;
 
 const submitNewUser = (values) => {
