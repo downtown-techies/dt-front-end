@@ -30,8 +30,10 @@ const submitNewUser= (values) => {
   )
   .then(function (response) {
     // make this more robust to check if user already exists
-    if (response.status === 200){
+    if (response.data && response.data.userCreation) {
       alert('Submitted Successfully');
+    } else if ( response.data && !response.data.userCreation && response.data.message === 'exists' ) {
+      alert (response.data.message);
     } else {
       alert('We may have missed a semi-colon, please try again');
     };
