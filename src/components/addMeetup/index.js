@@ -3,7 +3,6 @@ import styled from '../../theme';
 import { Formik } from 'formik';
 import Input from '../shared/input';
 import Label from '../shared/label';
-import ErrorMessage from '../shared/ErrorMessage';
 import Button from '../shared/button';
 import { inputFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
