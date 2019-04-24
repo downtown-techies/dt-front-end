@@ -13,16 +13,28 @@ import SvgIcon from '../../assets/svgs';
 // TODO FIX The render of join us
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {width: 1280};
+  }
+
+  componentWillMount(){
+    this.setState({width: window.innerWidth});
+  }
   render() {
+    const mobile = this.state.width < 724;
+    const viewBoxWidth = mobile ? 45 : 355;
+
     return (
       <HeaderContainer>
         <StyledHeader className="header">
           <Link linkStyle='headerLogo' address='/'>
             <SvgIcon
-              name='altLogo'
+              name={mobile ? 'mobileLogo' : 'altLogo'}
               height={28}
               width={322.67}
-              viewBox='0 0 355 21.75'
+              width={mobile ? 39.65 : 322.67}
+              viewBox={`0 0 ${viewBoxWidth} 21.75`}
               fill={theme.colors.reverse}/>
           </ Link>
           <MenuRight>

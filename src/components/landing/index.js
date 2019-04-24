@@ -28,10 +28,10 @@ class Landing extends Component {
             </Text>
             <ButtonContainer>
               <ButtonWrapper ref='Raleigh' action='https://www.meetup.com/Downtown-Techies/'>
-                <Button type='submit'>Visit - Raleigh</ Button>
+                <Button type='submit'>RSVP - Raleigh</ Button>
               </ ButtonWrapper>
               <ButtonWrapper ref='Durham' action='https://www.meetup.com/Downtown-Techies-Durham-Edition-by-popular-demand/'>
-                <Button type='submit'>Visit - Durham</ Button>
+                <Button type='submit'>RSVP - Durham</ Button>
               </ ButtonWrapper>
             </ButtonContainer>
           </Tagline>

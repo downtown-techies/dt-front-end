@@ -16,7 +16,7 @@ const StyledHeader = styled.div`
   display: flex;
   width: 100%;
   height: 32px;
-  top: 3px;
+  top: 5px;
   position: relative;
 `;
 
