@@ -1,43 +1,26 @@
 import React, { Component } from 'react';
-import styled from '../../theme';
 import { Formik } from 'formik';
 import Input from '../shared/input';
 import Label from '../shared/label';
 import ErrorHandler from '../shared/errorHandler';
 import ToggleSwitch from '../shared/toggleSwitch';
-import Button from '../shared/button';
+import {StyledSubmit, StyledUserSignup, SubmitContainer} from './styles';
 import { inputFields, hiddenFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
 import * as yup from 'yup';
 
-const StyledSubmit = styled(Button)`
-  margin-top: 2rem;
-` ;
-
-const StyledUserSignup = styled.div`
-  width: 80%;
-  padding-top: 5vh;
-  min-height: 70vh;
-  margin: 0 auto;
-` ;
-
-const SubmitContainer = styled.div`
-  text-align: right;
-` ;
-
 const jwtToken = localStorage.token;
 
-const submitNewUser= (values) => {
+const submitNewUser = (values) => {
   apiRequest.post(
     `${apiBaseUrl}/users`,
     values,
     jwtToken
   )
   .then(function (response) {
-    // make this more robust to check if user already exists
     if (response.data && response.data.userCreation) {
       alert('Submitted Successfully');
-    } else if ( response.data && !response.data.userCreation && response.data.message === 'exists' ) {
+    } else if ( response.data && !response.data.userCreation && response.data.message === 'User already exists' ) {
       alert (response.data.message);
     } else {
       alert('We may have missed a semi-colon, please try again');
@@ -47,7 +30,6 @@ const submitNewUser= (values) => {
     console.log(error);
   })
 } 
-
 
 let initializeValues = {};
 
@@ -84,11 +66,16 @@ const userSchema = yup.object().shape({
     .required('Please provide a valid postal code')
     .max(8,'Too long')
     .min(5,'Too short'),
-  phone_number: yup
-    .string()
 })
 
 class UserSignup extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      formClean: true  
+    }
+  }
+
   render() {
     return (
       <StyledUserSignup>
@@ -100,10 +87,14 @@ class UserSignup extends Component {
             }
           }
           validate={values => {
-            console.log(values);
+            this.setState({
+              formClean: false
+            });
           }}
           onSubmit={(values, { setSubmitting }) => {
             submitNewUser(JSON.stringify(values, null, 2));
+
+            setSubmitting(false);
           }}
           validationSchema={userSchema}
         >
@@ -146,11 +137,12 @@ class UserSignup extends Component {
                       } 
                     })
                   }
+
                   <SubmitContainer>
                     <StyledSubmit 
                       buttonStyle='submit'
                       type='submit' 
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || Object.keys(errors).length > 0 || this.state.formClean}
                     >
                       Submit
                     </StyledSubmit>
