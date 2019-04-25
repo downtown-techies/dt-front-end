@@ -37,13 +37,7 @@ const inputFields = [
     displayName: 'Postal Code',
     initialValue: '',
     type: 'input'
-  },
-  {
-    label: 'ph_number',
-    displayName: 'Phone Number',
-    initialValue: '',
-    type: 'input'
-  },
+  }
 ];
 
 //TODO build paths for selection inside of formik
