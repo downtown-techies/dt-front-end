@@ -33,8 +33,8 @@ class Header extends Component {
               name={mobile ? 'mobileLogo' : 'altLogo'}
               height={28}
               width={322.67}
-              width={mobile ? 39.65 : 322.67}
-              viewBox={`0 0 ${viewBoxWidth} 21.75`}
+              viewBox='0 0 355 21.75'
+              style={{cursor: 'pointer'}}
               fill={theme.colors.reverse}/>
           </ Link>
           <MenuRight>

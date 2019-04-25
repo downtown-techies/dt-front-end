@@ -9,6 +9,7 @@ const linkStyles = {
   `,
   headerLogo: css`
     margin-top: -0.4rem;  
+    cursor: pointer;
   `,
   default: css`
   `,
@@ -35,6 +36,7 @@ const Link = ({
        color={color}
        linkStyle={linkStyle}
        name={name}
+       target={target}
     >
       {LinkText}
     </StyledLink>
