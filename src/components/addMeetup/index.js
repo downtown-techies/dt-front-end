@@ -29,7 +29,7 @@ const submitNewMeetup = (values) => {
     };
   })
   .catch(function (error) {
-    console.log(error);
+    // console.log(error);
   })
 } 
 
@@ -47,7 +47,7 @@ class AddMeetup extends Component {
             inputFields.map((field) => field.initialValue)
           }
           validate={values => {
-            console.log(values);
+            // console.log(values);
           }}
           onSubmit={(values, { setSubmitting }) => {
             submitNewMeetup(JSON.stringify(values, null, 2));

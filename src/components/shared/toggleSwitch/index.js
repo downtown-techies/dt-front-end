@@ -25,7 +25,7 @@ const StyledSlider = styled.span`
   left: 5px;
   transform: ${
     props => {
-      console.log('props', props);
+      // console.log('props', props);
       return (props.on ? 'translateX(20px)' : 'translateX(0)')
     }
   }
