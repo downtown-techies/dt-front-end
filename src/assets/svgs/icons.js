@@ -10,37 +10,23 @@ const getPath = ( props ) => {
 
   // alphabetized
   switch (name) {
-    case 'carrotDown':
-      return ( <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-          <g
-            id="Icon/Accordion-Arrow"
-            transform="translate(-6.000000, -8.000000)"
-            fill={fill}
-            fillRule="nonzero"
-          >
-            <polygon
-              id="Shape"
-              points="7.41 8.84 12 13.42 16.59 8.84 18 10.25 12 16.25 6 10.25"
-            />
-          </g>
-        </g>
-      );
     case 'carrotUp':
+      // recommended viewBox: 0 0 320 512 
       return (
-        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-          <g
-            id="Icon/Accordion-Arrow-Copy"
-            transform="translate(-6.000000, -8.000000)"
-            fill={fill}
-            fillRule="nonzero"
-          >
-            <polygon
-              id="Shape"
-              transform="translate(12.000000, 12.455000) scale(1, -1) translate(-12.000000, -12.455000) "
-              points="7.41 8.75 12 13.33 16.59 8.75 18 10.16 12 16.16 6 10.16"
-            />
-          </g>
-        </g>
+        <>
+        <path 
+          fill={fill} 
+          d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z" />
+        </>
+      );
+    case 'carrotDown':
+      // recommended viewBox: 0 0 320 512 
+      return (
+        <>
+        <path 
+          fill={fill} 
+          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z" />
+        </>
       );
     case 'email':
       // recommended viewBox: 0 0 512 512

@@ -3,6 +3,7 @@ import styled from '../../theme';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
 import SvgIcon from '../../assets/svgs';
 import Link from '../shared/link';
+import Dropdown from '../shared/dropdown';
 
 const getMeetups = (values) => {
   apiRequest.get(
@@ -23,16 +24,13 @@ const getMeetups = (values) => {
 
 getMeetups();
 
-
 class MeetupsDropdown extends Component {
   render() {
     return (
     <>
-      <Link name='meetup'
-        linkStyle='inlineFooter'
-        address='https://www.instagram.com/downtowntechies/'>
+      <Dropdown>
         <SvgIcon name='meetup' viewBox='0 0 448 512' fill='#fff' />
-      </ Link>
+      </Dropdown>
     </>
 
     );

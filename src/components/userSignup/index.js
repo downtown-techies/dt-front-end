@@ -4,10 +4,14 @@ import Input from '../shared/input';
 import Label from '../shared/label';
 import ErrorHandler from '../shared/errorHandler';
 import ToggleSwitch from '../shared/toggleSwitch';
-import {StyledSubmit, StyledUserSignup, SubmitContainer} from './styles';
+import * as yup from 'yup';
 import { inputFields, hiddenFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
-import * as yup from 'yup';
+import { 
+  StyledUserSignup,
+  StyledSubmit,
+  SubmitContainer
+} from './styles.js';
 
 // TODO Yup validation
 // TODO zip code autocomplete data 

@@ -1,9 +1,8 @@
 import styled from '../../theme';
 import Button from '../shared/button';
 
-const StyledSubmit = styled(Button)`
-  margin-top: 2rem;
-` ;
+// import { css } from '../../../theme';
+// import theme from from '../../theme/primaryTheme';
 
 const StyledUserSignup = styled.div`
   width: 80%;
@@ -16,8 +15,12 @@ const SubmitContainer = styled.div`
   text-align: right;
 ` ;
 
+const StyledSubmit = styled(Button)`
+  margin-top: 2rem;
+` ;
+
 export {
-  StyledSubmit,
   StyledUserSignup,
-  SubmitContainer
+  StyledSubmit,
+  SubmitContainer,
 }
