@@ -59,6 +59,21 @@ export const buttonStyles = {
   submit: css`
     padding: 0.5rem 3rem;
   `,
+  unstyled: css`
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  `,
   default: css`
   `,
 };

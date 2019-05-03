@@ -1,41 +1,38 @@
-import React, { Component } from 'react';
-import styled from '../../theme';
+import React, { useState } from 'react';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
 import SvgIcon from '../../assets/svgs';
 import Link from '../shared/link';
-import Dropdown from '../shared/dropdown';
+import Button from '../shared/button';
+import Modal from '../shared/modal';
 
-const getMeetups = (values) => {
-  apiRequest.get(
-    `${apiBaseUrl}/meetups`
-  )
-  .then(function (response) {
-    // make this more robust to check if user already exists
-    if (response.status === 200){
-      console.log(response);
-    } else {
-      alert('We may have missed a semi-colon, please try again');
-    };
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
-};
+const MeetupsModal = (props) => {
+  const [showModal, setShowModal] = useState(false);
 
-getMeetups();
-
-class MeetupsDropdown extends Component {
-  render() {
-    return (
-    <>
-      <Dropdown>
-        <SvgIcon name='meetup' viewBox='0 0 448 512' fill='#fff' />
-      </Dropdown>
-    </>
-
-    );
+  const handleShow = () => {
+    setShowModal(true);
   }
+
+  const handleHide = () => {
+    setShowModal(false);
+  }
+
+  const modal = showModal ? (
+    <Modal>
+      Foo
+      <Button buttonStyle='unstyled' onClick={handleHide}>
+        X
+      </Button>
+    </Modal>
+  ) : null;
+
+  return (
+    <>
+      <Button buttonStyle='unstyled' onClick={handleShow}>
+        <SvgIcon name='meetup' viewBox='0 0 448 512' fill='#fff' />
+      </Button>
+      {modal}
+    </>
+  );
 }
 
-export default MeetupsDropdown;
-
+export default MeetupsModal;
