@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styled from '../theme';
 import Header from '../components/header';
 import Main from '../components/main';
 import Footer from '../components/footer';
@@ -24,7 +23,7 @@ function getToken(publicKey){
 
 
 function App() {
-  const [token] = useState('');
+  // const [token] = useState('');
   const [publicKey] = useState(`${process.env.REACT_APP_PUBLIC_KEY}`);
 
   useEffect(() => {

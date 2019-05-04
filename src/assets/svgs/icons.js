@@ -3,10 +3,8 @@ import * as React from 'react';
 const getPath = ( props ) => {
   const { 
     fill, 
-    altFill,
     name 
   } = props; 
-
 
   // alphabetized
   switch (name) {

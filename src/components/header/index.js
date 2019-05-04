@@ -23,7 +23,6 @@ class Header extends Component {
   }
   render() {
     const mobile = this.state.width < 724;
-    const viewBoxWidth = mobile ? 45 : 355;
 
     return (
       <HeaderContainer>

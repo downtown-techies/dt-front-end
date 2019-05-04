@@ -1,9 +1,5 @@
-import React, { useState } from 'react';
-import SvgIcon from '../../../assets/svgs';
-import Button from '../../shared/button';
+import React from 'react';
 import Modal from 'react-modal';
-import styled from '../../../theme';
-import theme from '../../../theme/primaryTheme';
 
 const customStyles = {
   overlay: {

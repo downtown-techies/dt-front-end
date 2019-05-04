@@ -3,7 +3,6 @@ const primaryTheme = {
     primary: 'rgba( 45, 45, 45, 1 )',
     secondary: '#8DA3B5',
     tertiary: '#0C1334',
-    border: '#0C1334',
     reverse: '#FFFFFF',
     white: '#FFFFFF',
     accent: '#28DB78',

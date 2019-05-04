@@ -18,6 +18,7 @@ const Meetup = styled.li`
   background-color: ${theme.colors.backgroundLight};
 
   &:last-child {
+    border-bottom: none;
     border-radius: 0 0 0.25rem 0.25rem;
   }
 
@@ -82,7 +83,7 @@ const MeetupsModal = (props) => {
               <Text tag='h3' textStyle='title'>{name}</Text>
               <Text textStyle='info'><strong>Organizer:</strong> {organizer || 'Currently Unavailable'}</Text>
               {contactEmail.length > 0 ? 
-                <Text textStyle='info'><strong>Contact Email:</strong> <Link address={`mailto:${contactEmail}`}>{contactEmail}</Link></Text>
+                <Text textStyle='info'><strong>Contact Email:</strong> {contactEmail || 'Currently Unvailable'}</Text>
                 : null 
               }
               <Text textStyle='info'>{city}{city.length > 0 ? ',' : ''} {state} {postalCode}</Text>

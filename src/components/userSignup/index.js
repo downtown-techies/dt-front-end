@@ -3,7 +3,6 @@ import { Formik } from 'formik';
 import Input from '../shared/input';
 import Label from '../shared/label';
 import ErrorHandler from '../shared/errorHandler';
-import ToggleSwitch from '../shared/toggleSwitch';
 import * as yup from 'yup';
 import { inputFields, hiddenFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
@@ -44,7 +43,7 @@ inputFields.map((field) => {
   const label = field.label;
   const initialValue = field.initialValue || '';
 
-  initializeValues[label] = initialValue;
+  return initializeValues[label] = initialValue;
 });
 
 let hiddenValues = {};
@@ -53,12 +52,12 @@ hiddenFields.map((field) => {
   const label = field.label;
   const value = field.value || '';
 
-  hiddenValues[label] = value;
+  return hiddenValues[label] = value;
 });
 
 // YUP VALIDATIONS
 
-const zip = new RegExp(/^\d{5}([\-]?\d{4})?$/);
+const zip = new RegExp(/^\d{5}([-]?\d{4})?$/);
 
 const userSchema = yup.object().shape({
   first_name: yup.string().required('Name is Required.'),
@@ -141,7 +140,9 @@ class UserSignup extends Component {
                             />
                           </div>
                         )
-                      } 
+                      } else {
+                        return null
+                      }
                     })
                   }
 
