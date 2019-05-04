@@ -74,7 +74,7 @@ const MeetupsModal = (props) => {
       const list = data.map((meetup) => {
         const {
           name, organizer, contact_email: contactEmail,
-          contact_ph: contactPhone, city, state_abbr: state, postal_code: postalCode
+          city, state_abbr: state, postal_code: postalCode
         } = meetup;
         return (
           <Meetup key={`${meetup.name}-${meetup.id}`}>
@@ -85,7 +85,6 @@ const MeetupsModal = (props) => {
                 <Text textStyle='info'><strong>Contact Email:</strong> <Link address={`mailto:${contactEmail}`}>{contactEmail}</Link></Text>
                 : null 
               }
-              <Text textStyle='info'><strong>Phone Number: </strong>{contactPhone || 'Currently Unavailable'}</Text>
               <Text textStyle='info'>{city}{city.length > 0 ? ',' : ''} {state} {postalCode}</Text>
             </Link>
           </Meetup>
