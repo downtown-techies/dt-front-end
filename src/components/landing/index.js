@@ -4,7 +4,6 @@ import { ButtonWrapper, ButtonContainer } from '../shared/button/styles';
 import Carousel from '../shared/carousel';
 import Text from '../shared/text';
 import theme from '../../theme/primaryTheme';
-import Modal from 'react-modal';
 import {  
   CarouselWrapper, 
   TaglineWrapper, 

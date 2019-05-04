@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SvgIcon from '../../assets/svgs';
 import Link from '../shared/link';
-import MeetupsDropdown from '../meetupsDropdown';
+import MeetupsModal from '../meetupsModal';
 import Text from '../shared/text';
 import { StyledFooter, Links } from './styles';
 
@@ -29,7 +29,7 @@ class Footer extends Component {
             address='https://www.facebook.com/downtowntechies/'>
             <SvgIcon name='facebook' viewBox='0 0 448 512' fill='#fff' />
           </ Link>
-          <MeetupsDropdown />
+          <MeetupsModal />
         </Links>
       </ StyledFooter>
     );

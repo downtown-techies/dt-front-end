@@ -3,6 +3,7 @@ const primaryTheme = {
     primary: 'rgba( 45, 45, 45, 1 )',
     secondary: '#8DA3B5',
     tertiary: '#0C1334',
+    border: '#0C1334',
     reverse: '#FFFFFF',
     white: '#FFFFFF',
     accent: '#28DB78',
@@ -14,6 +15,7 @@ const primaryTheme = {
     backgroundDark: '#16202D',
     backgroundLight: '#F4F6F7',
     backgroundTransparent: 'rgba( 45, 45, 45, 0.5 )',
+    border: '#F0F0F0',
   },
   breakpoints: {
     small: '480px',

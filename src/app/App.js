@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from '../theme';
 import Header from '../components/header';
-// import Footer from '../components/footer';
 import Main from '../components/main';
 import Footer from '../components/footer';
 import { apiRequest, apiBaseUrl } from '../helpers/api';
