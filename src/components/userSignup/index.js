@@ -12,8 +12,8 @@ import {
   SubmitContainer
 } from './styles.js';
 
-// TODO Yup validation
 // TODO zip code autocomplete data 
+// TODO make two-part form 
 
 const jwtToken = localStorage.token;
 
@@ -81,6 +81,12 @@ class UserSignup extends Component {
       formClean: true  
     }
   }
+
+  // --- Overview ---
+  // initialize with hidden and inital values,
+  // filter between input types
+  // submit button
+  // validate
 
   render() {
     return (
