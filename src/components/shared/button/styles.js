@@ -43,6 +43,7 @@ const baseStyles = css`
   font-weight: 700;
   padding: 0.5rem 1.4rem;
   transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  white-space: nowrap;
 
   &:hover {
     background-color: ${theme.colors.accentHover};
