@@ -23,6 +23,7 @@ class Header extends Component {
   }
   render() {
     const mobile = this.state.width < 724;
+    const viewBoxWidth = mobile ? 45 : 355;
 
     return (
       <HeaderContainer>
@@ -31,8 +32,8 @@ class Header extends Component {
             <SvgIcon
               name={mobile ? 'mobileLogo' : 'altLogo'}
               height={28}
-              width={322.67}
-              viewBox='0 0 355 21.75'
+              width={mobile ? 39.65 : 322.67}
+              viewBox={`0 0 ${viewBoxWidth} 21.75`}
               style={{cursor: 'pointer'}}
               fill={theme.colors.reverse}/>
           </ Link>
