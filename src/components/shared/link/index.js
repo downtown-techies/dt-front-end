@@ -7,6 +7,9 @@ const linkStyles = {
   inlineFooter: css`
     margin-right: 0.5rem;
   `,
+  partners: css`
+    margin-bottom: 1rem;
+  `,
   headerLogo: css`
     margin-top: -0.4rem;  
     cursor: pointer;

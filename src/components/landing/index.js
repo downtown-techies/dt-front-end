@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from '../shared/button';
 import { ButtonWrapper, ButtonContainer } from '../shared/button/styles';
 import Carousel from '../shared/carousel';
+import Partners from '../partners';
 import Text from '../shared/text';
 import theme from '../../theme/primaryTheme';
 import {  
@@ -38,6 +39,7 @@ class Landing extends Component {
         <CarouselWrapper>
           <Carousel />
         </CarouselWrapper>
+        <Partners />
       </>
     );
   }
