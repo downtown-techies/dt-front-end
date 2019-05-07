@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import { Formik, Field } from 'formik';
 import Input from '../shared/input';
 import Label from '../shared/label';
-import ErrorHandler from '../shared/errorHandler';
-import { MultiSelect } from './multiSelect.js';
-import * as yup from 'yup';
 import Select from 'react-select';
+import ErrorHandler from '../shared/errorHandler';
+import Checkbox from './checkbox.js';
+import * as yup from 'yup';
 import { inputFields, hiddenFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
 import { 
   StyledUserSignup,
   StyledSubmit,
-  SubmitContainer
+  SubmitContainer,
+  StyledRadioContainer
 } from './styles.js';
 
 // TODO zip code autocomplete data 
@@ -156,7 +157,6 @@ class UserSignup extends Component {
                           </div>
                         )} else if (field.type === 'multiSelect') {
                           const options = field.options;
-                          // console.log('field', field);
 
                           return (
                             <div key={field.label}>
@@ -174,6 +174,15 @@ class UserSignup extends Component {
                                 onBlur={field.onBlur}
                               />
                             </div>
+                        )} else if (field.type === 'radio') {
+                          return (
+                            <StyledRadioContainer key={field.label}>
+                              <Field
+                                component={Checkbox}
+                                name={field.label}
+                                label={field.displayName}
+                              />
+                            </StyledRadioContainer>
                         )} else {
                         return null
                       }

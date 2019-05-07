@@ -39,20 +39,8 @@ const inputFields = [
     type: 'input'
   },
   {
-    label: 'opt_in',
-    displayName: 'Opt in to Notifications',
-    initialValue: 'true',
-    type: 'radio'
-  },
-  {
-    label: 'follow_up',
-    displayName: 'Opt in to Notifications',
-    initialValue: 'true',
-    type: 'radio'
-  },
-  {
     label: 'gig_category',
-    displayName: 'Opt in to Notifications',
+    displayName: 'I am a(n)...',
     options: [
       {value: 'investor', label: 'Investor'},
       {value: 'founder', label: 'Founder'},
@@ -65,7 +53,7 @@ const inputFields = [
   },
   {
     label: 'gig_needs',
-    displayName: 'Opt in to Notifications',
+    displayName: 'I am looking to connect with',
     options: [
       {value: 'freelance_talent', label: 'Freelance Talent'}, 
       {value: 'investors', label: 'Investors'},
@@ -75,6 +63,12 @@ const inputFields = [
     ],
     initialValue: [],
     type: 'multiSelect'
+  },
+  {
+    label: 'opt_in',
+    displayName: 'Opt in to Notifications',
+    initialValue: 'true',
+    type: 'radio'
   },
 ];
 

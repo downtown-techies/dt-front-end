@@ -11,6 +11,10 @@ const StyledUserSignup = styled.div`
   margin: 0 auto;
 ` ;
 
+const StyledRadioContainer = styled.div`
+  margin-top: 1rem;
+`;
+
 const SubmitContainer = styled.div`
   text-align: right;
 ` ;
@@ -23,4 +27,5 @@ export {
   StyledUserSignup,
   StyledSubmit,
   SubmitContainer,
+  StyledRadioContainer,
 }
