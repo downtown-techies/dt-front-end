@@ -118,6 +118,7 @@ class UserSignup extends Component {
               errors,
               touched,
               setFieldValue,
+              setFieldTouched,
               handleChange,
               handleBlur,
               handleSubmit,
@@ -155,17 +156,24 @@ class UserSignup extends Component {
                           </div>
                         )} else if (field.type === 'multiSelect') {
                           const options = field.options;
+                          // console.log('field', field);
 
                           return (
-                            <Select
-                              key={`${field.label}-${field.id}`}
-                              name={field.label} 
-                              isMulti
-                              options={options} 
-                              value={options ? options.find(option => option.value === values[field.value]) : 'foo'}
-                              onChange={(option: Option) => setFieldValue(field.label, option.value)}
-                              onBlur={field.onBlur}
-                            />
+                            <div key={field.label}>
+                              <Label color='white'>
+                                {field.displayName}
+                              </Label>
+                              <Select
+                                options={options}
+                                name={field.label}
+                                value={options ? options.find(option => option.value === field.value) : ''}
+                                onChange={(option, field) => {
+                                    setFieldValue(field.name, [option.value])
+                                  }
+                                }
+                                onBlur={field.onBlur}
+                              />
+                            </div>
                         )} else {
                         return null
                       }
