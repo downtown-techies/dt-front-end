@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
 import Input from '../shared/input';
 import Label from '../shared/label';
 import ErrorHandler from '../shared/errorHandler';
+import { MultiSelect } from './multiSelect.js';
 import * as yup from 'yup';
+import Select from 'react-select';
 import { inputFields, hiddenFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
 import { 
@@ -115,11 +117,17 @@ class UserSignup extends Component {
               values,
               errors,
               touched,
+              setFieldValue,
               handleChange,
               handleBlur,
               handleSubmit,
               isSubmitting,
             }) => { 
+              // replace with enum
+              // and extract to own file 
+              // refactor with more time
+              console.log(values);
+
               return (
                 <form onSubmit={handleSubmit}>
                   {
@@ -145,8 +153,20 @@ class UserSignup extends Component {
                               errors={errors} 
                             />
                           </div>
-                        )
-                      } else {
+                        )} else if (field.type === 'multiSelect') {
+                          const options = field.options;
+
+                          return (
+                            <Select
+                              key={`${field.label}-${field.id}`}
+                              name={field.label} 
+                              isMulti
+                              options={options} 
+                              value={options ? options.find(option => option.value === values[field.value]) : 'foo'}
+                              onChange={(option: Option) => setFieldValue(field.label, option.value)}
+                              onBlur={field.onBlur}
+                            />
+                        )} else {
                         return null
                       }
                     })
