@@ -2,6 +2,7 @@ import React from 'react';
 import Landing from '../landing';
 import NotFound from '../notFound';
 import UserSignup from '../userSignup';
+// import DeleteUser from '../deleteUser';
 // import AddMeetup from '../addMeetup';
 
 import {
@@ -11,6 +12,7 @@ import {
 } from 'react-router-dom';
 
 // <Route exact={true} path="/nested_admin/add_meetup" component={AddMeetup} /> 
+// <Route exact={true} path="/delete" component={DeleteUser} /> 
 
 function Main() {
   return (

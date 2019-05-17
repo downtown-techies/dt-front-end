@@ -5,6 +5,7 @@ export const apiBaseUrl = `${process.env.REACT_APP_API_URL}`;
 const instance = axios.create({
   baseUrl: apiBaseUrl,
 });
+
 const getJwtKey = (path, token) => {
   return instance.request({
     url: path,
@@ -31,6 +32,19 @@ const get = (path, token, config) => {
   });
 };
 
+const destroy = (path, token, config) => {
+  return instance.request({
+    url: path,
+    method: 'delete',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    crossdomain: true,
+    ...config,
+  });
+};
+
 const post = (path, data, token, config) => {
   return instance.request({
     url: path,
@@ -49,5 +63,6 @@ export const apiRequest = {
   get,
   getJwtKey,
   post,
+  destroy
 };
 
