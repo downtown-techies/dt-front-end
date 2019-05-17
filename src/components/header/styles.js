@@ -6,10 +6,14 @@ const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  padding: 1rem 10vw;
   z-index: 1;
   position: relative;
   color: white;
+  padding: 1rem 3vw 1rem 10vw;
+
+  @media (max-width: 1024px) {
+    padding: 1rem 10vw;
+  }
 `;
 
 const StyledHeader = styled.div`
@@ -22,6 +26,8 @@ const StyledHeader = styled.div`
 
 const MenuRight = styled.div`
   margin-left: auto;
+  position: relative;
+  bottom: 0.6rem;
 `;
 
 export { 

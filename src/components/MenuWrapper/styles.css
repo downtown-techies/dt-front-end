@@ -1,0 +1,23 @@
+.bm-menu {
+  background: #000d0d; 
+  padding: 2.5em 1.5em 0;
+  font-size: 0.9em;
+}
+
+.bm-item-list {
+  color: white;
+  padding: 0.8em;
+}
+
+.bm-item {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.bm-item:focus {
+  border: none;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}

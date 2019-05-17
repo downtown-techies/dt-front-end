@@ -5,6 +5,7 @@ const primaryTheme = {
     tertiary: '#0C1334',
     reverse: '#FFFFFF',
     white: '#FFFFFF',
+    richBlack: '#000d0d',
     accent: '#28DB78',
     accentHover: '#51B06B',
     confirmation: '#81CB3F',

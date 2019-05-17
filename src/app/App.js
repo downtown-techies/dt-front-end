@@ -7,7 +7,7 @@ import { apiRequest, apiBaseUrl } from '../helpers/api';
 // TODO: add SRI...subresource integrity or some additional security measure
 // TODO: add call to get and store uuid 
 
-function getToken(publicKey){
+const getToken = (publicKey) => {
   return apiRequest.getJwtKey(
     `${apiBaseUrl}/authenticate`,
     publicKey
@@ -21,8 +21,7 @@ function getToken(publicKey){
   })
 }
 
-
-function App() {
+const App = () => {
   // const [token] = useState('');
   const [publicKey] = useState(`${process.env.REACT_APP_PUBLIC_KEY}`);
 
