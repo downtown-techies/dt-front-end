@@ -37,9 +37,12 @@ class Header extends Component {
     const viewBoxWidth = mobile ? 45 : 355;
     const { isOpen } = this.state;
 
+    const style = isOpen ? {position: 'fixed', width: '100vw', zIndex: 2} : {};
+    const fillerStyle = isOpen ? {height: '72px'} : {display: 'none'};
+
     return (
       <>
-        <HeaderContainer>
+        <HeaderContainer style={style}>
           <StyledHeader className="header">
             <Link linkStyle='headerLogo' address='/'>
               <SvgIcon
@@ -70,6 +73,7 @@ class Header extends Component {
 
           </ StyledHeader>
         </HeaderContainer>
+        <div style={fillerStyle} />
         <Menu 
           id='slideMenu' 
           isOpen={ isOpen }
