@@ -14,8 +14,8 @@
   margin-top: 1rem;
 }
 
-.bm-item:focus {
-  border: none;
+.bm-burger-button {
+  display: none;
 }
 
 .bm-overlay {

@@ -32,7 +32,7 @@ const submitNewUser = (values) => {
     } else if ( response.data && !response.data.userCreation && response.data.message === 'User already exists' ) {
       alert (response.data.message);
     } else {
-      alert('We may have missed a semi-colon, please try again');
+      alert('Something went wrong, please resubmit.');
     };
   })
   .catch(function (error) {

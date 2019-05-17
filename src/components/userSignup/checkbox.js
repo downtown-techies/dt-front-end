@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Formik, Field } from 'formik';
+import React from 'react';
 import Label from '../shared/label';
 
 const Checkbox = ({

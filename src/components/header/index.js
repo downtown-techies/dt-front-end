@@ -4,8 +4,6 @@ import {
   MenuRight, 
   StyledHeader 
 } from './styles';
-import Button from '../shared/button';
-import { ButtonWrapper, HeaderButtonContainer } from '../shared/button/styles';
 import Link from '../shared/link';
 import theme from '../../theme/primaryTheme';
 import SvgIcon from '../../assets/svgs'; 
