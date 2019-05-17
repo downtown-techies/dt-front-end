@@ -27,10 +27,15 @@ const submitNewUser = (values) => {
     jwtToken
   )
   .then(function (response) {
+    console.log('data: ', response.data);
+    console.log('userCreation: ', response.data.userCreation);
+
     if (response.data && response.data.userCreation) {
       alert('Submitted Successfully');
-    } else if ( response.data && !response.data.userCreation && response.data.message === 'User already exists' ) {
-      alert (response.data.message);
+    } else if ( response.data && !response.data.userCreation && response.data.message === 'exists' ) {
+      alert ('Looks like this user already exists');
+    } else if ( response.data && !response.data.userCreation && response.data.message === 'error' ) {
+      alert ('Uh oh! Something went wrong, please resubmit!');
     } else {
       alert('Something went wrong, please resubmit.');
     };
