@@ -60,6 +60,9 @@ export const buttonStyles = {
   submit: css`
     padding: 0.5rem 3rem;
   `,
+  big: css`
+    padding: 0.5rem 4rem;
+  `,
   unstyled: css`
     padding: 0;
     margin: 0;

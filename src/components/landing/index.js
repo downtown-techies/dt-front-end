@@ -27,11 +27,8 @@ class Landing extends Component {
               We partner with local influencers to bring techies together through the best events and community
             </Text>
             <ButtonContainer>
-              <ButtonWrapper ref='Raleigh' action='https://www.meetup.com/Downtown-Techies/'>
-                <Button type='submit'>RSVP - Raleigh</ Button>
-              </ ButtonWrapper>
-              <ButtonWrapper ref='Durham' action='https://www.meetup.com/Downtown-Techies-Durham-Edition-by-popular-demand/'>
-                <Button type='submit'>RSVP - Durham</ Button>
+              <ButtonWrapper ref='signup' action='/signup'>
+                <Button buttonStyle='big' type='submit'>Join Us</ Button>
               </ ButtonWrapper>
             </ButtonContainer>
           </Tagline>
