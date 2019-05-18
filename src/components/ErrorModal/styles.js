@@ -9,7 +9,6 @@ const ResponseMessage = styled.div`
     max-width: 75%;
     margin: 0 auto;
   }
-
 `
 
 const ModalCloseButton = styled(Button)`

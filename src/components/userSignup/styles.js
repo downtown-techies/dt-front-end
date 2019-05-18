@@ -9,6 +9,12 @@ const StyledUserSignup = styled.div`
   padding-top: 5vh;
   min-height: 70vh;
   margin: 0 auto;
+  @media (min-width: 1024px) {
+    width: 50%;
+  }
+  @media (min-width: 1700px) {
+    width: 30%;
+  }
 ` ;
 
 const StyledRadioContainer = styled.div`
