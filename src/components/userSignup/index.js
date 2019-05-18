@@ -4,6 +4,7 @@ import Input from '../shared/input';
 import Label from '../shared/label';
 import Select from 'react-select';
 import ErrorHandler from '../shared/errorHandler';
+import ErrorModal from '../ErrorModal';
 import Checkbox from './checkbox.js';
 import * as yup from 'yup';
 import { inputFields, hiddenFields } from './fields.js';
@@ -17,33 +18,9 @@ import {
 
 // TODO zip code autocomplete data 
 // TODO make two-part form 
+// enums
 
 const jwtToken = localStorage.token;
-
-const submitNewUser = (values) => {
-  apiRequest.post(
-    `${apiBaseUrl}/users`,
-    values,
-    jwtToken
-  )
-  .then(function (response) {
-    console.log('data: ', response.data);
-    console.log('userCreation: ', response.data.userCreation);
-
-    if (response.data && response.data.userCreation) {
-      alert('Submitted Successfully');
-    } else if ( response.data && !response.data.userCreation && response.data.message === 'exists' ) {
-      alert ('Looks like this user already exists');
-    } else if ( response.data && !response.data.userCreation && response.data.message === 'error' ) {
-      alert ('Uh oh! Something went wrong, please resubmit!');
-    } else {
-      alert('Something went wrong, please resubmit.');
-    };
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
-} 
 
 let initializeValues = {};
 
@@ -62,8 +39,6 @@ hiddenFields.map((field) => {
 
   return hiddenValues[label] = value;
 });
-
-// YUP VALIDATIONS
 
 const zip = new RegExp(/^\d{5}([-]?\d{4})?$/);
 
@@ -86,129 +61,175 @@ class UserSignup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formClean: true  
+      formClean: true,
+      errors: false,
+      message: '',
+      responseStatus: '',
+      hidden: true
     }
   }
 
-  // --- Overview ---
-  // initialize with hidden and inital values,
-  // filter between input types
-  // submit button
-  // validate
+  responseHandler = (response) => {
+    const { errors, responseStatus, message, hidden } = response; 
+
+    this.setState({
+      errors: errors,
+      message: message,
+      responseStatus: responseStatus,
+      hidden: hidden
+    })
+  }
+  
+  submitNewUser = ( params ) => {
+    const { values, handler } = params;
+    apiRequest.post(
+      `${apiBaseUrl}/users`,
+      values,
+      jwtToken
+    )
+    .then(function (response) {
+      // console.log('data: ', response.data);
+      // console.log('userCreation: ', response.data.userCreation);
+  
+      if (response.data && response.data.userCreation) {
+        handler({message: 'Thanks for signing up! Look for a follow up email from us soon.', errors: false, hidden: false});
+      } else if ( response.data && !response.data.userCreation && response.data.message === 'exists' ) {
+          handler({message: 'Looks like this user already exists!', errors: true, hidden: false});
+      } else if ( response.data && !response.data.userCreation && response.data.message === 'error' ) {
+        handler({message: 'Uh oh! Something went wrong, please resubmit!', errors: true, hidden: false});
+      } 
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  } 
 
   render() {
+    const { errors, message, responseStatus, hidden } = this.state;
+
     return (
-      <StyledUserSignup>
-        <Formik
-          initialValues={ 
-            {
-              ...hiddenValues,
-              ...initializeValues
+      <>
+        <StyledUserSignup>
+          <Formik
+            initialValues={ 
+              {
+                ...hiddenValues,
+                ...initializeValues
+              }
             }
-          }
-          validate={values => {
-            this.setState({
-              formClean: false
-            });
-          }}
-          onSubmit={(values, { setSubmitting }) => {
-            submitNewUser(JSON.stringify(values, null, 2));
+            validate={values => {
+              this.setState({
+                formClean: false
+              });
+            }}
+            onSubmit={(values, { setSubmitting }) => {
+              this.submitNewUser({ values: JSON.stringify(values, null, 2), handler: this.responseHandler});
 
-            setSubmitting(false);
-          }}
-          validationSchema={userSchema}
-        >
-          {
-            ({
-              values,
-              errors,
-              touched,
-              setFieldValue,
-              setFieldTouched,
-              handleChange,
-              handleBlur,
-              handleSubmit,
-              isSubmitting,
-            }) => { 
-              // replace with enum
-              // and extract to own file 
-              // refactor with more time
-              console.log(values);
+              setSubmitting(false);
+            }}
+            validationSchema={userSchema}
+          >
+            {
+              ({
+                values,
+                errors,
+                touched,
+                setFieldValue,
+                setFieldTouched,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                isSubmitting,
+              }) => { 
+                // replace with enum
+                // and extract to own file 
+                // refactor with more time
 
-              return (
-                <form onSubmit={handleSubmit}>
-                  {
-                    inputFields.map((field) => {
-                      if (field.type === 'input') {
-                        return (
-                          <div key={field.label}>
-                            <Label color='white'>
-                              {field.displayName}
-                            </Label>
-                            <Input
-                              type='input'
-                              name={field.label}
-                              onChange={handleChange}
-                              onBlur={handleBlur}
-                              value={values[field.label]}
-                            />
-                            <ErrorHandler 
-                              key={`error-${field.label}`}
-                              value={values[field.label]}
-                              color='red' 
-                              label={field.label} 
-                              errors={errors} 
-                            />
-                          </div>
-                        )} else if (field.type === 'multiSelect') {
-                          const options = field.options;
-
+                return (
+                  <form onSubmit={handleSubmit}>
+                    {
+                      inputFields.map((field) => {
+                        if (field.type === 'input') {
                           return (
                             <div key={field.label}>
                               <Label color='white'>
                                 {field.displayName}
                               </Label>
-                              <Select
-                                options={options}
+                              <Input
+                                type='input'
                                 name={field.label}
-                                value={options ? options.find(option => option.value === field.value) : ''}
-                                onChange={(option, field) => {
-                                    setFieldValue(field.name, [option.value])
-                                  }
-                                }
-                                onBlur={field.onBlur}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values[field.label]}
+                              />
+                              <ErrorHandler 
+                                key={`error-${field.label}`}
+                                value={values[field.label]}
+                                color='red' 
+                                label={field.label} 
+                                errors={errors} 
                               />
                             </div>
-                        )} else if (field.type === 'radio') {
-                          return (
-                            <StyledRadioContainer key={field.label}>
-                              <Field
-                                component={Checkbox}
-                                name={field.label}
-                                label={field.displayName}
-                              />
-                            </StyledRadioContainer>
-                        )} else {
-                        return null
-                      }
-                    })
-                  }
+                          )} else if (field.type === 'multiSelect') {
+                            const options = field.options;
 
-                  <SubmitContainer>
-                    <StyledSubmit 
-                      buttonStyle='submit'
-                      type='submit' 
-                      disabled={isSubmitting || Object.keys(errors).length > 0 || this.state.formClean}
-                    >
-                      Submit
-                    </StyledSubmit>
-                  </SubmitContainer>
-                </form>
-              )
+                            return (
+                              <div key={field.label}>
+                                <Label color='white'>
+                                  {field.displayName}
+                                </Label>
+                                <Select
+                                  options={options}
+                                  name={field.label}
+                                  value={options ? options.find(option => option.value === field.value) : ''}
+                                  onChange={(option, field) => {
+                                      setFieldValue(field.name, [option.value])
+                                    }
+                                  }
+                                  onBlur={field.onBlur}
+                                />
+                              </div>
+                          )} else if (field.type === 'radio') {
+                            return (
+                              <StyledRadioContainer key={field.label}>
+                                <Field
+                                  component={Checkbox}
+                                  name={field.label}
+                                  label={field.displayName}
+                                />
+                              </StyledRadioContainer>
+                          )} else {
+                          return null
+                        }
+                      })
+                    }
+
+                    <SubmitContainer>
+                      <StyledSubmit 
+                        buttonStyle='submit'
+                        type='submit' 
+                        disabled={isSubmitting || Object.keys(errors).length > 0 || this.state.formClean}
+                      >
+                        Submit
+                      </StyledSubmit>
+                    </SubmitContainer>
+                  </form>
+                )
+              }
             }
-          }
-        </Formik>
-      </ StyledUserSignup>
+          </Formik>
+        </ StyledUserSignup>
+        {
+          hidden ? ( null ) : (
+            <ErrorModal 
+              hidden={hidden} 
+              errors={errors} 
+              response={message} 
+              responseStatus={responseStatus} 
+            />
+          )
+        }
+      </>
     );
   }
 }
