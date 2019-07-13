@@ -46,11 +46,4 @@ const Link = ({
   )
 }
 
-Link.propTypes = {
-  address: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  text: PropTypes.string,
-  target: PropTypes.string,
-}
-
 export default Link;

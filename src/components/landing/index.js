@@ -4,6 +4,7 @@ import { ButtonWrapper, ButtonSection } from '../shared/button/styles';
 import Partners from '../partners';
 import SummerBash from '../summerBash';
 import Text from '../shared/text';
+import Link from '../shared/link';
 import theme from '../../theme/primaryTheme';
 import {  
   LandingWrapper,
@@ -19,9 +20,11 @@ class Landing extends Component {
       <>
         <LandingWrapper>
           <EyeBrow>
-            <Text textStyle='eyebrow' color={theme.colors.reverse}>
-              #gigLifeHustle
-            </Text>
+            <a target='_blank' href='https://www.instagram.com/explore/tags/giglifehustle/'>
+              <Text textStyle='eyebrow' color={theme.colors.reverse}>
+                #gigLifeHustle
+              </Text>
+            </a>
           </EyeBrow>
           <TaglineWrapper>
             <Tagline>
