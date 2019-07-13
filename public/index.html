@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap" rel="stylesheet">
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -15,4 +16,19 @@
     <div id="root"></div>
     <div id='modal-hook'></div>
   </body>
+  <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+  
+  <script type="text/javascript">
+      var exampleCallback = function() {
+          console.log('Order complete!');
+      };
+  
+      window.EBWidgets.createWidget({
+          widgetType: 'checkout',
+          eventId: '65133671565',
+          modal: true,
+          modalTriggerElementId: 'eventbrite-widget-modal-trigger-65133671565',
+          onOrderComplete: exampleCallback
+      });
+  </script>
 </html>

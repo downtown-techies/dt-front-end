@@ -1,41 +1,49 @@
 import React, { Component } from 'react';
 import Button from '../shared/button';
-import { ButtonWrapper, ButtonContainer } from '../shared/button/styles';
-import Carousel from '../shared/carousel';
+import { ButtonWrapper, ButtonSection } from '../shared/button/styles';
 import Partners from '../partners';
+import SummerBash from '../summerBash';
 import Text from '../shared/text';
 import theme from '../../theme/primaryTheme';
 import {  
-  CarouselWrapper, 
+  LandingWrapper,
   TaglineWrapper, 
   Tagline, 
   EyeBrow
 } from './styles.js';
 
+
 class Landing extends Component {
   render() {
     return (
       <>
-        <EyeBrow>
-          <Text textStyle='eyebrow' color={theme.colors.reverse}>
-            #gigLifeHustle
-          </Text>
-        </EyeBrow>
-        <TaglineWrapper>
-          <Tagline>
-            <Text textStyle='tagLine' color={theme.colors.reverse}>
-              We partner with local influencers to bring techies together through the best events and community
+        <LandingWrapper>
+          <EyeBrow>
+            <Text textStyle='eyebrow' color={theme.colors.reverse}>
+              #gigLifeHustle
             </Text>
-            <ButtonContainer>
-              <ButtonWrapper ref='signup' action='/signup'>
-                <Button buttonStyle='big' type='submit'>Join Us</ Button>
-              </ ButtonWrapper>
-            </ButtonContainer>
-          </Tagline>
-        </TaglineWrapper>
-        <CarouselWrapper>
-          <Carousel />
-        </CarouselWrapper>
+          </EyeBrow>
+          <TaglineWrapper>
+            <Tagline>
+              <Text textStyle='tagLine' color={theme.colors.reverse}>
+                We partner with local influencers to bring techies together through the best events and community
+              </Text>
+              <ButtonSection>
+              <Button id='eventbrite-widget-modal-trigger-65133671565' 
+                type='button'>Sign up for the Summer Bash
+              </Button>
+              </ButtonSection>
+              {/*
+              <ButtonSection>
+                <ButtonWrapper ref='signup' action='/signup'>
+                  <Button buttonStyle='big' type='submit'>Join Us</ Button>
+                </ ButtonWrapper>
+              </ButtonSection>
+              */}
+            </Tagline>
+          </TaglineWrapper>
+        </LandingWrapper>
+        <SummerBash />
         <Partners />
       </>
     );

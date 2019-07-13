@@ -181,6 +181,7 @@ class UserSignup extends Component {
                                 <Select
                                   options={options}
                                   name={field.label}
+                                  openOuterUp={true}
                                   value={options ? options.find(option => option.value === field.value) : ''}
                                   onChange={(option, field) => {
                                       setFieldValue(field.name, [option.value])

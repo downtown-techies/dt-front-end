@@ -1,19 +1,34 @@
 import styled from '../../theme';
+import cityBackground from '../../assets/images/cityBackground.jpg';
+import mobileCityBackground from '../../assets/images/mobileCityBackground.jpg';
 
 const EyeBrow = styled.div`
   position: relative;
   margin: 0 auto;
   text-align: center;
   height: 0;
-  top: 0.5rem;
+  top: 1rem;
   z-index: 1;
 `;
 
-const CarouselWrapper = styled.div`
-  max-height: 95vh;
-  overflow:hidden;
+const LandingWrapper = styled.div`
+  position: relative;
+  overflow: hidden;
+  margin-top: -72px;
+  padding-top: 72px;
+  height: 110vh;
+  background: center no-repeat, 
+              url(${cityBackground}),
+              #222;
+  @media (max-width: 1120px) {
+    height: 100vh;
+    width: 100vw;
+    background: center  no-repeat, 
+              url(${mobileCityBackground}),
+              #222;
+  }
 `;
- 
+
 const TaglineWrapper = styled.div`
   padding: 2rem;
   position: absolute;
@@ -21,7 +36,7 @@ const TaglineWrapper = styled.div`
   width 100vw;
 
   @media (min-width: 700px) {
-    top: 30vh;
+    top: 20vh;
   }
 `;
 
@@ -38,7 +53,7 @@ const Tagline = styled.div`
 `;
 
 export {
-  CarouselWrapper,
+  LandingWrapper,
   TaglineWrapper,
   Tagline,
   EyeBrow

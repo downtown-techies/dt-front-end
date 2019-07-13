@@ -8,7 +8,7 @@ class Partners extends Component {
   render() {
     return (
       <StyledPartners className='footer'>
-        <Text tag='h4' textStyle='title' color='white'>Partners</Text> 
+        <Text tag='h4' textStyle='title' color='white'>Partners/Sponsors</Text> 
         <Links>
           <Link name='WeWork'
             linkStyle='partners'

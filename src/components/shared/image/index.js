@@ -1,21 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from '../../../theme';
+import styled, { css } from '../../../theme';
+
 import defaultImage from '../../../assets/images/default.png';
 
-const StyledImage = styled.img`
+const imageStyles = {
+  button: css`
+    cursor: pointer;
+  `,
+  default: css``,
+}
+
+const StyledImage= styled.img`
+  ${({ imageStyle = 'default' }) => imageStyles[imageStyle]};
 `;
 
-const Image = ({src}) => {
+const Image = ({src, id, imageStyle, ...rest}) => {
   const imageSrc = src || defaultImage;
 
   return (
-    <StyledImage src={imageSrc} />
+    <StyledImage id={id} 
+      imageStyle={imageStyle} 
+      src={imageSrc} />
   )
-}
-
-Image.propTypes = {
-  src: PropTypes.string,
 }
 
 export default Image;

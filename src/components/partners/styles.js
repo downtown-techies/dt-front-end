@@ -7,6 +7,7 @@ const Links = styled.div`
 const StyledPartners = styled.div`
   margin-top: 2rem;
   background-color: ${theme.colors.primary};
+  text-align: center;
   color: ${theme.colors.reverse};
   padding: 1rem 10vw;
   z-index: 1;

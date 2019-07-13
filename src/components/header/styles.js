@@ -2,7 +2,7 @@ import styled from '../../theme';
 import theme from '../../theme/primaryTheme';
 
 const HeaderContainer = styled.div`
-  background-color: ${theme.colors.primary};
+  background-color: rgba( 45, 45, 45, 0.9 );
   display: flex;
   align-items: center;
   flex-wrap: nowrap;

@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled, { css } from '../../../theme';
 import theme from '../../../theme/primaryTheme';
 
-
 const textStyles = {
   eyebrow: css`
     font-weight: 700;
@@ -10,24 +9,34 @@ const textStyles = {
     font-size: 0.8rem;
 
     @media (min-width: 700px) {
-      font-size: 2.8rem;
+      font-size: 1rem;
     }
   `,
   tagLine: css`
-    font-size: 1.6rem;
+    font-size: 2.4rem;
     text-align: center;
 
-    @media (orientation: landscape) {
-      font-size: 1.2rem;
+    @media (max-width: 1280px) {
+      font-size: 1.8rem;
     }
 
-    @media (min-width: 1200px) {
-      font-size: 2.6rem;
+    @media (max-width: 1120px) {
+      font-size: 2rem;
     }
   `,
   headline: css`
     font-size: 2.4rem;
     line-height: 1.2;
+  `,
+  callToAction: css`
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 4.5rem;
+    line-height: 1.2;
+    @media (max-width: 1120px) {
+      font-size: 4rem;
+      line-height: 1;
+    }
   `,
   modalHeadline: css`
     font-size: 2.2rem;
