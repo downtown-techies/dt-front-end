@@ -6,6 +6,9 @@ const ButtonSection = styled.section`
   margin-top: 2rem;
   width: 100%;
   text-align: center;
+  @media (max-width: 1120px) {
+    margin-top: 4rem;
+  }
 `;
 
 const HeaderButtonContainer = styled.div`
@@ -40,6 +43,10 @@ const baseStyles = css`
   box-shadow: none;
   cursor: pointer;
   font-size: 1rem;
+  @media (max-width: 700px) {
+    font-size: 0.7rem;
+  }
+
   font-weight: 700;
   padding: 0.5rem 1.4rem;
   transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);

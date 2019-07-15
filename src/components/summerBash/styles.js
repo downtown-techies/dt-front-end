@@ -18,11 +18,11 @@ const StyledSummerBash = styled.div`
 `;
 
 const HeaderWrapper = styled.div`
-  width: 40vw;
+  width: 75vw;
   margin: 0 auto;
   overflow: hidden;
   @media (max-width: 1120px) {
-    width: 75vw;
+    width: 95vw;
     padding-top: 5rem;
   }
 `;

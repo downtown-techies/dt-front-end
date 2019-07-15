@@ -16,13 +16,10 @@ const textStyles = {
     font-size: 2.4rem;
     text-align: center;
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1320px) {
       font-size: 1.8rem;
     }
 
-    @media (max-width: 1120px) {
-      font-size: 2rem;
-    }
   `,
   headline: css`
     font-size: 2.4rem;
@@ -33,6 +30,8 @@ const textStyles = {
     font-weight: 700;
     font-size: 4.5rem;
     line-height: 1.2;
+    width: 75vw;
+    margin: 0 auto 2rem;
     @media (max-width: 1120px) {
       font-size: 4rem;
       line-height: 1;

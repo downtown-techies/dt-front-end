@@ -22,10 +22,24 @@ const LandingWrapper = styled.div`
               #222;
   @media (max-width: 1120px) {
     height: 100vh;
-    width: 100vw;
     background: center  no-repeat, 
               url(${mobileCityBackground}),
               #222;
+  }
+  @media (max-width: 700px) {
+    height: 120vh;
+  }
+  @media (max-width: 400px) {
+    height: 140vh;
+  }
+  @media (max-width: 350px) {
+    height: 180vh;
+  }
+  @media (orientation: landscape) {
+    height: 100vh;
+  }
+  @media (orientation: landscape) and (max-width: 900px) {
+    height: 180vh;
   }
 `;
 
@@ -34,7 +48,6 @@ const TaglineWrapper = styled.div`
   position: absolute;
   top: 20vh;
   width 100vw;
-
   @media (min-width: 700px) {
     top: 20vh;
   }
