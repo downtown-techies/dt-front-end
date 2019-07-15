@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import SvgIcon from '../../assets/svgs';
-import Link from '../shared/link';
 import Text from '../shared/text';
 import Image from '../shared/image';
 import summerBashImage from '../../assets/images/landscapeSummerBash.jpg';
-import Carousel from '../shared/carousel';
 import { 
   StyledSummerBash, 
   ImageContainer,
   HeaderWrapper, 
-  Links 
 } from './styles';
 
 class SummerBash extends Component {

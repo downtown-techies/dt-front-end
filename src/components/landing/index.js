@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Button from '../shared/button';
-import { ButtonWrapper, ButtonSection } from '../shared/button/styles';
+import { ButtonSection } from '../shared/button/styles';
 import Partners from '../partners';
 import SummerBash from '../summerBash';
+import MeetupList from '../meetupList';
 import Text from '../shared/text';
-import Link from '../shared/link';
 import theme from '../../theme/primaryTheme';
 import {  
   LandingWrapper,
@@ -20,7 +20,7 @@ class Landing extends Component {
       <>
         <LandingWrapper>
           <EyeBrow>
-            <a target='_blank' href='https://www.instagram.com/explore/tags/giglifehustle/'>
+            <a target='_blank' rel='noopener noreferrer' href='https://www.instagram.com/explore/tags/giglifehustle/'>
               <Text textStyle='eyebrow' color={theme.colors.reverse}>
                 #gigLifeHustle
               </Text>
@@ -47,6 +47,7 @@ class Landing extends Component {
           </TaglineWrapper>
         </LandingWrapper>
         <SummerBash />
+        <MeetupList />
         <Partners />
       </>
     );

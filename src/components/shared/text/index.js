@@ -19,7 +19,6 @@ const textStyles = {
     @media (max-width: 1320px) {
       font-size: 1.8rem;
     }
-
   `,
   headline: css`
     font-size: 2.4rem;
@@ -30,7 +29,7 @@ const textStyles = {
     font-weight: 700;
     font-size: 4.5rem;
     line-height: 1.2;
-    width: 75vw;
+    max-width: 75vw;
     margin: 0 auto 2rem;
     @media (max-width: 1120px) {
       font-size: 4rem;
@@ -50,6 +49,12 @@ const textStyles = {
     line-height: 1.2;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+  `,
+  cardTitle: css`
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 1.5rem 0;
   `,
   info: css`
     font-weight: 300;
