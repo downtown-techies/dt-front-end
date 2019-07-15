@@ -56,7 +56,7 @@ const textStyles = {
     font-size: 2.2rem;
     font-weight: 700;
     padding-bottom: 0.2rem;
-    background-color: ${theme.colors.backgroundDark};
+    background-color: ${theme.colors.richBlack};
     border-radius: 0.25rem 0.25rem 0 0;
   `,
   title: css`

@@ -9,6 +9,9 @@ import styled from '../../theme';
 import theme from '../../theme/primaryTheme';
 
 const MeetupsList = styled.ul`
+  background-color: ${theme.colors.richBlack};
+  padding: 2rem 0.5rem 1rem;
+  border-radius: 0 0 0.25rem 0.25rem;
 `;
 
 const Meetup = styled.li`
@@ -19,7 +22,6 @@ const Meetup = styled.li`
 
   &:last-child {
     border-bottom: none;
-    border-radius: 0 0 0.25rem 0.25rem;
   }
 
   &: hover {

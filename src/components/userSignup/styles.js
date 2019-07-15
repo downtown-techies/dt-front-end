@@ -6,7 +6,7 @@ import Button from '../shared/button';
 
 const StyledUserSignup = styled.div`
   width: 80%;
-  padding-top: 5vh;
+  padding: 5vh 0;
   min-height: 70vh;
   margin: 0 auto;
   @media (min-width: 1024px) {
