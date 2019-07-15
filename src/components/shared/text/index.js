@@ -24,6 +24,22 @@ const textStyles = {
     font-size: 2.4rem;
     line-height: 1.2;
   `,
+  bigTitle: css`
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 4.5rem;
+    line-height: 1.2;
+    max-width: 75vw;
+    margin: 0 auto 2rem;
+    @media (max-width: 1120px) {
+      font-size: 3rem;
+      line-height: 1;
+    }
+    @media (max-width: 600px) {
+      font-size: 2rem;
+      line-height: 1;
+    }
+  `,
   callToAction: css`
     font-family: 'Oswald', sans-serif;
     font-weight: 700;

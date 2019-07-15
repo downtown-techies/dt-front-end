@@ -7,7 +7,8 @@ const linkStyles = {
     margin-right: 0.5rem;
   `,
   partners: css`
-    margin-bottom: 1rem;
+    flex: 1;
+    width: 20%;
   `,
   headerLogo: css`
     margin-top: -0.4rem;  

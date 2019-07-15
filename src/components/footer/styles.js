@@ -5,7 +5,6 @@ const Links = styled.div`
 `;
 
 const StyledFooter = styled.div`
-  margin-top: 2rem;
   background-color: ${theme.colors.accent};
   color: ${theme.colors.tertiary};
   padding: 1rem 10vw;

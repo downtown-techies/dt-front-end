@@ -6,6 +6,9 @@ const StyledMeetupList = styled.div`
   text-align: center;
   color: ${theme.colors.primary};
   padding: 1rem 0;
+  @media (max-width: 700px) {
+    padding-bottom: 0;
+  }
   z-index: 1;
   position: relative;
 `;
@@ -38,6 +41,9 @@ const MeetupCard = styled.li`
   @media (max-width: 700px) {
     width: 100%;
     margin: 2rem 0;
+    &:last-of-type{
+      margin-bottom: 0;
+    }
   }
   padding: 0.25rem 0 3rem;
   background-color: ${theme.colors.primary};
