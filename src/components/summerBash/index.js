@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Text from '../shared/text';
 import Image from '../shared/image';
-import summerBashImage from '../../assets/images/landscapeSummerBash.jpg';
+import summerBashImage from '../../assets/images/summerBash.jpg';
 import { 
   StyledSummerBash, 
   ImageContainer,
