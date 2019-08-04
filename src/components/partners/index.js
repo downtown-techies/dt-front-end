@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Image from '../shared/image';
 import Link from '../shared/link';
 import {
+  peel, 
+  trinet, 
   hackathonJr, 
   insight, 
   vaco, 
@@ -60,6 +62,18 @@ class Partners extends Component {
             target='_blank'
             address='https://www.wraltechwire.com/'>
             <Image src={wral} alt={'wral-techwire-logo'} />
+          </ Link>
+          <Link name='peel'
+            linkStyle='partners'
+            target='_blank'
+            address='https://www.peel.today/'>
+            <Image src={peel} alt={'peel-logo'} />
+          </ Link>
+          <Link name='trinet'
+            linkStyle='partners'
+            target='_blank'
+            address='https://www.trinet.com/'>
+            <Image src={trinet} alt={'trinet-logo'} />
           </ Link>
         </Links>
       </ StyledPartners>

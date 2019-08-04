@@ -30,7 +30,7 @@ const SummerBash = (props) => {
     <StyledSummerBash className='footer'>
       <HeaderWrapper>
         <Text tag='h3' textStyle='callToAction' color='white'>Join the Early Birds for the Summer Bash</Text> 
-        <Text tag='p' textStyle='eyebrow' color='white'>(click below)</Text> 
+        <Text tag='p' textStyle='eyebrow' color='white'>100% of ticket sales supports Hackathon Jr!</Text> 
         <ImageContainer>
           {BashImage(isMobile)}
         </ImageContainer>

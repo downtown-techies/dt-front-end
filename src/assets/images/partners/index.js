@@ -5,3 +5,5 @@ export const weWork = require('./weWorkLogo.png');
 export const whereScape = require('./whereScapeLogo.png');
 export const wral = require('./WRALTechWireSiteLogo.png');
 export const grove = require('./groveLogo.png');
+export const peel = require('./peelLogo.png');
+export const trinet = require('./trinetLogo.png');
