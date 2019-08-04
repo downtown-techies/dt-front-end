@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
-import SvgIcon from '../../assets/svgs';
+import Image from '../shared/image';
 import Link from '../shared/link';
+import {
+  hackathonJr, 
+  insight, 
+  vaco, 
+  weWork, 
+  whereScape, 
+  wral, 
+  grove, 
+} from '../../assets/images/partners';
 import Text from '../shared/text';
 import { StyledPartners, Links } from './styles';
 
@@ -14,19 +23,43 @@ class Partners extends Component {
             linkStyle='partners'
             target='_blank'
             address='https://www.wework.com/buildings/one-glenwood--raleigh-durham?utm_campaign=1671323444&utm_term=64824353716&utm_content=341253445376&utm_source=ads-google&utm_medium=cpc&gclsrc=aw.ds&&gclid=EAIaIQobChMIn9D-86aK4gIVilMNCh3yMAWJEAAYASAAEgLMIfD_BwE&gclsrc=aw.ds'>
-            <SvgIcon name='weWorkLogo'viewBox='0 0 94 20' width={186} height={25} fill='#fff' />
+            <Image src={weWork} alt={'we-work-logo'} />
           </ Link>
           <Link name='Vaco'
             linkStyle='partners'
             target='_blank'
             address='https://www.wework.com/buildings/one-glenwood--raleigh-durham?utm_campaign=1671323444&utm_term=64824353716&utm_content=341253445376&utm_source=ads-google&utm_medium=cpc&gclsrc=aw.ds&&gclid=EAIaIQobChMIn9D-86aK4gIVilMNCh3yMAWJEAAYASAAEgLMIfD_BwE&gclsrc=aw.ds'>
-            <SvgIcon name='vacoLogo'viewBox='0 0 100 30' width={100} height={30} fill='#fff' />
+            <Image src={vaco} alt={'vaco-logo'} />
           </ Link>
           <Link name='groveCollaborative' 
             linkStyle='partners'
             target='_blank'
             address='https://www.grove.co/'>
-            <SvgIcon name='groveCoLogo'viewBox='0 0 94 40' width={99} height={38} fill='#fff' />
+            <Image src={grove} alt={'grove-collavoritive-logo'} />
+          </ Link>
+          <Link name='hackathonJr'
+            linkStyle='partners'
+            target='_blank'
+            address='https://www.wework.com/buildings/one-glenwood--raleigh-durham?utm_campaign=1671323444&utm_term=64824353716&utm_content=341253445376&utm_source=ads-google&utm_medium=cpc&gclsrc=aw.ds&&gclid=EAIaIQobChMIn9D-86aK4gIVilMNCh3yMAWJEAAYASAAEgLMIfD_BwE&gclsrc=aw.ds'>
+            <Image src={hackathonJr} alt={'hackathon-jr-logo'} />
+          </ Link>
+          <Link name='insightSoftware'
+            linkStyle='partners'
+            target='_blank'
+            address='https://insightsoftware.com/'>
+            <Image src={insight} alt={'insight-software-logo'} />
+          </ Link>
+          <Link name='whereScape'
+            linkStyle='partners'
+            target='_blank'
+            address='https://www.wherescape.com'>
+            <Image src={whereScape} alt={'wherescape-logo'} />
+          </ Link>
+          <Link name='wralTechWire'
+            linkStyle='partners'
+            target='_blank'
+            address='https://www.wraltechwire.com/'>
+            <Image src={wral} alt={'wral-techwire-logo'} />
           </ Link>
         </Links>
       </ StyledPartners>

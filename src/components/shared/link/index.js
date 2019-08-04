@@ -7,8 +7,16 @@ const linkStyles = {
     margin-right: 0.5rem;
   `,
   partners: css`
-    flex: 1;
-    width: 20%;
+    width: 33%;
+    padding: 3rem 4rem;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 1024px) {
+      width: 30vw;
+      margin: 10vh 15vw;
+      text-align: center;
+      padding: 0;
+    }
   `,
   headerLogo: css`
     margin-top: -0.4rem;  

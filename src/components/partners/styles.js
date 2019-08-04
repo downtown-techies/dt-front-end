@@ -3,6 +3,7 @@ import theme from '../../theme/primaryTheme';
 
 const Links = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin: 4rem 0 2rem;
 `;
 
@@ -14,6 +15,11 @@ const StyledPartners = styled.div`
   margin: 0;
   z-index: 1;
   position: relative;
+  @media (max-width: 1024px) {
+    padding: 2rem 20vw;
+    text-align: center;
+  }
+
 `;
 
 export {
