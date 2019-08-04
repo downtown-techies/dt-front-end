@@ -37,7 +37,6 @@ const baseStyles = css`
   display: inline-block;
   font-family: 'Akkurat', sans-serif;
   appearance: none;
-  background-color: ${theme.colors.accent};
   border: none;
   border-radius: 0.25rem;
   box-shadow: none;
@@ -51,10 +50,6 @@ const baseStyles = css`
   padding: 0.5rem 1.4rem;
   transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
   white-space: nowrap;
-
-  &:hover {
-    background-color: ${theme.colors.accentHover};
-  }
 
   &:disabled {
     background-color: ${theme.colors.disabled};
@@ -92,5 +87,10 @@ export const buttonStyles = {
 export const StyledButton = styled.button`
   ${baseStyles}
   ${({ buttonStyle = 'default' }) => buttonStyles[buttonStyle]}
+  color: ${({ color }) => (color ? color: theme.colors.primary)};
+  background-color: ${({ backgroundColor }) => (backgroundColor ? backgroundColor : theme.colors.accent)};
+  &:hover{
+    background-color: ${({ backgroundColorHover }) => (backgroundColorHover ? backgroundColorHover : theme.colors.accentHover)};
+  }
 `;
 

@@ -5,6 +5,8 @@ const Button = ({
   type,
   buttonStyle,
   handleClick,
+  backgroundColor, 
+  color, 
   isDisabled,
   children,
   className,
@@ -14,6 +16,8 @@ const Button = ({
     className={className}
     type={type}
     buttonStyle={buttonStyle}
+    backgroundColor={backgroundColor}
+    color={color}
     onClick={handleClick}
     disabled={isDisabled}
     {...rest}

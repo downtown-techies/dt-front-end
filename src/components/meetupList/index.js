@@ -92,10 +92,3 @@ const MeetupList= (props) => {
 }
 
 export default MeetupList;
-
-
-
-
-
-
-
