@@ -2,7 +2,7 @@ import styled from '../../theme';
 import theme from '../../theme/primaryTheme';
 
 const StyledMeetupList = styled.div`
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.accent};
   text-align: center;
   color: ${theme.colors.primary};
   padding: 1rem 0;

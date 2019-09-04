@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../shared/button';
-import { ButtonSection } from '../shared/button/styles';
+import { ButtonSection, ButtonWrapper } from '../shared/button/styles';
 import Partners from '../partners';
 import SummerBash from '../summerBash';
 import MeetupList from '../meetupList';
@@ -31,22 +31,24 @@ class Landing extends Component {
               <Text textStyle='tagLine' color={theme.colors.reverse}>
                 We partner with local influencers to bring techies together through the best events and community
               </Text>
+              {/*
               <ButtonSection>
               <Button id='eventbrite-widget-modal-trigger-65133671565' 
                 type='button'>Sign up for the Summer Bash
               </Button>
               </ButtonSection>
-              {/*
+              */}
               <ButtonSection>
                 <ButtonWrapper ref='signup' action='/signup'>
                   <Button buttonStyle='big' type='submit'>Join Us</ Button>
                 </ ButtonWrapper>
               </ButtonSection>
-              */}
             </Tagline>
           </TaglineWrapper>
         </LandingWrapper>
+        {/*
         <SummerBash />
+        */}
         <MeetupList />
         <Partners />
       </>
