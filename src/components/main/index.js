@@ -1,9 +1,8 @@
 import React from 'react';
 import Landing from '../Landing';
-import NotFound from '../subComponents/NotFound';
+import NotFound from '../NotFound';
+import Login from '../Login';
 import AddUser from '../forms/AddUserForm';
-// import DeleteUser from '../forms/DeleteUserForm';
-// import AddMeetup from '../forms/AddMeetupForm';
 
 import {
   BrowserRouter as Router,
@@ -21,6 +20,7 @@ function Main() {
         <Switch>
           <Route exact={true} path="/signup" component={AddUser} /> 
           <Route exact={true} path="/" component={Landing} />
+          <Route exact={true} path="/" component={Login} />
           <Route component={NotFound} />
         </Switch>
       </Router>
