@@ -8,6 +8,12 @@ export const items = [
     rel="noopener noreferrer"
   ><span>Join the Hustle</span></a>,
   <a 
+    key="login" 
+    href="/login" 
+    target="_self"
+    rel="noopener noreferrer"
+  ><span>Login</span></a>,
+  <a 
     key="raleigh-meetup-1" 
     href="https://www.meetup.com/Downtown-Techies/?" 
     target="_blank"

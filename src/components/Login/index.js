@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from '../../theme';
-import Image from '../shared/Image';
-import badPathImage from '../../assets/images/404.png';
+import Text from '../shared/Text';
 
 const StyledLogin = styled.div`
 `;
@@ -10,7 +9,7 @@ class notFound extends Component {
   render() {
     return (
       <StyledLogin>
-        <Image src={badPathImage} />
+        <Text color="white">Foo</Text>
       </ StyledLogin>
     );
   }

@@ -19,8 +19,8 @@ function Main() {
       <Router>
         <Switch>
           <Route exact={true} path="/signup" component={AddUser} /> 
+          <Route exact={true} path="/login" component={Login} />
           <Route exact={true} path="/" component={Landing} />
-          <Route exact={true} path="/" component={Login} />
           <Route component={NotFound} />
         </Switch>
       </Router>
