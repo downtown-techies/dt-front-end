@@ -1,5 +1,5 @@
-import styled from '../../theme';
-import Button from '../shared/button';
+import styled from '../../../theme';
+import Button from '../../shared/Button';
 
 const ResponseMessage = styled.div`
   margin-top: 1rem;

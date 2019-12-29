@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import styled from '../../theme';
+import styled from '../../../theme';
 import { Formik } from 'formik';
-import Input from '../shared/input';
-import Label from '../shared/label';
-import Button from '../shared/button';
+import Input from '../../shared/Input';
+import Label from '../../shared/Label';
+import Button from '../../shared/Button';
 import { inputFields } from './fields.js';
-import { apiRequest, apiBaseUrl } from '../../helpers/api';
+import { apiRequest, apiBaseUrl } from '../../../helpers/api';
 
 const StyledAddMeetup = styled.div`
   width: 80%;

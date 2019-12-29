@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/header';
-import Main from '../components/main';
-import Footer from '../components/footer';
+import Header from '../components/subComponents/Header';
+import Main from '../components/Main';
+import Footer from '../components/subComponents/Footer';
 import { apiRequest, apiBaseUrl } from '../helpers/api';
 
 // TODO: add SRI...subresource integrity or some additional security measure

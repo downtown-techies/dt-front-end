@@ -1,5 +1,5 @@
-import styled from '../../theme';
-import Button from '../shared/button';
+import styled from '../../../theme';
+import Button from '../../shared/Button';
 
 const StyledDeleteUser = styled.div`
   width: 80%;

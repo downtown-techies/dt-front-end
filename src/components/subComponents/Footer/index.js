@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import SvgIcon from '../../assets/svgs';
-import Link from '../shared/link';
-import MeetupsModal from '../meetupsModal';
-import Text from '../shared/text';
+import SvgIcon from '../../../assets/svgs';
+import Link from '../../shared/Link';
+import MeetupsModal from '../../modals/MeetupsModal';
+import Text from '../../shared/Text';
 import { StyledFooter, Links } from './styles';
 
 class Footer extends Component {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Text from '../shared/text';
-import StyledModal from '../shared/modal';
-import theme from '../../theme/primaryTheme';
+import Text from '../../shared/Text';
+import StyledModal from '../../shared/Modal';
+import theme from '../../../theme/primaryTheme';
 
 import {
   ModalCloseButton,

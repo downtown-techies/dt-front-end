@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Text from '../text';
+import Text from '../Text';
 import styled, { css } from '../../../theme';
 import theme from '../../../theme/primaryTheme';
 

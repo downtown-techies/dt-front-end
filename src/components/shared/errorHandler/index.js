@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled, { css } from '../../../theme';
 import theme from '../../../theme/primaryTheme';
-import Text from '../text';
+import Text from '../Text';
 
 const errorStyles = {
   default: css`

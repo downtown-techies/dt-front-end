@@ -1,9 +1,9 @@
 import React from 'react';
-import Landing from '../landing';
-import NotFound from '../notFound';
-import UserSignup from '../userSignup';
-// import DeleteUser from '../deleteUser';
-// import AddMeetup from '../addMeetup';
+import Landing from '../Landing';
+import NotFound from '../subComponents/NotFound';
+import AddUser from '../forms/AddUserForm';
+// import DeleteUser from '../forms/DeleteUserForm';
+// import AddMeetup from '../forms/AddMeetupForm';
 
 import {
   BrowserRouter as Router,
@@ -19,7 +19,7 @@ function Main() {
     <>
       <Router>
         <Switch>
-          <Route exact={true} path="/signup" component={UserSignup} /> 
+          <Route exact={true} path="/signup" component={AddUser} /> 
           <Route exact={true} path="/" component={Landing} />
           <Route component={NotFound} />
         </Switch>

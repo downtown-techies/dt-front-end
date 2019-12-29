@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { apiRequest, apiBaseUrl } from '../../helpers/api';
-import SvgIcon from '../../assets/svgs';
-import Link from '../shared/link';
-import Text from '../shared/text';
-import Button from '../shared/button';
-import StyledModal from '../shared/modal';
-import styled from '../../theme';
-import theme from '../../theme/primaryTheme';
+import { apiRequest, apiBaseUrl } from '../../../helpers/api';
+import SvgIcon from '../../../assets/svgs';
+import Link from '../../shared/Link';
+import Text from '../../shared/Text';
+import Button from '../../shared/Button';
+import StyledModal from '../../shared/Modal';
+import styled from '../../../theme';
+import theme from '../../../theme/primaryTheme';
 
 const MeetupsList = styled.ul`
   background-color: ${theme.colors.richBlack};

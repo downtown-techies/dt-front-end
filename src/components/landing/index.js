@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import Button from '../shared/button';
-import { ButtonSection, ButtonWrapper } from '../shared/button/styles';
-import Partners from '../partners';
-import SummerBash from '../summerBash';
-import MeetupList from '../meetupList';
-import Text from '../shared/text';
+import Button from '../shared/Button';
+import { ButtonSection, ButtonWrapper } from '../shared/Button/styles';
+import Partners from '../subComponents/Partners';
+import MeetupList from '../subComponents/MeetupList';
+import Text from '../shared/Text';
 import theme from '../../theme/primaryTheme';
 import {  
   LandingWrapper,
@@ -31,13 +30,6 @@ class Landing extends Component {
               <Text textStyle='tagLine' color={theme.colors.reverse}>
                 We partner with local influencers to bring techies together through the best events and community
               </Text>
-              {/*
-              <ButtonSection>
-              <Button id='eventbrite-widget-modal-trigger-65133671565' 
-                type='button'>Sign up for the Summer Bash
-              </Button>
-              </ButtonSection>
-              */}
               <ButtonSection>
                 <ButtonWrapper ref='signup' action='/signup'>
                   <Button buttonStyle='big' type='submit'>Join Us</ Button>
@@ -46,9 +38,6 @@ class Landing extends Component {
             </Tagline>
           </TaglineWrapper>
         </LandingWrapper>
-        {/*
-        <SummerBash />
-        */}
         <MeetupList />
         <Partners />
       </>

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Formik, Field } from 'formik';
-import Input from '../shared/input';
-import Label from '../shared/label';
+import Input from '../../shared/Input';
+import Label from '../../shared/Label';
 import Select from 'react-select';
-import ErrorHandler from '../shared/errorHandler';
-import ErrorModal from '../ErrorModal';
+import ErrorHandler from '../../shared/ErrorHandler';
+import ErrorModal from '../../modals/ErrorModal';
 import Checkbox from './checkbox.js';
 import * as yup from 'yup';
 import { inputFields, hiddenFields } from './fields.js';
-import { apiRequest, apiBaseUrl } from '../../helpers/api';
+import { apiRequest, apiBaseUrl } from '../../../helpers/api';
 import { 
-  StyledUserSignup,
+  StyledAddUser,
   StyledSubmit,
   SubmitContainer,
   StyledRadioContainer
@@ -57,7 +57,7 @@ const userSchema = yup.object().shape({
     .min(5,'Too short'),
 })
 
-class UserSignup extends Component {
+class AddUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -109,7 +109,7 @@ class UserSignup extends Component {
 
     return (
       <>
-        <StyledUserSignup>
+        <StyledAddUser>
           <Formik
             initialValues={ 
               {
@@ -219,7 +219,7 @@ class UserSignup extends Component {
               }
             }
           </Formik>
-        </ StyledUserSignup>
+        </ StyledAddUser>
         {
           hidden ? ( null ) : (
             <ErrorModal 
@@ -235,4 +235,4 @@ class UserSignup extends Component {
   }
 }
 
-export default UserSignup;
+export default AddUser;

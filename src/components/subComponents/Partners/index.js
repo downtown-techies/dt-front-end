@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Image from '../shared/image';
-import Link from '../shared/link';
+import Image from '../../shared/Image';
+import Link from '../../shared/Link';
 import {
   peel, 
   trinet, 
@@ -11,8 +11,8 @@ import {
   whereScape, 
   wral, 
   grove, 
-} from '../../assets/images/partners';
-import Text from '../shared/text';
+} from '../../../assets/images/partners';
+import Text from '../../shared/Text';
 import { StyledPartners, Links } from './styles';
 
 class Partners extends Component {

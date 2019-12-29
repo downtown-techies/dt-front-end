@@ -1,5 +1,5 @@
-import styled from '../../theme';
-import theme from '../../theme/primaryTheme';
+import styled from '../../../theme';
+import theme from '../../../theme/primaryTheme';
 
 const StyledMeetupList = styled.div`
   background-color: ${theme.colors.accent};

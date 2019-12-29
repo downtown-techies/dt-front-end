@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Formik, Field } from 'formik';
-import Input from '../shared/input';
-import Label from '../shared/label';
+import Input from '../../shared/Input';
+import Label from '../../shared/Label';
 import Select from 'react-select';
-import ErrorHandler from '../shared/errorHandler';
+import ErrorHandler from '../../shared/ErrorHandler';
 import * as yup from 'yup';
 import { inputFields } from './fields.js';
-import { apiRequest, apiBaseUrl } from '../../helpers/api';
+import { apiRequest, apiBaseUrl } from '../../../helpers/api';
 import { 
   StyledDeleteUser,
   StyledSubmit,

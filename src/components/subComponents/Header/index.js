@@ -4,9 +4,9 @@ import {
   MenuRight, 
   StyledHeader 
 } from './styles';
-import Link from '../shared/link';
-import theme from '../../theme/primaryTheme';
-import SvgIcon from '../../assets/svgs'; 
+import Link from '../../shared/Link';
+import theme from '../../../theme/primaryTheme';
+import SvgIcon from '../../../assets/svgs'; 
 import { items } from '../MenuWrapper/items';
 import '../MenuWrapper/styles.css';
 import { slide as Menu } from 'react-burger-menu'

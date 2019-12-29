@@ -1,4 +1,4 @@
-import styled from '../../theme';
+import styled from '../../../theme';
 
 const HeaderContainer = styled.div`
   background-color: rgba( 45, 45, 45, 0.9 );

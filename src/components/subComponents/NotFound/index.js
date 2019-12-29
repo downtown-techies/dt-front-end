@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import styled from '../../theme';
-import Image from '../shared/image';
-import badPathImage from '../../assets/images/404.png';
+import styled from '../../../theme';
+import Image from '../../shared/Image';
+import badPathImage from '../../../assets/images/404.png';
 
 const StyledNotFound = styled.div`
 `;

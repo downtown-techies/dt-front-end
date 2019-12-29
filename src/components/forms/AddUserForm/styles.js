@@ -1,10 +1,10 @@
-import styled from '../../theme';
-import Button from '../shared/button';
+import styled from '../../../theme';
+import Button from '../../shared/Button';
 
 // import { css } from '../../../theme';
 // import theme from from '../../theme/primaryTheme';
 
-const StyledUserSignup = styled.div`
+const StyledAddUser = styled.div`
   width: 80%;
   padding: 5vh 0;
   min-height: 70vh;
@@ -30,7 +30,7 @@ const StyledSubmit = styled(Button)`
 ` ;
 
 export {
-  StyledUserSignup,
+  StyledAddUser,
   StyledSubmit,
   SubmitContainer,
   StyledRadioContainer,

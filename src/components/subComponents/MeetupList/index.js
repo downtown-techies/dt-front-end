@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { apiRequest, apiBaseUrl } from '../../helpers/api';
-import Link from '../shared/link';
-import Text from '../shared/text';
-import Image from '../shared/image';
-import images from '../../assets/images/meetupImages';
-import theme from '../../theme/primaryTheme';
+import { apiRequest, apiBaseUrl } from '../../../helpers/api';
+import Link from '../../shared/Link';
+import Text from '../../shared/Text';
+import Image from '../../shared/Image';
+import images from '../../../assets/images/meetupImages';
+import theme from '../../../theme/primaryTheme';
 import { 
   ListContainer,
   ImageContainer,

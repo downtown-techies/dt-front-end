@@ -1,5 +1,5 @@
 import React from 'react';
-import Label from '../shared/label';
+import Label from '../../shared/Label';
 
 const Checkbox = ({
   field: { name, value, onChange, onBlur },
