@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from '../../theme';
-import Text from '../shared/Text';
+import Login from '../forms/LoginForm';
 
 const StyledLogin = styled.div`
 `;
@@ -9,7 +9,7 @@ class notFound extends Component {
   render() {
     return (
       <StyledLogin>
-        <Text color="white">Foo</Text>
+        <Login />
       </ StyledLogin>
     );
   }

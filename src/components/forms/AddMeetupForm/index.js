@@ -7,6 +7,12 @@ import Button from '../../shared/Button';
 import { inputFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../../helpers/api';
 
+// hacked this file, do not replicate pattern
+const StyledSubmit = styled(Button)`
+  margin-top: 1.5rem;
+  float: right;
+` ;
+
 const StyledAddMeetup = styled.div`
   width: 80%;
   margin: 0 auto;
@@ -32,11 +38,6 @@ const submitNewMeetup = (values) => {
     // console.log(error);
   })
 } 
-
-const StyledSubmit = styled(Button)`
-  margin-top: 1.5rem;
-  float: right;
-` ;
 
 class AddMeetup extends Component {
   render() {

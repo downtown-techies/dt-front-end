@@ -59,10 +59,25 @@ const post = (path, data, token, config) => {
   });
 };
 
+const securePost = (path, data, token, config) => {
+  return instance.request({
+    url: path,
+    method: 'post',
+    data,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    crossdomain: true,
+    ...config,
+  });
+};
+
 export const apiRequest = {
   get,
   getJwtKey,
   post,
+  securePost,
   destroy
 };
 

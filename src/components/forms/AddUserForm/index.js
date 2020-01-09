@@ -16,13 +16,9 @@ import {
   StyledRadioContainer
 } from './styles.js';
 
-// TODO zip code autocomplete data 
-// TODO make two-part form 
-// enums
-
-const jwtToken = localStorage.token;
-
+let hiddenValues = {};
 let initializeValues = {};
+const jwtToken = localStorage.token;
 
 inputFields.map((field) => { 
   const label = field.label;
@@ -31,8 +27,6 @@ inputFields.map((field) => {
   return initializeValues[label] = initialValue;
 });
 
-let hiddenValues = {};
-
 hiddenFields.map((field) => { 
   const label = field.label;
   const value = field.value || '';
@@ -40,7 +34,7 @@ hiddenFields.map((field) => {
   return hiddenValues[label] = value;
 });
 
-const zip = new RegExp(/^\d{5}([-]?\d{4})?$/);
+const zipFormat = new RegExp(/^\d{5}([-]?\d{4})?$/);
 
 const userSchema = yup.object().shape({
   first_name: yup.string().required('Name is Required.'),
@@ -51,7 +45,7 @@ const userSchema = yup.object().shape({
     .required('Email is Required.'),
   postal_code: yup
     .string()
-    .matches(zip, 'Please provide a valid postal code')
+    .matches(zipFormat, 'Please provide a valid postal code')
     .required('Please provide a valid postal code')
     .max(8,'Too long')
     .min(5,'Too short'),
