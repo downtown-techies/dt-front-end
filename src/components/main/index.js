@@ -3,6 +3,7 @@ import Landing from '../Landing';
 import NotFound from '../NotFound';
 import Login from '../Login';
 import AddUser from '../forms/AddUserForm';
+import AddAccount from '../forms/AddAccountForm';
 
 import {
   BrowserRouter as Router,
@@ -19,6 +20,7 @@ function Main() {
       <Router>
         <Switch>
           <Route exact={true} path="/signup" component={AddUser} /> 
+          <Route exact={true} path="/addaccount" component={AddAccount} /> 
           <Route exact={true} path="/login" component={Login} />
           <Route exact={true} path="/" component={Landing} />
           <Route component={NotFound} />

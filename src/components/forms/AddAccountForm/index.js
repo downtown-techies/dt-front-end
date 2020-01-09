@@ -5,20 +5,21 @@ import Label from '../../shared/Label';
 import Select from 'react-select';
 import ErrorHandler from '../../shared/ErrorHandler';
 import ErrorModal from '../../modals/ErrorModal';
-import Checkbox from './checkbox.js';
 import * as yup from 'yup';
 import { inputFields, hiddenFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../../helpers/api';
 import { 
-  StyledAddUser,
+  StyledAddAccount,
   StyledSubmit,
-  SubmitContainer,
-  StyledRadioContainer
+  SubmitContainer
 } from './styles.js';
 
-let hiddenValues = {};
-let initializeValues = {};
 const jwtToken = localStorage.token;
+
+// if length > 1 looks like you are already a member
+
+let hiddenValues = {}
+  , initializeValues= {};
 
 inputFields.map((field) => { 
   const label = field.label;
@@ -27,31 +28,35 @@ inputFields.map((field) => {
   return initializeValues[label] = initialValue;
 });
 
-hiddenFields.map((field) => { 
+hiddenFields.map((field) => {
   const label = field.label;
   const value = field.value || '';
 
   return hiddenValues[label] = value;
 });
 
-const zipFormat = new RegExp(/^\d{5}([-]?\d{4})?$/);
+// YUP VALIDATIONS
+const emailFormat = new RegExp(/[a-z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/);
+const usernameFormat = new RegExp(/^[a-zA-Z0-9_]*$/);
 
 const userSchema = yup.object().shape({
-  first_name: yup.string().required('Name is Required.'),
-  last_name: yup.string().required('Name is Required.'),
-  email: yup
-    .string()
-    .email('Please Enter a valid Email')
-    .required('Email is Required.'),
-  postal_code: yup
-    .string()
-    .matches(zipFormat, 'Please provide a valid postal code')
-    .required('Please provide a valid postal code')
-    .max(8,'Too long')
-    .min(5,'Too short'),
+  username:        yup
+                   .string()
+                   .matches(usernameFormat, 'Can only contain alphanumeric and underscore')
+                   .required('Username is Required.'),
+  email:           yup
+                   .string()
+                   .matches(emailFormat, 'Please provide a valid email.')
+                   .required('Email is required'),
+  password:        yup
+                   .string()
+                   .required(''),
+  confirmPassword: yup
+                   .string()
+                   .oneOf([yup.ref('password'), null], 'Passwords must match')
 })
 
-class AddUser extends Component {
+class AddAccount extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,7 +70,7 @@ class AddUser extends Component {
 
   responseHandler = (response) => {
     const { errors, responseStatus, message, hidden } = response; 
-
+  
     this.setState({
       errors: errors,
       message: message,
@@ -73,23 +78,23 @@ class AddUser extends Component {
       hidden: hidden
     })
   }
-  
-  submitNewUser = ( params ) => {
+
+  submitNewAccount = ( params ) => {
     const { values, handler } = params;
+    console.log('values: ', values);
+  
     apiRequest.post(
-      `${apiBaseUrl}/users`,
+      `${apiBaseUrl}/addaccount`,
       values,
       jwtToken
     )
     .then(function (response) {
-      // console.log('data: ', response.data);
-      // console.log('userCreation: ', response.data.userCreation);
-  
-      if (response.data && response.data.userCreation) {
+      console.log(response);
+      if (response.data && response.data.newLoginCreated) {
         handler({message: 'Thanks for signing up! Look for a follow up email from us soon.', errors: false, hidden: false});
-      } else if ( response.data && !response.data.userCreation && response.data.message === 'exists' ) {
+      } else if ( response.data && !response.data.newLoginCreated && response.data.message === 'exists' ) {
           handler({message: 'Looks like this user already exists!', errors: true, hidden: false});
-      } else if ( response.data && !response.data.userCreation && response.data.message === 'error' ) {
+      } else if ( response.data && !response.data.newLoginCreated && response.data.message === 'error' ) {
         handler({message: 'Uh oh! Something went wrong, please resubmit!', errors: true, hidden: false});
       } 
     })
@@ -100,15 +105,16 @@ class AddUser extends Component {
 
   render() {
     const { errors, message, responseStatus, hidden } = this.state;
+    console.log(this.state);
 
     return (
       <>
-        <StyledAddUser>
+        <StyledAddAccount>
           <Formik
             initialValues={ 
               {
                 ...hiddenValues,
-                ...initializeValues
+                ...initializeValues,
               }
             }
             validate={values => {
@@ -117,7 +123,7 @@ class AddUser extends Component {
               });
             }}
             onSubmit={(values, { setSubmitting }) => {
-              this.submitNewUser({ values: JSON.stringify(values, null, 2), handler: this.responseHandler});
+              this.submitNewAccount({ values: JSON.stringify(values, null, 2), handler: this.responseHandler});
 
               setSubmitting(false);
             }}
@@ -139,14 +145,14 @@ class AddUser extends Component {
                   <form onSubmit={handleSubmit}>
                     {
                       inputFields.map((field) => {
-                        if (field.type === 'input') {
+                        if (field.type === 'input' || 'password') {
                           return (
                             <div key={field.label}>
                               <Label color='white'>
                                 {field.displayName}
                               </Label>
                               <Input
-                                type='input'
+                                type={field.type}
                                 name={field.label}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
@@ -160,35 +166,6 @@ class AddUser extends Component {
                                 errors={errors} 
                               />
                             </div>
-                          )} else if (field.type === 'multiSelect') {
-                            const options = field.options;
-
-                            return (
-                              <div key={field.label}>
-                                <Label color='white'>
-                                  {field.displayName}
-                                </Label>
-                                <Select
-                                  options={options}
-                                  name={field.label}
-                                  openOuterUp={true}
-                                  value={options ? options.find(option => option.value === field.value) : ''}
-                                  onChange={(option, field) => {
-                                      setFieldValue(field.name, [option.value])
-                                    }
-                                  }
-                                  onBlur={field.onBlur}
-                                />
-                              </div>
-                          )} else if (field.type === 'radio') {
-                            return (
-                              <StyledRadioContainer key={field.label}>
-                                <Field
-                                  component={Checkbox}
-                                  name={field.label}
-                                  label={field.displayName}
-                                />
-                              </StyledRadioContainer>
                           )} else {
                           return null
                         }
@@ -209,14 +186,14 @@ class AddUser extends Component {
               }
             }
           </Formik>
-        </ StyledAddUser>
+        </ StyledAddAccount>
         {
           hidden ? ( null ) : (
-            <ErrorModal 
-              hidden={hidden} 
-              errors={errors} 
-              response={message} 
-              responseStatus={responseStatus} 
+            <ErrorModal
+              hidden={hidden}
+              errors={errors}
+              response={message}
+              responseStatus={responseStatus}
             />
           )
         }
@@ -225,4 +202,4 @@ class AddUser extends Component {
   }
 }
 
-export default AddUser;
+export default AddAccount;
