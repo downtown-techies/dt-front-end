@@ -16,22 +16,8 @@ let initializeValues = {};
 
 const publicKey = process.env.REACT_APP_PUBLIC_KEY;
 
-const getToken = (publicKey) => {
-  return apiRequest.getJwtKey(
-    `${apiBaseUrl}/authenticate`,
-    publicKey
-  )
-  .then(function (response) {
-    const jwtKey = ( response.data && response.data.jwtKey ) || 'iEmpty';
-    console.log(jwtKey);
-    localStorage.setItem('token', jwtKey);
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
-}
-
 const submitLogin = (values) => {
+  console.log(values);
 
   apiRequest.post(
     `${apiBaseUrl}/login`,
@@ -42,8 +28,8 @@ const submitLogin = (values) => {
     if (data && data.error){
       console.log(data.message);
     } else if (response.status === 200 && data && !data.error){
-      console.log(data);
-      getToken(publicKey);
+      const jwtKey = ( response.data && response.data.jwtKey ) || 'iEmpty';
+      localStorage.setItem('token', jwtKey);
     }
   })
   .catch(function (error) {
@@ -56,6 +42,8 @@ inputFields.map((field) => {
   const initialValue = field.initialValue || '';
   return initializeValues[label] = initialValue;
 });
+
+const hiddenValues = {'key': publicKey };
 
 // YUP VALIDATIONS
 const userSchema = yup.object().shape({
@@ -77,7 +65,8 @@ class LoginUser extends Component {
         <Formik
           initialValues={ 
             {
-              ...initializeValues
+              ...initializeValues,
+              ...hiddenValues
             }
           }
           validate={values => {

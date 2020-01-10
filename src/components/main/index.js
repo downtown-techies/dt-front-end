@@ -4,12 +4,18 @@ import NotFound from '../NotFound';
 import Login from '../Login';
 import AddUser from '../forms/AddUserForm';
 import AddAccount from '../forms/AddAccountForm';
+import jwt_decode from 'jwt-decode';
 
 import {
   BrowserRouter as Router,
   Route,
   Switch,
 } from 'react-router-dom';
+
+// const decoded = jwt.verify(token[1], 'secret-key');
+const jwtToken = localStorage.token
+const decoded = jwt_decode(jwtToken);
+console.log(decoded);
 
 // <Route exact={true} path="/nested_admin/add_meetup" component={AddMeetup} /> 
 // <Route exact={true} path="/delete" component={DeleteUser} /> 
