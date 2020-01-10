@@ -50,7 +50,8 @@ const userSchema = yup.object().shape({
                    .required('Email is required'),
   password:        yup
                    .string()
-                   .required(''),
+                   .required('')
+                   .min(10, 'Must be at least 10 characters'),
   confirmPassword: yup
                    .string()
                    .oneOf([yup.ref('password'), null], 'Passwords must match')
@@ -84,7 +85,7 @@ class AddAccount extends Component {
     console.log('values: ', values);
   
     apiRequest.post(
-      `${apiBaseUrl}/addaccount`,
+      `${apiBaseUrl}/createaccount`,
       values,
       jwtToken
     )
