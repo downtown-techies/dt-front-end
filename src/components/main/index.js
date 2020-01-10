@@ -13,12 +13,20 @@ import {
 } from 'react-router-dom';
 
 const jwtToken = localStorage.token;
-const {data} = jwt(jwtToken);
-const {
-  username,
-  accountId,
-  accountType
-} = data;
+
+let data
+  , username
+  , accountId
+  , accountType;
+
+if (jwtToken.length > 1){
+  const token = jwt(jwtToken);
+  const {data} = token;
+
+  username = data.username;
+  accountId = data.accountId;
+  accountType = data.accountType
+}
 
 // <Route exact={true} path="/nested_admin/add_meetup" component={AddMeetup} /> 
 // <Route exact={true} path="/delete" component={DeleteUser} /> 
