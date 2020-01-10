@@ -17,8 +17,6 @@ let initializeValues = {};
 const publicKey = process.env.REACT_APP_PUBLIC_KEY;
 
 const submitLogin = (values) => {
-  console.log(values);
-
   apiRequest.post(
     `${apiBaseUrl}/login`,
     values
@@ -26,9 +24,8 @@ const submitLogin = (values) => {
   .then(function (response) {
     const {data} = response;
     if (data && data.error){
-      console.log(data.message);
     } else if (response.status === 200 && data && !data.error){
-      const jwtKey = ( response.data && response.data.jwtKey ) || 'iEmpty';
+      const jwtKey = ( response.data ) || 'iEmpty';
       localStorage.setItem('token', jwtKey);
     }
   })
