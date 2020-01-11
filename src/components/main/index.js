@@ -30,14 +30,6 @@ if (jwtToken.length > 1){
   accountType = data.accountType
 }
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={(props) => (
-   jwtToken.length > 1 
-      ? <Component {...props} />
-      : <Redirect to='/login' />
-  )} />
-)
-
 const LoginHandler = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
    jwtToken.length > 1 
@@ -67,7 +59,6 @@ function Main() {
         <Switch>
           <Route exact={true} path="/signup" component={AddUser} /> 
           <Route exact={true} path="/addaccount" component={AddAccount} /> 
-          {/* <PrivateRoute exact={true} path="/delete-meetup" component={DeleteUserForm} /> */}
           <LoginHandler exact={true} path="/login" component={Login} />
           <LogoutHandler exact={true} path="/logout" component={LogoutSuccessful} />
           <Route exact={true} path="/" component={Landing} />

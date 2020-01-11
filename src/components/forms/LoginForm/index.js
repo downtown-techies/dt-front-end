@@ -13,7 +13,6 @@ import {
 } from './styles.js';
 
 import {
-  Route,
   Redirect
 } from 'react-router-dom';
 
@@ -33,10 +32,6 @@ const submitLogin = (values) => {
     } else if (response.status === 200 && data && !data.error){
       const jwtKey = ( response.data ) || 'iEmpty';
       localStorage.setItem('token', jwtKey);
-      console.log(true);
-      return  (
-        <Route render={() => ( <Redirect to='/' />)} />
-      )
     }
   })
   .catch(function (error) {
@@ -67,6 +62,9 @@ class LoginUser extends Component {
   }
 
   render() {
+    if(localStorage.token && localStorage.token.length > 1){
+      return <Redirect to='/' />
+    } else {
     return (
       <StyledLogin>
         <Formik
@@ -148,6 +146,7 @@ class LoginUser extends Component {
       </ StyledLogin>
     );
   }
+    }
 }
 
 export default LoginUser;
