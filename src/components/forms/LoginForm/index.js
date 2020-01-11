@@ -12,6 +12,12 @@ import {
   SubmitContainer
 } from './styles.js';
 
+import {
+  Route,
+  Redirect
+} from 'react-router-dom';
+
+
 let initializeValues = {};
 
 const publicKey = process.env.REACT_APP_PUBLIC_KEY;
@@ -27,6 +33,10 @@ const submitLogin = (values) => {
     } else if (response.status === 200 && data && !data.error){
       const jwtKey = ( response.data ) || 'iEmpty';
       localStorage.setItem('token', jwtKey);
+      console.log(true);
+      return  (
+        <Route render={() => ( <Redirect to='/' />)} />
+      )
     }
   })
   .catch(function (error) {

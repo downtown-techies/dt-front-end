@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Formik, Field } from 'formik';
+import { Formik } from 'formik';
 import Input from '../../shared/Input';
 import Label from '../../shared/Label';
-import Select from 'react-select';
 import ErrorHandler from '../../shared/ErrorHandler';
 import * as yup from 'yup';
 import { inputFields } from './fields.js';
@@ -11,7 +10,6 @@ import {
   StyledDeleteUser,
   StyledSubmit,
   SubmitContainer,
-  StyledRadioContainer
 } from './styles.js';
 
 const jwtToken = localStorage.token;
@@ -46,8 +44,6 @@ inputFields.map((field) => {
 });
 
 // YUP VALIDATIONS
-
-const zip = new RegExp(/^\d{5}([-]?\d{4})?$/);
 
 const userSchema = yup.object().shape({
   id: yup.string().required('Id is Required.'),

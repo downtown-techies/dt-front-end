@@ -2,9 +2,9 @@ import React from 'react';
 import Landing from '../Landing';
 import NotFound from '../NotFound';
 import Login from '../Login';
+import LogoutSuccessful from '../LogoutSuccessful';
 import AddUser from '../forms/AddUserForm';
 import AddAccount from '../forms/AddAccountForm';
-import DeleteUserForm from '../forms/DeleteUserForm';
 import jwt from 'jwt-decode';
 
 import {
@@ -38,6 +38,25 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   )} />
 )
 
+const LoginHandler = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={(props) => (
+   jwtToken.length > 1 
+      ? <Redirect to='/' />
+      : <Component {...props} />
+  )} />
+)
+
+const LogoutHandler = ({ component: Component, ...rest }) => {
+  localStorage.setItem('token', '');
+  return (
+  
+    <Route {...rest} render={(props) => (
+      <Component {...props} />
+    )} />
+  )
+}
+
+
 // <Route exact={true} path="/nested_admin/add_meetup" component={AddMeetup} /> 
 // <Route exact={true} path="/delete" component={DeleteUser} /> 
 
@@ -49,7 +68,8 @@ function Main() {
           <Route exact={true} path="/signup" component={AddUser} /> 
           <Route exact={true} path="/addaccount" component={AddAccount} /> 
           {/* <PrivateRoute exact={true} path="/delete-meetup" component={DeleteUserForm} /> */}
-          <Route exact={true} path="/login" component={Login} />
+          <LoginHandler exact={true} path="/login" component={Login} />
+          <LogoutHandler exact={true} path="/logout" component={LogoutSuccessful} />
           <Route exact={true} path="/" component={Landing} />
           <Route component={NotFound} />
         </Switch>

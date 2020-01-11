@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Formik, Field } from 'formik';
+import { Formik } from 'formik';
 import Input from '../../shared/Input';
 import Label from '../../shared/Label';
-import Select from 'react-select';
 import ErrorHandler from '../../shared/ErrorHandler';
 import ErrorModal from '../../modals/ErrorModal';
 import * as yup from 'yup';
