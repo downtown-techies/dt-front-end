@@ -39,19 +39,32 @@ const LoginHandler = ({ component: Component, ...rest }) => (
   )} />
 )
 
+const ProtectedRoute = ({ component: Component, ...rest }) => 
+{
+  return(
+  <Route {...rest} render={(props) => {
+      if (jwtToken.length > 1  && accountType === 'admin') {
+        return(
+          <Component {...props} />
+        )
+      } else {
+        return(
+          <Redirect to='/' />
+        )
+      }
+    }
+  } />
+  )
+}
+
 const LogoutHandler = ({ component: Component, ...rest }) => {
   localStorage.setItem('token', '');
   return (
-  
     <Route {...rest} render={(props) => (
       <Component {...props} />
     )} />
   )
 }
-
-
-// <Route exact={true} path="/nested_admin/add_meetup" component={AddMeetup} /> 
-// <Route exact={true} path="/delete" component={DeleteUser} /> 
 
 function Main() {
   return (
@@ -60,8 +73,8 @@ function Main() {
         <Switch>
           <Route exact={true} path="/signup" component={AddUser} /> 
           <Route exact={true} path="/addaccount" component={AddAccount} /> 
-          <Route exact={true} path="/delete_account" component={DeleteAccount} /> 
-          <Route exact={true} path="/delete_user" component={DeleteUser} /> 
+          <ProtectedRoute exact={true} path="/delete_account" component={DeleteAccount} /> 
+          <ProtectedRoute exact={true} path="/delete_user" component={DeleteUser} /> 
           <LoginHandler exact={true} path="/login" component={Login} />
           <LogoutHandler exact={true} path="/logout" component={LogoutSuccessful} />
           <Route exact={true} path="/" component={Landing} />
