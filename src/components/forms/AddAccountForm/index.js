@@ -84,7 +84,7 @@ class AddAccount extends Component {
     console.log('values: ', values);
   
     apiRequest.post(
-      `${apiBaseUrl}/createaccount`,
+      `${apiBaseUrl}/create_account`,
       values,
       jwtToken
     )

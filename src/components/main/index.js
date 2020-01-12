@@ -4,6 +4,8 @@ import NotFound from '../NotFound';
 import Login from '../Login';
 import LogoutSuccessful from '../LogoutSuccessful';
 import AddUser from '../forms/AddUserForm';
+import DeleteAccount from '../forms/DeleteAccountForm';
+import DeleteUser from '../forms/DeleteUserForm';
 import AddAccount from '../forms/AddAccountForm';
 import jwt from 'jwt-decode';
 
@@ -14,8 +16,7 @@ import {
   Redirect
 } from 'react-router-dom';
 
-const jwtToken = localStorage.token;
-
+const jwtToken = localStorage.token; 
 let data
   , username
   , accountId
@@ -59,6 +60,8 @@ function Main() {
         <Switch>
           <Route exact={true} path="/signup" component={AddUser} /> 
           <Route exact={true} path="/addaccount" component={AddAccount} /> 
+          <Route exact={true} path="/delete_account" component={DeleteAccount} /> 
+          <Route exact={true} path="/delete_user" component={DeleteUser} /> 
           <LoginHandler exact={true} path="/login" component={Login} />
           <LogoutHandler exact={true} path="/logout" component={LogoutSuccessful} />
           <Route exact={true} path="/" component={Landing} />

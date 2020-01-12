@@ -7,28 +7,30 @@ import * as yup from 'yup';
 import { inputFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../../helpers/api';
 import { 
-  StyledDeleteUser,
+  StyledDeleteAccount,
   StyledSubmit,
   SubmitContainer,
 } from './styles.js';
 
 const jwtToken = localStorage.token;
 
-const deleteUser = (values) => {
+const deleteAccount = (values) => {
   const { id } = JSON.parse(values);
 
   apiRequest.destroy(
-    `${apiBaseUrl}/users/${id}`,
+    `${apiBaseUrl}/delete_account/${id}`,
     jwtToken
   )
   .then(function (response) {
-    if (response.data && response.data) {
-      console.log('Deleted Successfully');
+    console.log(response);
+    if (response.data) {
+      alert('Deleted Successfully');
     } else {
-      console.log('Try again');
+      alert('Try again');
     };
   })
   .catch(function (error) {
+    console.log('error: ')
     console.log(error);
   })
 } 
@@ -44,7 +46,7 @@ inputFields.map((field) => {
 
 // YUP VALIDATIONS
 
-const userSchema = yup.object().shape({
+const accountSchema = yup.object().shape({
   id: yup.string().required('Id is Required.'),
 })
 
@@ -58,7 +60,7 @@ class DeleteUser extends Component {
 
   render() {
     return (
-      <StyledDeleteUser>
+      <StyledDeleteAccount>
         <Formik
           initialValues={ 
             {
@@ -71,11 +73,11 @@ class DeleteUser extends Component {
             });
           }}
           onSubmit={(values, { setSubmitting }) => {
-            deleteUser(JSON.stringify(values, null, 2));
+            deleteAccount(JSON.stringify(values, null, 2));
 
             setSubmitting(false);
           }}
-          validationSchema={userSchema}
+          validationSchema={accountSchema}
         >
           {
             ({
@@ -134,7 +136,7 @@ class DeleteUser extends Component {
             }
           }
         </Formik>
-      </ StyledDeleteUser>
+      </ StyledDeleteAccount>
     );
   }
 }
