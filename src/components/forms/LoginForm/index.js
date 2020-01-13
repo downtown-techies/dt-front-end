@@ -16,7 +16,6 @@ import {
   Redirect
 } from 'react-router-dom';
 
-
 let initializeValues = {};
 
 const publicKey = process.env.REACT_APP_PUBLIC_KEY;
@@ -57,9 +56,15 @@ class LoginUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formClean: true  
+      formClean: true,
+      submitting: false,
+      loginSuccessful: false,
     }
   }
+
+
+  // set state to false, on response set to true if true and render component to replace form
+  // or redirect
 
   render() {
     if(localStorage.token && localStorage.token.length > 1){
@@ -102,14 +107,14 @@ class LoginUser extends Component {
                 <form onSubmit={handleSubmit}>
                   {
                     inputFields.map((field) => {
-                      if (field.type === 'input') {
+                      if (field.type === 'input' || 'password') {
                         return (
                           <div key={field.label}>
                             <Label color='white'>
                               {field.displayName}
                             </Label>
                             <Input
-                              type='input'
+                              type={field.type}
                               name={field.label}
                               onChange={handleChange}
                               onBlur={handleBlur}

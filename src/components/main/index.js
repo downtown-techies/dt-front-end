@@ -75,7 +75,7 @@ function Main() {
           <Route exact={true} path="/addaccount" component={AddAccount} /> 
           <ProtectedRoute exact={true} path="/delete_account" component={DeleteAccount} /> 
           <ProtectedRoute exact={true} path="/delete_user" component={DeleteUser} /> 
-          <LoginHandler exact={true} path="/login" component={Login} />
+          <Route exact={true} path="/login" component={Login} />
           <LogoutHandler exact={true} path="/logout" component={LogoutSuccessful} />
           <Route exact={true} path="/" component={Landing} />
           <Route component={NotFound} />

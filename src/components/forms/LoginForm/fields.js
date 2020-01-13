@@ -8,7 +8,7 @@ const inputFields = [
     label: 'password',
     displayName: 'Password',
     initialValue: '',
-    type: 'input'
+    type: 'password'
   },
 ];
 
