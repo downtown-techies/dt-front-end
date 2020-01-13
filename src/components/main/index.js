@@ -4,6 +4,7 @@ import NotFound from '../NotFound';
 import Login from '../Login';
 import LogoutSuccessful from '../LogoutSuccessful';
 import AddUser from '../forms/AddUserForm';
+import Ticket from '../forms/TicketForm';
 import DeleteAccount from '../forms/DeleteAccountForm';
 import DeleteUser from '../forms/DeleteUserForm';
 import AddAccount from '../forms/AddAccountForm';
@@ -71,12 +72,13 @@ function Main() {
     <>
       <Router>
         <Switch>
-          <Route exact={true} path="/signup" component={AddUser} /> 
-          <Route exact={true} path="/addaccount" component={AddAccount} /> 
+          <Route exact={true} path="/add_account" component={AddAccount} /> 
           <ProtectedRoute exact={true} path="/delete_account" component={DeleteAccount} /> 
           <ProtectedRoute exact={true} path="/delete_user" component={DeleteUser} /> 
           <Route exact={true} path="/login" component={Login} />
           <LogoutHandler exact={true} path="/logout" component={LogoutSuccessful} />
+          <Route exact={true} path="/new_ticket" component={Ticket} /> 
+          <Route exact={true} path="/signup" component={AddUser} /> 
           <Route exact={true} path="/" component={Landing} />
           <Route component={NotFound} />
         </Switch>
