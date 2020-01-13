@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
 import Input from '../../shared/Input';
+import Text from '../../shared/Text';
 import Label from '../../shared/Label';
 import ErrorHandler from '../../shared/ErrorHandler';
+import ErrorResponseHandler from '../../shared/ErrorResponseHandler';
 import * as yup from 'yup';
 import { inputFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../../helpers/api';
@@ -20,23 +22,6 @@ let initializeValues = {};
 
 const publicKey = process.env.REACT_APP_PUBLIC_KEY;
 
-const submitLogin = (values) => {
-  apiRequest.post(
-    `${apiBaseUrl}/login`,
-    values
-  )
-  .then(function (response) {
-    const {data} = response;
-    if (data && data.error){
-    } else if (response.status === 200 && data && !data.error){
-      const jwtKey = ( response.data ) || 'iEmpty';
-      localStorage.setItem('token', jwtKey);
-    }
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
-}
 
 inputFields.map((field) => { 
   const label = field.label;
@@ -59,15 +44,42 @@ class LoginUser extends Component {
       formClean: true,
       submitting: false,
       loginSuccessful: false,
+      errorMessage: '',
+      errors: {},
     }
   }
 
-
-  // set state to false, on response set to true if true and render component to replace form
-  // or redirect
+  submitLogin = (values) => {
+    this.setState({
+      submitting: true
+    });
+    apiRequest.post(
+      `${apiBaseUrl}/login`,
+      values
+    )
+    .then((response) => {
+      const {data} = response;
+  
+      if (data && data.error && data.message){
+        this.setState({errorMessage: data.message});
+        this.setState({errors: data.error});
+        this.setState({submitting: false});
+      } else if (response.status === 200 && data && !data.error){
+        const jwtKey = ( response.data ) || 'iEmpty';
+        localStorage.setItem('token', jwtKey);
+        this.setState({loginSuccessful: true});
+        this.setState({submitting: false});
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  }
 
   render() {
     if(localStorage.token && localStorage.token.length > 1){
+      return <Redirect to='/' />
+    } else if (this.state.loginSuccessful) {
       return <Redirect to='/' />
     } else {
     return (
@@ -85,8 +97,7 @@ class LoginUser extends Component {
             });
           }}
           onSubmit={(values, { setSubmitting }) => {
-            submitLogin(JSON.stringify(values, null, 2));
-
+            this.submitLogin(JSON.stringify(values, null, 2));
             setSubmitting(false);
           }}
           validationSchema={userSchema}
@@ -133,14 +144,18 @@ class LoginUser extends Component {
                       }
                     })
                   }
-
+                  <ErrorResponseHandler
+                    value={this.state.errorMessage}
+                    color='red' 
+                    errors={this.state.errors} 
+                  />
                   <SubmitContainer>
                     <StyledSubmit 
                       buttonStyle='submit'
                       type='submit' 
                       disabled={isSubmitting || Object.keys(errors).length > 0 || this.state.formClean}
                     >
-                      Submit
+                      {this.state.submitting ? '...submitting' : 'Submit'}
                     </StyledSubmit>
                   </SubmitContainer>
                 </form>
