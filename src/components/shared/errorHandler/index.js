@@ -29,6 +29,7 @@ const ErrorHandler = ({
   if (errors 
     && errors[label] 
     && errors[label].length > 0
+    && value
     && value.length > 0) {
 
     return (

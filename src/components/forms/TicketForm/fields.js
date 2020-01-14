@@ -72,24 +72,6 @@ const inputFields = [
     initialValue: '',
     type: 'textarea'
   },
-  {
-    label: 'submitter_name',
-    displayName: 'Ticket Submitter Name',
-    initialValue: '',
-    type: 'input'
-  },
-  {
-    label: 'submitter_email',
-    displayName: 'Ticket Submitter Email',
-    initialValue: '',
-    type: 'input'
-  },
-  {
-    label: 'send_email',
-    displayName: 'Please send me a copy of this ticket',
-    initialValue: 'false',
-    type: 'radio'
-  },
   // {
   //   label: 'urgent',
   //   displayName: 'Is this project urgent?',
@@ -103,8 +85,23 @@ const inputFields = [
   //   type: 'radio'
   // },
 ];
+const toggleFields = [
+  {
+    label: 'submitter_name',
+    displayName: 'Ticket Submitter Name',
+    initialValue: '',
+    type: 'input'
+  },
+  {
+    label: 'submitter_email',
+    displayName: 'Ticket Submitter Email',
+    initialValue: '',
+    type: 'input'
+  },
+];
 
 export {
   inputFields,
+  toggleFields,
   hiddenFields
 };

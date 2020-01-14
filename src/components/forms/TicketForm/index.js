@@ -8,7 +8,11 @@ import ErrorHandler from '../../shared/ErrorHandler';
 import ErrorModal from '../../modals/ErrorModal';
 import Checkbox from './checkbox.js';
 import * as yup from 'yup';
-import { inputFields, hiddenFields } from './fields.js';
+import { 
+  inputFields, 
+  toggleFields, 
+  hiddenFields 
+} from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../../helpers/api';
 import { 
   StyledTicket,
@@ -38,19 +42,35 @@ hiddenFields.map((field) => {
 
 const zipFormat = new RegExp(/^\d{5}([-]?\d{4})?$/);
 
-const userSchema = yup.object().shape({
-  first_name: yup.string().required('Name is Required.'),
-  last_name: yup.string().required('Name is Required.'),
-  email: yup
+const ticketSchema = yup.object().shape({
+  point_of_contact: yup.string().required('Name is Required.'),
+  contact_email: yup
     .string()
     .email('Please Enter a valid Email')
-    .required('Email is Required.'),
-  postal_code: yup
+    .required('Contact email is Required.'),
+  gig_category: yup
     .string()
-    .matches(zipFormat, 'Please provide a valid postal code')
-    .required('Please provide a valid postal code')
-    .max(8,'Too long')
-    .min(5,'Too short'),
+    .required('is Required.'),
+  project_length: yup
+    .string()
+    .required('is Required.'),
+  project_description: yup
+    .string()
+    .required('Name is Required.')
+    .min(20, 'Description must be at least 20 characters'),
+  submitter_name: yup
+    .string()
+    .when("send_email_toggle", {
+      is: true,
+      then: yup.string().required('Name is required')
+    }),
+  submitter_email: yup
+    .string()
+    .email()
+    .when("send_email_toggle", {
+      is: true,
+      then: yup.string().required('Please Enter a valid Email')
+    })
 })
 
 class Ticket extends Component {
@@ -61,7 +81,8 @@ class Ticket extends Component {
       errors: false,
       message: '',
       responseStatus: '',
-      hidden: true
+      hidden: true,
+      showContactEmail: false 
     }
   }
 
@@ -72,21 +93,18 @@ class Ticket extends Component {
       errors: errors,
       message: message,
       responseStatus: responseStatus,
-      hidden: hidden
+      hidden: hidden,
+      contactTicketSubmitter: true,
     })
   }
   
-  submitNewUser = ( params ) => {
+  submitNewTicket = ( params ) => {
     const { values, handler } = params;
     apiRequest.post(
-      `${apiBaseUrl}/users`,
-      values,
-      jwtToken
+      `${apiBaseUrl}/tickets`,
+      values
     )
     .then(function (response) {
-      // console.log('data: ', response.data);
-      // console.log('userCreation: ', response.data.userCreation);
-  
       if (response.data && response.data.userCreation) {
         handler({message: 'Thanks for signing up! Look for a follow up email from us soon.', errors: false, hidden: false});
       } else if ( response.data && !response.data.userCreation && response.data.message === 'exists' ) {
@@ -119,11 +137,11 @@ class Ticket extends Component {
               });
             }}
             onSubmit={(values, { setSubmitting }) => {
-              this.submitNewUser({ values: JSON.stringify(values, null, 2), handler: this.responseHandler});
+              this.submitNewTicket({ values: JSON.stringify(values, null, 2), handler: this.responseHandler});
 
               setSubmitting(false);
             }}
-            // validationSchema={userSchema}
+            validationSchema={ticketSchema}
           >
             {
               ({
@@ -185,6 +203,13 @@ class Ticket extends Component {
                                   }
                                   onBlur={field.onBlur}
                                 />
+                                <ErrorHandler 
+                                  key={`error-${field.label}`}
+                                  value={values[field.label]}
+                                  color='red' 
+                                  label={field.label} 
+                                  errors={errors} 
+                                />
                               </StyledInputContainer>
                           )} else if (field.type === 'textarea') {
                             return (
@@ -207,20 +232,48 @@ class Ticket extends Component {
                                 errors={errors} 
                               />
                             </StyledInputContainer>
-                          )} else if (field.type === 'radio') {
-                            return (
-                              <StyledRadioContainer key={field.label}>
-                                <Field
-                                  initialValue={field.initialValue}
-                                  component={Checkbox}
-                                  name={field.label}
-                                  label={field.displayName}
-                                />
-                              </StyledRadioContainer>
                           )} else {
                           return null
                         }
                       })
+                    }
+                    <StyledRadioContainer>
+                      <Field
+                        component={Checkbox}
+                        onClick={(e) => this.setState({showContactEmail: !this.state.showContactEmail})}
+                        name='send_email_toggle'
+                        label='Please send me a copy of this ticket.'
+                      />
+                    </StyledRadioContainer>
+                    {
+                      this.state.showContactEmail ? (
+                        toggleFields.map((field) => {
+                          if (inputTypes.includes(field.type)) {
+                            return (
+                              <StyledInputContainer key={field.label}>
+                                <Label color='white'>
+                                  {field.displayName}
+                                </Label>
+                                <Input
+                                  type='input'
+                                  name={field.label}
+                                  onChange={handleChange}
+                                  onBlur={handleBlur}
+                                  value={values[field.label] || ''}
+                                />
+                                <ErrorHandler 
+                                  key={`error-${field.label}`}
+                                  value={values[field.label]}
+                                  color='red' 
+                                  label={field.label} 
+                                  errors={errors} 
+                                />
+                              </StyledInputContainer>
+                            )} else {
+                              return null
+                            }
+                        }) 
+                      ) : null
                     }
 
                     <SubmitContainer>

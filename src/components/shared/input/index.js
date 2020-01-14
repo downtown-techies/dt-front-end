@@ -17,6 +17,7 @@ const Input = ({
   type,
   name,
   onChange,
+  initialValue,
   onBlur,
   value
 }) =>  (
@@ -26,6 +27,7 @@ const Input = ({
     onChange={onChange}
     onBlur={onBlur}
     value={value}
+    initialValue={initialValue}
   />
 );
 
