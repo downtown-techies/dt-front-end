@@ -100,16 +100,15 @@ class Ticket extends Component {
   
   submitNewTicket = ( params ) => {
     const { values, handler } = params;
+    console.log(values);
     apiRequest.post(
       `${apiBaseUrl}/tickets`,
       values
     )
     .then(function (response) {
-      if (response.data && response.data.userCreation) {
+      if (response.data && response.data.ticketCreation) {
         handler({message: 'Thanks for submitting a ticket! Look for a follow up email from us soon.', errors: false, hidden: false});
-      } else if ( response.data && !response.data.userCreation && response.data.message === 'exists' ) {
-          handler({message: 'Looks like this ticket already exists!', errors: true, hidden: false});
-      } else if ( response.data && !response.data.userCreation && response.data.message === 'error' ) {
+      } else if ( response.data && !response.data.ticketCreation && response.data.message === 'error' ) {
         handler({message: 'Uh oh! Something went wrong, please resubmit!', errors: true, hidden: false});
       } 
     })

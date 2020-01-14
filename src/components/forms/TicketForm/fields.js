@@ -60,8 +60,8 @@ const inputFields = [
       {value: 'medium', label: '80-160 hours'},
       {value: 'large', label: '1 - 3 months'},
       {value: 'ongoing10', label: 'Ongoing 10 hours/week'},
-      {value: 'ongoing20  ', label: 'Ongoing 20 hours/week'},
-      {value: 'ongoing40  ', label: 'Ongoing 40 hours/week'},
+      {value: 'ongoing20', label: 'Ongoing 20 hours/week'},
+      {value: 'ongoing40', label: 'Ongoing 40 hours/week'},
     ],
     initialValue: [],
     type: 'multiSelect'
