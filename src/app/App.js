@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/subComponents/Header';
-import Main from '../components/Main';
+import Main from '../components/Main/index.js';
 import Footer from '../components/subComponents/Footer';
 
 // TODO: add SRI...subresource integrity or some additional security measure
