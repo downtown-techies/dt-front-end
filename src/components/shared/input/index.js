@@ -19,11 +19,13 @@ const Input = ({
   onChange,
   initialValue,
   onBlur,
+  customStyle,
   value
 }) =>  (
   <StyledInput 
     type={type}
     name={name}
+    style={customStyle}
     onChange={onChange}
     onBlur={onBlur}
     value={value}

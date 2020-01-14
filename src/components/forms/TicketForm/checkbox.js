@@ -4,6 +4,7 @@ import Label from '../../shared/Label';
 const Checkbox = ({
   field: { name, value, onChange, onBlur },
   onClick,
+  customStyle,
   form: { errors, touched, setFieldValue },
   id,
   label,
@@ -15,6 +16,7 @@ const Checkbox = ({
         name={name}
         type='checkbox'
         value={!!value}
+        style={customStyle}
         checked={!!value}
         onChange={onChange}
         onClick={onClick}

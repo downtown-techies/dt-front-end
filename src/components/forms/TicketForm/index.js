@@ -106,9 +106,9 @@ class Ticket extends Component {
     )
     .then(function (response) {
       if (response.data && response.data.userCreation) {
-        handler({message: 'Thanks for signing up! Look for a follow up email from us soon.', errors: false, hidden: false});
+        handler({message: 'Thanks for submitting a ticket! Look for a follow up email from us soon.', errors: false, hidden: false});
       } else if ( response.data && !response.data.userCreation && response.data.message === 'exists' ) {
-          handler({message: 'Looks like this user already exists!', errors: true, hidden: false});
+          handler({message: 'Looks like this ticket already exists!', errors: true, hidden: false});
       } else if ( response.data && !response.data.userCreation && response.data.message === 'error' ) {
         handler({message: 'Uh oh! Something went wrong, please resubmit!', errors: true, hidden: false});
       } 
@@ -241,6 +241,7 @@ class Ticket extends Component {
                       <Field
                         component={Checkbox}
                         onClick={(e) => this.setState({showContactEmail: !this.state.showContactEmail})}
+                        customStyle={{'position': 'relative', 'bottom': '2px'}}
                         name='send_email_toggle'
                         label='Please send me a copy of this ticket.'
                       />
