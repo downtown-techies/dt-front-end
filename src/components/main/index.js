@@ -23,7 +23,7 @@ let data
   , accountId
   , accountType;
 
-if (jwtToken.length > 1){
+if (jwtToken && jwtToken.length > 1){
   const token = jwt(jwtToken);
   const {data} = token;
 
@@ -34,7 +34,7 @@ if (jwtToken.length > 1){
 
 const LoginHandler = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
-   jwtToken.length > 1 
+   (jwtToken && jwtToken.length > 1)
       ? <Redirect to='/' />
       : <Component {...props} />
   )} />
@@ -44,7 +44,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) =>
 {
   return(
   <Route {...rest} render={(props) => {
-      if (jwtToken.length > 1  && accountType === 'admin') {
+      if (jwtToken && jwtToken.length > 1  && accountType === 'admin') {
         return(
           <Component {...props} />
         )
