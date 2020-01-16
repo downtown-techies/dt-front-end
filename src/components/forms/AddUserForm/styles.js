@@ -6,7 +6,7 @@ import Button from '../../shared/Button';
 
 const StyledAddUser = styled.div`
   width: 80%;
-  padding: 5vh 0;
+  padding: 5vh 0 25vh;
   min-height: 70vh;
   margin: 0 auto;
   @media (min-width: 1024px) {
