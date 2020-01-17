@@ -30,20 +30,26 @@ const MenuList= (props) => {
       accountId = data.accountId;
       accountType = data.accountType
     }
-    console.log('username: ', username);
+
+    const loggedIn = jwtToken && jwtToken.length > 1;
 
     return menuItems.map((item) => {
-      console.log('accountType: ', accountType);
       if (item) {
         const {
           key, 
           href, 
+          checkLogin=false, 
+          openAccess=true,
           access='user', 
           target='_self', 
           rel='noopener noreferrer',
           linkText,
         } = item;
-        if (access !== 'user' && access === accountType) {
+
+        if (
+          (access !== 'user' && access === accountType)
+          || (openAccess && checkLogin !== loggedIn) 
+        ) {
           return (
             <MenuLink
               key={key}
@@ -57,22 +63,7 @@ const MenuList= (props) => {
               </span>
             </MenuLink>
           )
-        } else if (access !== 'user' && access !== accountType) {
-          return null
-        } else if (access === 'user') {
-        return (
-          <MenuLink
-            key={key}
-            href={href}
-            access={access}
-            target={target}
-            rel={rel}
-           >
-            <span>
-              {linkText}
-            </span>
-          </MenuLink>
-        )}
+        } else{return null}
       } else {return null}
     });
   }

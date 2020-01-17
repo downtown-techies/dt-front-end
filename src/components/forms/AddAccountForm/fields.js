@@ -1,7 +1,7 @@
 const hiddenFields = [
   {
     label: 'type',
-    value: 'user'
+    value: 'admin'
   }
 ]
 

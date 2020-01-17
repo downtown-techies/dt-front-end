@@ -7,6 +7,7 @@ import AddUser from '../forms/AddUserForm';
 import Ticket from '../forms/TicketForm';
 import DeleteAccount from '../forms/DeleteAccountForm';
 import DeleteUser from '../forms/DeleteUserForm';
+import Admin from '../Admin';
 import AddAccount from '../forms/AddAccountForm';
 import jwt from 'jwt-decode';
 
@@ -73,6 +74,7 @@ function Main() {
       <Router>
         <Switch>
           <Route exact={true} path="/add_account" component={AddAccount} /> 
+          <ProtectedRoute exact={true} path="/admin" component={Admin} /> 
           <ProtectedRoute exact={true} path="/delete_account" component={DeleteAccount} /> 
           <ProtectedRoute exact={true} path="/delete_user" component={DeleteUser} /> 
           <Route exact={true} path="/login" component={Login} />

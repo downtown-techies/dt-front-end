@@ -26,7 +26,6 @@ const ErrorResponseHandler = ({
   className,
   ...rest
 }) => {
-  console.log(errors);
   if (errors) {
     return (
       <StyledError

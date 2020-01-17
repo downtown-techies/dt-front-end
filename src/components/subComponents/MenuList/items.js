@@ -17,11 +17,13 @@ export const menuItems = [
     'linkText': 'Create Account',
   },
   {
+    'checkLogin': true,
     'key': 'login',
     'href': '/login',
     'linkText': 'Login',
   },
   {
+    'openAccess': false,
     'key': 'admin',
     'href': '/admin',
     'linkText': 'Admin',

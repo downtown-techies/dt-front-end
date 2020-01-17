@@ -81,7 +81,6 @@ class AddAccount extends Component {
 
   submitNewAccount = ( params ) => {
     const { values, handler } = params;
-    console.log('values: ', values);
   
     apiRequest.post(
       `${apiBaseUrl}/create_account`,
@@ -105,7 +104,6 @@ class AddAccount extends Component {
 
   render() {
     const { errors, message, responseStatus, hidden } = this.state;
-    console.log(this.state);
 
     return (
       <>

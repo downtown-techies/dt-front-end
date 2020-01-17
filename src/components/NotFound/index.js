@@ -6,7 +6,7 @@ import badPathImage from '../../assets/images/404.png';
 const StyledNotFound = styled.div`
 `;
 
-class notFound extends Component {
+class NotFound extends Component {
   render() {
     return (
       <StyledNotFound>
@@ -16,4 +16,4 @@ class notFound extends Component {
   }
 }
 
-export default notFound;
+export default NotFound;
