@@ -7,8 +7,8 @@ import {
 import Link from '../../shared/Link';
 import theme from '../../../theme/primaryTheme';
 import SvgIcon from '../../../assets/svgs'; 
-import { items } from '../MenuWrapper/items';
-import '../MenuWrapper/styles.css';
+import MenuList from '../MenuList';
+import '../MenuList/styles.css';
 import { slide as Menu } from 'react-burger-menu'
 
 class Header extends Component {
@@ -80,7 +80,7 @@ class Header extends Component {
           right
           width={ '340px' }
         >
-          {items}
+        <MenuList />
         </Menu>
       </>
     );

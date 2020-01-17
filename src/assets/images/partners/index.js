@@ -7,3 +7,4 @@ export const wral = require('./WRALTechWireSiteLogo.png');
 export const grove = require('./groveLogo.png');
 export const peel = require('./peelLogo.png');
 export const trinet = require('./trinetLogo.png');
+export const wyeHill = require('./wyeHillLogo.png');
