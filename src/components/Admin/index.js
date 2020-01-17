@@ -8,6 +8,7 @@ class Admin extends Component {
     return (
       <>
         <Link color='white' address='/admin/user_list'>Click to see users</Link>
+        <Link color='white' address='/admin/ticket_list'>Click to see tickets</Link>
       </>
     );
   }
