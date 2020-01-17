@@ -32,7 +32,6 @@ const MenuList= (props) => {
     }
 
     const loggedIn = jwtToken && jwtToken.length > 1 ? true : false;
-    console.log(loggedIn);
 
     return menuItems.map((item) => {
       if (item) {

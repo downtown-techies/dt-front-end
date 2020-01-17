@@ -2,6 +2,7 @@ import React from 'react';
 import Landing from '../Landing';
 import NotFound from '../NotFound';
 import Login from '../Login';
+import UserList from '../UserList';
 import LogoutSuccessful from '../LogoutSuccessful';
 import AddUser from '../forms/AddUserForm';
 import Ticket from '../forms/TicketForm';
@@ -75,6 +76,7 @@ function Main() {
         <Switch>
           <Route exact={true} path="/add_account" component={AddAccount} /> 
           <ProtectedRoute exact={true} path="/admin" component={Admin} /> 
+          <ProtectedRoute exact={true} path="/admin/user_list" component={UserList} /> 
           <ProtectedRoute exact={true} path="/delete_account" component={DeleteAccount} /> 
           <ProtectedRoute exact={true} path="/delete_user" component={DeleteUser} /> 
           <Route exact={true} path="/login" component={Login} />
