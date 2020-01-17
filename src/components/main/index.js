@@ -3,6 +3,7 @@ import Landing from '../Landing';
 import NotFound from '../NotFound';
 import Login from '../Login';
 import UserList from '../UserList';
+import TicketList from '../TicketList';
 import LogoutSuccessful from '../LogoutSuccessful';
 import AddUser from '../forms/AddUserForm';
 import Ticket from '../forms/TicketForm';
@@ -33,14 +34,6 @@ if (jwtToken && jwtToken.length > 1){
   accountId = data.accountId;
   accountType = data.accountType
 }
-
-const LoginHandler = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={(props) => (
-   (jwtToken && jwtToken.length > 1)
-      ? <Redirect to='/' />
-      : <Component {...props} />
-  )} />
-)
 
 const ProtectedRoute = ({ component: Component, ...rest }) => 
 {
@@ -83,6 +76,7 @@ function Main() {
           <LogoutHandler exact={true} path="/logout" component={LogoutSuccessful} />
           <Route exact={true} path="/new_ticket" component={Ticket} /> 
           <Route exact={true} path="/signup" component={AddUser} /> 
+          <ProtectedRoute exact={true} path="/admin/ticket_list" component={TicketList} /> 
           <Route exact={true} path="/" component={Landing} />
           <Route component={NotFound} />
         </Switch>

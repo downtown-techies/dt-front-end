@@ -48,6 +48,9 @@ const ticketSchema = yup.object().shape({
     .string()
     .email('Please Enter a valid Email')
     .required('Contact email is Required.'),
+  contact_category: yup
+    .string()
+    .required('is Required.'),
   gig_category: yup
     .string()
     .required('is Required.'),

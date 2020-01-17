@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
+import jwt from 'jwt-decode';
 import Input from '../../shared/Input';
 import Text from '../../shared/Text';
 import Label from '../../shared/Label';
@@ -42,6 +43,7 @@ class LoginUser extends Component {
     super(props);
     this.state = {
       formClean: true,
+      accountType: 'user',
       submitting: false,
       loginSuccessful: false,
       errorMessage: '',
@@ -65,10 +67,20 @@ class LoginUser extends Component {
         this.setState({errors: data.error});
         this.setState({submitting: false});
       } else if (response.status === 200 && data && !data.error){
-        const jwtKey = ( response.data ) || 'iEmpty';
+        const jwtKey = ( response.data ) || '';
         localStorage.setItem('token', jwtKey);
+
+        const token = jwt(jwtKey);
+        const {data} = token;
+
+        this.setState({accountType: data.accountType});
         this.setState({loginSuccessful: true});
         this.setState({submitting: false});
+        if (data.accountType === 'admin') {
+          return <Redirect to='/admin' />
+        } else{
+          return <Redirect to='/' />
+        }
       }
     })
     .catch(function (error) {
@@ -77,10 +89,13 @@ class LoginUser extends Component {
   }
 
   render() {
+    console.log(this.state.accountType === 'admin'); 
     if(localStorage.token && localStorage.token.length > 1){
-      return <Redirect to='/' />
-    } else if (this.state.loginSuccessful) {
-      return <Redirect to='/' />
+      if (this.state.accountType === 'admin') {
+        return <Redirect to='/admin' />
+      } else{
+        return <Redirect to='/' />
+      }
     } else {
     return (
       <StyledLogin>

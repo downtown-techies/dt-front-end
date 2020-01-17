@@ -20,7 +20,20 @@ const inputFields = [
   },
   {
     label: 'gig_category',
-    displayName: 'I am a(n)...',
+    displayName: 'My role in the project is...',
+    options: [
+      {value: 'founder', label: 'Founder'},
+      {value: 'executive', label: 'Executive'},
+      {value: 'projectManager', label: 'Project Manager'},
+      {value: 'developer', label: 'Developer'},
+      {value: 'partner', label: 'Partner'},
+    ],
+    initialValue: [],
+    type: 'multiSelect'
+  },
+  {
+    label: 'contact_category',
+    displayName: 'Contact\'s role in the project is...',
     options: [
       {value: 'founder', label: 'Founder'},
       {value: 'executive', label: 'Executive'},
