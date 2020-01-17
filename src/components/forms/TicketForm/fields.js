@@ -68,7 +68,7 @@ const inputFields = [
   },
   {
     label: 'project_description',
-    displayName: 'Project Scope/Description',
+    displayName: 'Describe the project',
     initialValue: '',
     type: 'textarea'
   },

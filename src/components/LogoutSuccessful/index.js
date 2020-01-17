@@ -8,7 +8,7 @@ const StyledLogout = styled.div`
   min-height: calc(80vh - 17rem);
 `;
 
-class notFound extends Component {
+class Logout extends Component {
   render() {
     return (
       <StyledLogout>
@@ -18,4 +18,4 @@ class notFound extends Component {
   }
 }
 
-export default notFound;
+export default Logout;

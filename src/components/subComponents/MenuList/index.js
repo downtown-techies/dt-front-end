@@ -31,14 +31,16 @@ const MenuList= (props) => {
       accountType = data.accountType
     }
 
-    const loggedIn = jwtToken && jwtToken.length > 1;
+    const loggedIn = jwtToken && jwtToken.length > 1 ? true : false;
+    console.log(loggedIn);
 
     return menuItems.map((item) => {
       if (item) {
         const {
           key, 
           href, 
-          checkLogin=false, 
+          flagLogin=false, 
+          flagLogout=false, 
           openAccess=true,
           access='user', 
           target='_self', 
@@ -48,7 +50,9 @@ const MenuList= (props) => {
 
         if (
           (access !== 'user' && access === accountType)
-          || (openAccess && checkLogin !== loggedIn) 
+          || (openAccess && flagLogin !== loggedIn && flagLogout === loggedIn) 
+          || (openAccess && flagLogin === loggedIn && flagLogout === loggedIn) 
+          || (openAccess && flagLogin !== loggedIn && flagLogout !== loggedIn) 
         ) {
           return (
             <MenuLink

@@ -17,10 +17,16 @@ export const menuItems = [
     'linkText': 'Create Account',
   },
   {
-    'checkLogin': true,
+    'flagLogin': true,
     'key': 'login',
     'href': '/login',
     'linkText': 'Login',
+  },
+  {
+    'flagLogout': true,
+    'key': 'logout',
+    'href': '/logout',
+    'linkText': 'Logout',
   },
   {
     'openAccess': false,
