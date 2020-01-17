@@ -47,7 +47,7 @@ const TicketList= (props) => {
           point_of_contact: pointOfContact, contact_email: contactEmail,
           gig_category: relationship, technical_requirements: technicalRequirements,
           project_length: projectLength, project_descriptiopn: projectDescription,
-          createdAt, contact_category: contactRelationship,
+          createdAt, contact_category: contactRelationship, complete
         } = ticket;
 
         return (
@@ -101,6 +101,11 @@ const TicketList= (props) => {
             {createdAt ? (
               <>
                 <Text color='white'>Ticket Submitted: {createdAt}</Text>
+              </>
+            ) : (null)}
+            {complete ? (
+              <>
+                <Text color='white'>Complete: {complete}</Text>
               </>
             ) : (null)}
           </TicketCard>
