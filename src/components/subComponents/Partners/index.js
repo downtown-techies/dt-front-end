@@ -9,6 +9,7 @@ import {
   vaco, 
   weWork, 
   whereScape, 
+  wyeHill,
   wral, 
   grove, 
 } from '../../../assets/images/partners';
@@ -30,7 +31,7 @@ class Partners extends Component {
           <Link name='Vaco'
             linkStyle='partners'
             target='_blank'
-            address='https://www.wework.com/buildings/one-glenwood--raleigh-durham?utm_campaign=1671323444&utm_term=64824353716&utm_content=341253445376&utm_source=ads-google&utm_medium=cpc&gclsrc=aw.ds&&gclid=EAIaIQobChMIn9D-86aK4gIVilMNCh3yMAWJEAAYASAAEgLMIfD_BwE&gclsrc=aw.ds'>
+            address='https://www.vaco.com/'>
             <Image src={vaco} alt={'vaco-logo'} />
           </ Link>
           <Link name='groveCollaborative' 
@@ -42,7 +43,7 @@ class Partners extends Component {
           <Link name='hackathonJr'
             linkStyle='partners'
             target='_blank'
-            address='https://www.wework.com/buildings/one-glenwood--raleigh-durham?utm_campaign=1671323444&utm_term=64824353716&utm_content=341253445376&utm_source=ads-google&utm_medium=cpc&gclsrc=aw.ds&&gclid=EAIaIQobChMIn9D-86aK4gIVilMNCh3yMAWJEAAYASAAEgLMIfD_BwE&gclsrc=aw.ds'>
+            address='https://www.hackathonjr.com'>
             <Image src={hackathonJr} alt={'hackathon-jr-logo'} />
           </ Link>
           <Link name='insightSoftware'
@@ -57,17 +58,17 @@ class Partners extends Component {
             address='https://www.wherescape.com'>
             <Image src={whereScape} alt={'wherescape-logo'} />
           </ Link>
+          <Link name='wyeHill'
+            linkStyle='partners'
+            target='_blank'
+            address='https://www.wyehill.com/'>
+            <Image src={wyeHill} alt={'wyeHill-logo'} />
+          </ Link>
           <Link name='wralTechWire'
             linkStyle='partners'
             target='_blank'
             address='https://www.wraltechwire.com/'>
             <Image src={wral} alt={'wral-techwire-logo'} />
-          </ Link>
-          <Link name='peel'
-            linkStyle='partners'
-            target='_blank'
-            address='https://www.peel.today/'>
-            <Image src={peel} alt={'peel-logo'} />
           </ Link>
           <Link name='trinet'
             linkStyle='partners'
