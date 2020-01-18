@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import theme from '../../../theme/primaryTheme';
+import React from 'react';
 import { menuItems } from './items';
 import jwt from 'jwt-decode';
 import { 
@@ -17,17 +16,13 @@ const MenuList= (props) => {
   // }, []);
 
   const MenuList = (params) => {
-    let username
-      , accountId
-      , accountType;
+    let accountType;
     const {menuItems, jwtToken} = params;
     
     if (jwtToken && jwtToken.length > 1){
       const token = jwt(jwtToken);
       const {data} = token;
     
-      username = data.username;
-      accountId = data.accountId;
       accountType = data.accountType
     }
 

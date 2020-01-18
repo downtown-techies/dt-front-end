@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Image from '../../shared/Image';
 import Link from '../../shared/Link';
 import {
-  peel, 
   trinet, 
   hackathonJr, 
   insight, 

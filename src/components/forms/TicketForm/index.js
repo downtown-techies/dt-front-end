@@ -24,7 +24,6 @@ import {
 
 let hiddenValues = {};
 let initializeValues = {};
-const jwtToken = localStorage.token;
 
 inputFields.map((field) => { 
   const label = field.label;
@@ -39,8 +38,6 @@ hiddenFields.map((field) => {
 
   return hiddenValues[label] = value;
 });
-
-const zipFormat = new RegExp(/^\d{5}([-]?\d{4})?$/);
 
 const ticketSchema = yup.object().shape({
   point_of_contact: yup.string().required('Name is Required.'),

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import styled from '../../theme';
-import Text from '../shared/Text';
 import Link from '../shared/Link';
 
 class Admin extends Component {

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
-import Link from '../shared/Link';
 import Text from '../shared/Text';
 import theme from '../../theme/primaryTheme';
 import { 
   ListContainer,
-  ImageContainer,
   TicketCard,
   StyledTicketList,
   HeaderWrapper, 
@@ -43,7 +41,7 @@ const TicketList= (props) => {
       const list = data.map((ticket) => {
         console.log(ticket);
         const {
-          submitter_name: submitterName, submitter_email: submitterEmail, id,
+          submitter_name: submitterName, submitter_email: submitterEmail,
           point_of_contact: pointOfContact, contact_email: contactEmail,
           gig_category: relationship, technical_requirements: technicalRequirements,
           project_length: projectLength, project_descriptiopn: projectDescription,

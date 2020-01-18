@@ -1,108 +1,68 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
-import jwt from 'jwt-decode';
 import Input from '../../shared/Input';
 import Label from '../../shared/Label';
 import ErrorHandler from '../../shared/ErrorHandler';
-import ErrorResponseHandler from '../../shared/ErrorResponseHandler';
 import * as yup from 'yup';
 import { inputFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../../helpers/api';
 import { 
-  StyledLogin,
+  StyledUpdateUser,
   StyledSubmit,
-  SubmitContainer
+  SubmitContainer,
 } from './styles.js';
 
-import {
-  Redirect
-} from 'react-router-dom';
+const jwtToken = localStorage.token;
+
+const updateUser = (values) => {
+  const { id } = JSON.parse(values);
+
+  apiRequest.post(
+    `${apiBaseUrl}/users/${id}`,
+    jwtToken
+  )
+  .then(function (response) {
+    if (response.data && response.data) {
+      console.log('Updated Successfully');
+    } else {
+      console.log('Try again');
+    };
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+} 
 
 let initializeValues = {};
-
-const publicKey = process.env.REACT_APP_PUBLIC_KEY;
-
 
 inputFields.map((field) => { 
   const label = field.label;
   const initialValue = field.initialValue || '';
+
   return initializeValues[label] = initialValue;
 });
 
-const hiddenValues = {'key': publicKey };
-
 // YUP VALIDATIONS
+
 const userSchema = yup.object().shape({
-  username: yup.string().required('Username is Required.'),
-  password: yup.string().required('Password is Required.'),
+  id: yup.string().required('Id is Required.'),
 })
 
-class LoginUser extends Component {
+class UpdateUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formClean: true,
-      accountType: 'user',
-      submitting: false,
-      loginSuccessful: false,
-      errorMessage: '',
-      errors: {},
+      formClean: true  
     }
   }
 
-  submitLogin = (values) => {
-    this.setState({
-      submitting: true
-    });
-    apiRequest.post(
-      `${apiBaseUrl}/login`,
-      values
-    )
-    .then((response) => {
-      const {data} = response;
-  
-      if (data && data.error && data.message){
-        this.setState({errorMessage: data.message});
-        this.setState({errors: data.error});
-        this.setState({submitting: false});
-      } else if (response.status === 200 && data && !data.error){
-        const jwtKey = ( response.data ) || '';
-        localStorage.setItem('token', jwtKey);
-
-        const token = jwt(jwtKey);
-        const {data} = token;
-
-        this.setState({accountType: data.accountType});
-        this.setState({loginSuccessful: true});
-        this.setState({submitting: false});
-        if (data.accountType === 'admin') {
-          return <Redirect to='/admin' />
-        } else{
-          return <Redirect to='/' />
-        }
-      }
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-  }
-
   render() {
-    console.log(this.state.accountType === 'admin'); 
-    if(localStorage.token && localStorage.token.length > 1){
-      if (this.state.accountType === 'admin') {
-        return <Redirect to='/admin' />
-      } else{
-        return <Redirect to='/' />
-      }
-    } else {
     return (
-      <StyledLogin>
+      <StyledUpdateUser>
         <Formik
           initialValues={ 
             {
-              ...initializeValues,
-              ...hiddenValues
+              ...initializeValues
             }
           }
           validate={values => {
@@ -111,7 +71,8 @@ class LoginUser extends Component {
             });
           }}
           onSubmit={(values, { setSubmitting }) => {
-            this.submitLogin(JSON.stringify(values, null, 2));
+            updateUser(JSON.stringify(values, null, 2));
+
             setSubmitting(false);
           }}
           validationSchema={userSchema}
@@ -132,14 +93,14 @@ class LoginUser extends Component {
                 <form onSubmit={handleSubmit}>
                   {
                     inputFields.map((field) => {
-                      if (field.type === 'input' || 'password') {
+                      if (field.type === 'input') {
                         return (
                           <div key={field.label}>
                             <Label color='white'>
                               {field.displayName}
                             </Label>
                             <Input
-                              type={field.type}
+                              type='input'
                               name={field.label}
                               onChange={handleChange}
                               onBlur={handleBlur}
@@ -158,18 +119,14 @@ class LoginUser extends Component {
                       }
                     })
                   }
-                  <ErrorResponseHandler
-                    value={this.state.errorMessage}
-                    color='red' 
-                    errors={this.state.errors} 
-                  />
+
                   <SubmitContainer>
                     <StyledSubmit 
                       buttonStyle='submit'
                       type='submit' 
                       disabled={isSubmitting || Object.keys(errors).length > 0 || this.state.formClean}
                     >
-                      {this.state.submitting ? '...submitting' : 'Submit'}
+                      Submit
                     </StyledSubmit>
                   </SubmitContainer>
                 </form>
@@ -177,10 +134,9 @@ class LoginUser extends Component {
             }
           }
         </Formik>
-      </ StyledLogin>
+      </ StyledUpdateUser>
     );
   }
-    }
 }
 
-export default LoginUser;
+export default UpdateUser;
