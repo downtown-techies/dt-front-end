@@ -16,9 +16,10 @@ const jwtToken = localStorage.token;
 
 const updateUser = (values) => {
   const { id } = JSON.parse(values);
+  console.log(values);
 
   apiRequest.post(
-    `${apiBaseUrl}/users/${id}`,
+    `${apiBaseUrl}/users/update/${id}`,
     jwtToken
   )
   .then(function (response) {
