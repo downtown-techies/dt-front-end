@@ -10,11 +10,6 @@ import {
 const MenuList= (props) => {
   const jwtToken = localStorage.token;
 
-  // const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  // }, []);
-
   const MenuList = (params) => {
     let accountType;
     const {menuItems, jwtToken} = params;

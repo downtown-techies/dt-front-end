@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
 import Text from '../shared/Text';
+import Link from '../shared/Link';
 import theme from '../../theme/primaryTheme';
 import { 
   ListContainer,
@@ -13,6 +14,7 @@ const jwtToken = localStorage.token;
 
 const UserInfo= (props) => {
   const [data, setData] = useState({});
+  const [accountId, setAccountid] = useState(null);
 
   useEffect(() => {
     getUserInfo();
@@ -26,6 +28,9 @@ const UserInfo= (props) => {
     .then(function (response) {
       if (response.status === 200){
         setData(response.data);
+        const {account_id: accountId} = response.data;
+
+        if(accountId !== null){setAccountid(accountId)}
       } else {
         console.log(response.status);
       };
@@ -37,7 +42,6 @@ const UserInfo= (props) => {
 
   const UserInfo = (data) => {
     if ( data !== {} ) {
-      console.log('inside');
         const {
           id, account_id: accountId, active, address_line_1: addressLineOne, 
           address_line_2: addressLineTwo, address_line_3: addressLineThree, 
@@ -47,6 +51,7 @@ const UserInfo= (props) => {
           opt_in: optIn, follow_up: followUp, intro_description: intro, location, 
           createdAt, gig_category: category, type
         } = data;
+
 
         const name = `${firstName} ${lastName}`;
 
@@ -102,6 +107,7 @@ const UserInfo= (props) => {
           <Text tag='h3' color={theme.colors.accent} textStyle='callToAction'>Users</Text> 
         </ HeaderWrapper>
         {UserInfo(data)}
+        <Link address={`/user_update/${accountId}`} color='white' target='_self'>Foo</Link>
       </StyledUserInfo>
     </>
   )

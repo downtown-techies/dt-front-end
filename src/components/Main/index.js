@@ -74,7 +74,7 @@ function Main() {
           <LogoutHandler exact={true} path="/logout" component={LogoutSuccessful} />
           <Route exact={true} path="/new_ticket" component={Ticket} /> 
           <Route exact={true} path="/signup" component={AddUser} /> 
-          <Route exact={true} path="/user_update" component={UpdateUser} /> 
+          <Route exact={true} path="/user_update/:id" component={UpdateUser} /> 
           <ProtectedRoute exact={true} path="/user_delete" component={DeleteUser} /> 
           <Route exact={true} path="/user/account_info/:id" component={UserInfo} /> 
           <Route exact={true} path="/" component={Landing} />
