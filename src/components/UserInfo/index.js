@@ -39,18 +39,19 @@ const UserInfo= (props) => {
     if ( data !== {} ) {
       console.log('inside');
         const {
-          id, account_id, active, address_line_1: addressLineOne, address_line_2: addressLineTwo, 
-          address_line_3: addressLineThree, address_line_4: addressLineFour, city, state,
-          first_name: firstName, last_name: lastName, email, type, state_abbr, 
-          postal_code: postalCode, preferred_contact: preferredContact, ph_number: phoneNumber,
-          website, opt_in: optIn, follow_up: followUp, intro_description: intro,
-          location, createdAt, gig_category: category
+          id, account_id: accountId, active, address_line_1: addressLineOne, 
+          address_line_2: addressLineTwo, address_line_3: addressLineThree, 
+          address_line_4: addressLineFour, city, state, first_name: firstName, 
+          last_name: lastName, email, state_abbr: stateAbbr, postal_code: postalCode, 
+          preferred_contact: preferredContact, ph_number: phoneNumber, website, 
+          opt_in: optIn, follow_up: followUp, intro_description: intro, location, 
+          createdAt, gig_category: category, type
         } = data;
 
         const name = `${firstName} ${lastName}`;
 
-        console.log(name);
-        console.log(data);
+        const address = (addressLineOne !== null || city !== null || stateAbbr !== null || postalCode !== null) ? 
+          `${addressLineOne} ${city}, ${stateAbbr} ${postalCode}` : null;
 
         return (
           <UserCard key={`${name}-${id}`}>
@@ -58,6 +59,31 @@ const UserInfo= (props) => {
             {category ? (
               <>
                 <Text color='white'>Category: {category}</Text>
+              </>
+            ) : (null)}
+            {accountId ? (
+              <>
+                <Text color='white'>AccountId: {`1005${accountId}`}</Text>
+              </>
+            ) : (null)}
+            {( addressLineOne || addressLineTwo || addressLineThree || addressLineFour) ? 
+              (
+                <>
+                  {(addressLineOne) ? (<><Text color='white'>Address Line 1: {addressLineOne}</Text><br/></>) : null}
+                  {(addressLineTwo) ? (<><Text color='white'>Address Line 2: {addressLineTwo}</Text><br/></>) : null}
+                  {(addressLineThree) ? (<><Text color='white'>Address Line 3: {addressLineThree}</Text><br/></>) : null}
+                  {(addressLineFour) ? (<><Text color='white'>Address Line 4: {addressLineFour}</Text><br/></>) : null}
+                </>
+              ) : null
+            }
+            {postalCode? (
+              <>
+                <Text color='white'>Postal Code: {postalCode}</Text>
+              </>
+            ) : (null)}
+            {createdAt ? (
+              <>
+                <Text color='white'>Member Since: {createdAt}</Text>
               </>
             ) : (null)}
           </UserCard>
