@@ -12,21 +12,20 @@ import {
 const jwtToken = localStorage.token;
 
 const UserInfo= (props) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
 
   useEffect(() => {
-    getUsers();
+    getUserInfo();
   }, []);
 
-  const getUsers = () => {
+  const getUserInfo = () => {
     apiRequest.get(
-      `${apiBaseUrl}/users`,
+      `${apiBaseUrl}/user/account_info/2`,
       jwtToken
     )
     .then(function (response) {
       if (response.status === 200){
-        console.log(response);
-        setData(...data, response.data);
+        setData(response.data);
       } else {
         console.log(response.status);
       };
@@ -37,46 +36,33 @@ const UserInfo= (props) => {
   }
 
   const UserInfo = (data) => {
-    if ( data.length > 0 ) {
-      const list = data.map((user) => {
+    if ( data !== {} ) {
+      console.log('inside');
         const {
-          name, postal_code: postalCode,
-          gig_needs: needs, gig_category: category, skills
-        } = user;
+          id, account_id, active, address_line_1: addressLineOne, address_line_2: addressLineTwo, 
+          address_line_3: addressLineThree, address_line_4: addressLineFour, city, state,
+          first_name: firstName, last_name: lastName, email, type, state_abbr, 
+          postal_code: postalCode, preferred_contact: preferredContact, ph_number: phoneNumber,
+          website, opt_in: optIn, follow_up: followUp, intro_description: intro,
+          location, createdAt, gig_category: category
+        } = data;
+
+        const name = `${firstName} ${lastName}`;
+
+        console.log(name);
+        console.log(data);
 
         return (
-          <UserCard key={`${user.name}-${user.id}`}>
+          <UserCard key={`${name}-${id}`}>
             <Text tag='h3' textStyle='big' color='white'>{name ? name : 'empty'}</Text>
-            {postalCode ? (
-              <>
-                <Text color='white'>Postal Code: {postalCode}</Text>
-              </>
-            ) : (null)}
-            {skills ? (
-              <>
-                <Text color='white'>Skills: {skills}</Text>
-              </>
-            ) : (null)}
             {category ? (
               <>
                 <Text color='white'>Category: {category}</Text>
               </>
             ) : (null)}
-            {needs ? (
-              <>
-                <Text color='white'>Needs: {needs}</Text>
-              </>
-            ) : (null)}
           </UserCard>
         )
-      });
-
-      return (
-        <ListContainer>
-          {list}
-        </ListContainer>
-      )
-    } else { return (
+      } else { return (
       <>
         <Text tag='p'>List is empty, please</Text>
       </>

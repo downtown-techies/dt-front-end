@@ -76,7 +76,7 @@ function Main() {
           <Route exact={true} path="/signup" component={AddUser} /> 
           <Route exact={true} path="/user_update" component={UpdateUser} /> 
           <ProtectedRoute exact={true} path="/user_delete" component={DeleteUser} /> 
-          <Route exact={true} path="/user_info/:id" component={UserInfo} /> 
+          <Route exact={true} path="/user/account_info/:id" component={UserInfo} /> 
           <Route exact={true} path="/" component={Landing} />
           <Route component={NotFound} />
         </Switch>
