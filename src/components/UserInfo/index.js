@@ -14,7 +14,8 @@ const jwtToken = localStorage.token;
 
 const UserInfo= (props) => {
   const [data, setData] = useState({});
-  const [accountId, setAccountid] = useState(null);
+  const [accountId, setAccountId] = useState(null);
+  const [id, setId] = useState(null);
 
   useEffect(() => {
     getUserInfo();
@@ -29,8 +30,10 @@ const UserInfo= (props) => {
       if (response.status === 200){
         setData(response.data);
         const {account_id: accountId} = response.data;
+        const {id} = response.data;
 
-        if(accountId !== null){setAccountid(accountId)}
+        if(accountId !== null){setAccountId(accountId)}
+        if(id !== null){setId(id)}
       } else {
         console.log(response.status);
       };
@@ -59,7 +62,7 @@ const UserInfo= (props) => {
           `${addressLineOne} ${city}, ${stateAbbr} ${postalCode}` : null;
 
         return (
-          <UserCard key={`${name}-${id}`}>
+          <>
             <Text tag='h3' textStyle='big' color='white'>{name ? name : 'empty'}</Text>
             {category ? (
               <>
@@ -86,12 +89,42 @@ const UserInfo= (props) => {
                 <Text color='white'>Postal Code: {postalCode}</Text>
               </>
             ) : (null)}
+            {email ? (
+              <>
+                <Text color='white'>Email: {email}</Text>
+              </>
+            ) : (null)}
+            {phoneNumber ? (
+              <>
+                <Text color='white'>Phone Number: {phoneNumber}</Text>
+              </>
+            ) : (null)}
+            {website ? (
+              <>
+                <Text color='white'>Website: {website}</Text>
+              </>
+            ) : (null)}
+            {preferredContact ? (
+              <>
+                <Text color='white'>Preferred Contact: {preferredContact}</Text>
+              </>
+            ) : (null)}
+            {intro ? (
+              <>
+                <Text color='white'>Intro: {intro}</Text>
+              </>
+            ) : (null)}
+            {category ? (
+              <>
+                <Text color='white'>Category: {category}</Text>
+              </>
+            ) : (null)}
             {createdAt ? (
               <>
                 <Text color='white'>Member Since: {createdAt}</Text>
               </>
             ) : (null)}
-          </UserCard>
+          </>
         )
       } else { return (
       <>
@@ -107,7 +140,7 @@ const UserInfo= (props) => {
           <Text tag='h3' color={theme.colors.accent} textStyle='callToAction'>Users</Text> 
         </ HeaderWrapper>
         {UserInfo(data)}
-        <Link address={`/user_update/${accountId}`} color='white' target='_self'>Foo</Link>
+        <Link address={`/user_update/${id}`} data={data} color='white' target='_self'>Edit</Link>
       </StyledUserInfo>
     </>
   )

@@ -3,7 +3,7 @@ import Button from '../../shared/Button';
 
 const StyledUpdateUser = styled.div`
   width: 80%;
-  padding-top: 5vh;
+  padding: 5vh 0 25vh;
   min-height: 70vh;
   margin: 0 auto;
 ` ;

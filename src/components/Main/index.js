@@ -20,8 +20,7 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect
-} from 'react-router-dom';
+  Redirect } from            'react-router-dom';
 
 const jwtToken = localStorage.token; 
 let accountType;
@@ -65,19 +64,18 @@ function Main() {
     <>
       <Router>
         <Switch>
-          <Route exact={true} path="/add_account" component={AddAccount} /> 
-          <ProtectedRoute exact={true} path="/admin" component={Admin} /> 
-          <ProtectedRoute exact={true} path="/admin/ticket_list" component={TicketList} /> 
-          <ProtectedRoute exact={true} path="/admin/user_list" component={UserList} /> 
-          <ProtectedRoute exact={true} path="/delete_account" component={DeleteAccount} /> 
-          <Route exact={true} path="/login" component={Login} />
-          <LogoutHandler exact={true} path="/logout" component={LogoutSuccessful} />
-          <Route exact={true} path="/new_ticket" component={Ticket} /> 
-          <Route exact={true} path="/signup" component={AddUser} /> 
-          <Route exact={true} path="/user_update/:id" component={UpdateUser} /> 
-          <ProtectedRoute exact={true} path="/user_delete" component={DeleteUser} /> 
-          <Route exact={true} path="/user/account_info/:id" component={UserInfo} /> 
-          <Route exact={true} path="/" component={Landing} />
+          <Route          path="/add_account"           component={AddAccount}       exact={true} /> <ProtectedRoute path="/admin"                 component={Admin}             exact={true} />
+          <ProtectedRoute path="/admin/ticket_list"     component={TicketList}       exact={true} />
+          <ProtectedRoute path="/admin/user_list"       component={UserList}         exact={true} />
+          <ProtectedRoute path="/delete_account"        component={DeleteAccount}    exact={true} />
+          <Route          path="/login"                 component={Login}            exact={true} />
+          <LogoutHandler  path="/logout"                component={LogoutSuccessful} exact={true} />
+          <Route          path="/new_ticket"            component={Ticket}           exact={true} />
+          <Route          path="/signup"                component={AddUser}          exact={true} />
+          <Route          path="/user_update/:id"       component={UpdateUser}       exact={true} />
+          <ProtectedRoute path="/user_delete"           component={DeleteUser}       exact={true} />
+          <Route          path="/user/account_info/:id" component={UserInfo}         exact={true} />
+          <Route          path="/"                      component={Landing}          exact={true} />
           <Route component={NotFound} />
         </Switch>
       </Router>
