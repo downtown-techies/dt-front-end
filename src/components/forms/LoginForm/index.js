@@ -14,9 +14,7 @@ import {
   SubmitContainer
 } from './styles.js';
 
-import {
-  Redirect
-} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 let initializeValues = {};
 

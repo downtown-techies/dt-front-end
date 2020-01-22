@@ -3,7 +3,7 @@ const inputFields = [
     label: 'accountId',
     key: 'account_id',
     displayName: 'Account Id',
-    initialValue: null,
+    initialValue: '',
     disabled: true,
     type: 'input'
   },
@@ -11,49 +11,49 @@ const inputFields = [
     label: 'addressLine1',
     key: 'address_line_1',
     displayName: 'Address',
-    initialValue: null,
+    initialValue: '',
     type: 'input'
   },
   {
     label: 'city',
     key: 'city',
     displayName: 'City',
-    initialValue: null,
+    initialValue: '',
     type: 'input'
   },
   {
     label: 'state',
     key: 'state',
     displayName: 'State',
-    initialValue: null,
+    initialValue: '',
     type: 'multiSelect'
   },
   {
     label: 'postalCode',
     key: 'postal_code',
     displayName: 'Postal Code',
-    initialValue: null,
+    initialValue: '',
     type: 'input'
   },
   {
     label: 'phoneNumber',
     key: 'phone_number',
     displayName: 'Phone Number',
-    initialValue: null,
+    initialValue: '',
     type: 'input'
   },
   {
     label: 'website',
     key: 'website',
     displayName: 'Website',
-    initialValue: null,
+    initialValue: '',
     type: 'input'
   },
   {
     label: 'intro',
     key: 'intro',
     displayName: 'Intro',
-    initialValue: null,
+    initialValue: '',
     type: 'input'
   },
 ];

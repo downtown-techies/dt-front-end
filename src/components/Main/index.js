@@ -20,9 +20,11 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect } from            'react-router-dom';
+  Redirect
+} from            'react-router-dom';
 
 const jwtToken = localStorage.token; 
+
 let accountType;
 
 if (jwtToken && jwtToken.length > 1){
@@ -31,6 +33,7 @@ if (jwtToken && jwtToken.length > 1){
 
   accountType = data.accountType
 }
+
 
 const ProtectedRoute = ({ component: Component, ...rest }) => 
 {
