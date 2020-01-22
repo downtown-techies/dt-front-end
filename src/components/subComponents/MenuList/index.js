@@ -6,6 +6,7 @@ import {
   MenuLink
 } from './styles';
 
+let id;
 
 const MenuList= (props) => {
   const jwtToken = localStorage.token;
@@ -19,15 +20,18 @@ const MenuList= (props) => {
       const {data} = token;
     
       accountType = data.accountType
+      id = data.id;
     }
+    console.log(id);
 
     const loggedIn = jwtToken && jwtToken.length > 1 ? true : false;
+    console.log(id);
 
     return menuItems.map((item) => {
       if (item) {
         const {
           key, 
-          href, 
+          hrefRoot, 
           flagLogin=false, 
           flagLogout=false, 
           openAccess=true,
@@ -36,6 +40,11 @@ const MenuList= (props) => {
           rel='noopener noreferrer',
           linkText,
         } = item;
+        let href = hrefRoot;
+
+        if(key==='userInfo'){
+          href = `${hrefRoot}/${id}`
+        }
 
         if (
           (access !== 'user' && access === accountType)

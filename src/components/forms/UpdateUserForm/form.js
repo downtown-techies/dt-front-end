@@ -22,30 +22,33 @@ import {
 
 const jwtToken = localStorage.token;
 
-const submitUser = (values) => {
-  const { id } = JSON.parse(values);
-
-  apiRequest.post(
-    `${apiBaseUrl}/users/update/${id}`,
-    jwtToken
-  )
-  .then(function (response) {
-    if (response.data && response.data) {
-      console.log('Updated Successfully');
-    } else {
-      console.log('Try again');
-    };
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
-} 
 
 const  UpdateUserForm = (props) => {
   const [formClean, setFormClean] = useState(true);
   const {data, dataLoaded=false } = props;
 
   let initializeValues = {};
+
+  const submitUser = (values) => {
+    // const { id } = JSON.parse(values);
+    const { id } = data;
+    console.log(data.id);
+  
+    apiRequest.post(
+      `${apiBaseUrl}/user/update/${id}`,
+      jwtToken
+    )
+    .then(function (response) {
+      if (response.data && response.data) {
+        console.log('Updated Successfully');
+      } else {
+        console.log('Try again');
+      };
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  } 
   
   inputFields.map((field) => { 
     const label = field.label;

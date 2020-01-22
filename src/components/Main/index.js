@@ -67,7 +67,8 @@ function Main() {
     <>
       <Router>
         <Switch>
-          <Route          path="/add_account"           component={AddAccount}       exact={true} /> <ProtectedRoute path="/admin"                 component={Admin}             exact={true} />
+          <Route          path="/add_account"           component={AddAccount}       exact={true} /> 
+          <ProtectedRoute path="/admin"                 component={Admin}            exact={true} />
           <ProtectedRoute path="/admin/ticket_list"     component={TicketList}       exact={true} />
           <ProtectedRoute path="/admin/user_list"       component={UserList}         exact={true} />
           <ProtectedRoute path="/delete_account"        component={DeleteAccount}    exact={true} />
