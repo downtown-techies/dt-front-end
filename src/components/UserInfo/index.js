@@ -4,6 +4,7 @@ import Text from '../shared/Text';
 import Link from '../shared/Link';
 import theme from '../../theme/primaryTheme';
 import jwt from 'jwt-decode';
+import moment from 'moment';
 import { 
   StyledUserInfo,
   HeaderWrapper, 
@@ -55,6 +56,8 @@ const UserInfo= (props) => {
           preferred_contact: preferredContact, ph_number: phoneNumber, website, 
           intro_description: intro, createdAt, gig_category: category
         } = data;
+
+        const joinedDate = moment(createdAt).format("MMMM Do, YYYY");
 
         const name = `${firstName} ${lastName}`;
 
@@ -126,9 +129,9 @@ const UserInfo= (props) => {
                 <Text color='white'>Category: {category}</Text>
               </>
             ) : (null)}
-            {createdAt ? (
+            {joinedDate ? (
               <>
-                <Text color='white'>Member Since: {createdAt}</Text>
+                <Text color='white'>Member Since: {joinedDate}</Text>
               </>
             ) : (null)}
           </>
