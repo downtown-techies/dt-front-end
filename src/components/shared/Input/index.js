@@ -17,6 +17,7 @@ const Input = ({
   type,
   name,
   onChange,
+  disabled=false,
   initialValue,
   onBlur,
   customStyle,
@@ -26,6 +27,7 @@ const Input = ({
     type={type}
     name={name}
     style={customStyle}
+    disabled={disabled}
     onChange={onChange}
     onBlur={onBlur}
     value={value}

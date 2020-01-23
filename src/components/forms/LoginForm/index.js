@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Formik } from 'formik';
 import jwt from 'jwt-decode';
 import Input from '../../shared/Input';
-import Text from '../../shared/Text';
 import Label from '../../shared/Label';
 import ErrorHandler from '../../shared/ErrorHandler';
 import ErrorResponseHandler from '../../shared/ErrorResponseHandler';
@@ -15,9 +14,7 @@ import {
   SubmitContainer
 } from './styles.js';
 
-import {
-  Redirect
-} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 let initializeValues = {};
 
@@ -89,7 +86,6 @@ class LoginUser extends Component {
   }
 
   render() {
-    console.log(this.state.accountType === 'admin'); 
     if(localStorage.token && localStorage.token.length > 1){
       if (this.state.accountType === 'admin') {
         return <Redirect to='/admin' />

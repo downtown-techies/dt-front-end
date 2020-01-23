@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
-import Link from '../shared/Link';
 import Text from '../shared/Text';
 import theme from '../../theme/primaryTheme';
 import { 
   ListContainer,
-  ImageContainer,
   UserCard,
   StyledUserList,
   HeaderWrapper, 
@@ -42,7 +40,7 @@ const UserList= (props) => {
     if ( data.length > 0 ) {
       const list = data.map((user) => {
         const {
-          name, account_id, postal_code: postalCode, id,
+          name, postal_code: postalCode,
           gig_needs: needs, gig_category: category, skills
         } = user;
 

@@ -18,7 +18,6 @@ import {
 
 let hiddenValues = {};
 let initializeValues = {};
-const jwtToken = localStorage.token;
 
 inputFields.map((field) => { 
   const label = field.label;
@@ -77,9 +76,8 @@ class AddUser extends Component {
   submitNewUser = ( params ) => {
     const { values, handler } = params;
     apiRequest.post(
-      `${apiBaseUrl}/users`,
-      values,
-      jwtToken
+      `${apiBaseUrl}/user_add`,
+      values
     )
     .then(function (response) {
       // console.log('data: ', response.data);

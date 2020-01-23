@@ -1,39 +1,39 @@
-import React from 'react';
-import Landing from '../Landing';
-import NotFound from '../NotFound';
-import Login from '../Login';
-import UserList from '../UserList';
-import TicketList from '../TicketList';
+import React from            'react';
+import jwt from              'jwt-decode';
+
+import Admin from            '../Admin';
+import Landing from          '../Landing';
+import Login from            '../Login';
 import LogoutSuccessful from '../LogoutSuccessful';
-import AddUser from '../forms/AddUserForm';
-import Ticket from '../forms/TicketForm';
-import DeleteAccount from '../forms/DeleteAccountForm';
-import DeleteUser from '../forms/DeleteUserForm';
-import Admin from '../Admin';
-import AddAccount from '../forms/AddAccountForm';
-import jwt from 'jwt-decode';
+import NotFound from         '../NotFound';
+import UserList from         '../UserList';
+import UserInfo from         '../UserInfo';
+import TicketList from       '../TicketList';
+import AddAccount from       '../forms/AddAccountForm';
+import AddUser from          '../forms/AddUserForm';
+import DeleteAccount from    '../forms/DeleteAccountForm';
+import DeleteUser from       '../forms/DeleteUserForm';
+import Ticket from           '../forms/TicketForm';
+import UpdateUser from       '../forms/UpdateUserForm';
 
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect
-} from 'react-router-dom';
+} from            'react-router-dom';
 
 const jwtToken = localStorage.token; 
-let data
-  , username
-  , accountId
-  , accountType;
+
+let accountType;
 
 if (jwtToken && jwtToken.length > 1){
   const token = jwt(jwtToken);
   const {data} = token;
 
-  username = data.username;
-  accountId = data.accountId;
   accountType = data.accountType
 }
+
 
 const ProtectedRoute = ({ component: Component, ...rest }) => 
 {
@@ -67,17 +67,19 @@ function Main() {
     <>
       <Router>
         <Switch>
-          <Route exact={true} path="/add_account" component={AddAccount} /> 
-          <ProtectedRoute exact={true} path="/admin" component={Admin} /> 
-          <ProtectedRoute exact={true} path="/admin/user_list" component={UserList} /> 
-          <ProtectedRoute exact={true} path="/delete_account" component={DeleteAccount} /> 
-          <ProtectedRoute exact={true} path="/delete_user" component={DeleteUser} /> 
-          <Route exact={true} path="/login" component={Login} />
-          <LogoutHandler exact={true} path="/logout" component={LogoutSuccessful} />
-          <Route exact={true} path="/new_ticket" component={Ticket} /> 
-          <Route exact={true} path="/signup" component={AddUser} /> 
-          <ProtectedRoute exact={true} path="/admin/ticket_list" component={TicketList} /> 
-          <Route exact={true} path="/" component={Landing} />
+          <Route          path="/add_account"           component={AddAccount}       exact={true} /> 
+          <ProtectedRoute path="/admin"                 component={Admin}            exact={true} />
+          <ProtectedRoute path="/admin/ticket_list"     component={TicketList}       exact={true} />
+          <ProtectedRoute path="/admin/user_list"       component={UserList}         exact={true} />
+          <ProtectedRoute path="/delete_account"        component={DeleteAccount}    exact={true} />
+          <Route          path="/login"                 component={Login}            exact={true} />
+          <LogoutHandler  path="/logout"                component={LogoutSuccessful} exact={true} />
+          <Route          path="/new_ticket"            component={Ticket}           exact={true} />
+          <Route          path="/signup"                component={AddUser}          exact={true} />
+          <Route          path="/user_update/:id"       component={UpdateUser}       exact={true} />
+          <ProtectedRoute path="/user_delete"           component={DeleteUser}       exact={true} />
+          <Route          path="/user/account_info/:id" component={UserInfo}         exact={true} />
+          <Route          path="/"                      component={Landing}          exact={true} />
           <Route component={NotFound} />
         </Switch>
       </Router>
