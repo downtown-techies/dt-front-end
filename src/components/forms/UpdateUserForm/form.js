@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 import Input from '../../shared/Input';
 import Label from '../../shared/Label';
@@ -11,7 +11,6 @@ import { Redirect } from 'react-router-dom';
 import { apiRequest, apiBaseUrl } from '../../../helpers/api';
 import { 
   cityFormat, 
-  phoneNumberFormat,
   postalCodeFormat, 
   websiteFormat
 } from '../../../helpers/yupValidationFormats';
@@ -20,7 +19,6 @@ import {
   StyledSubmit,
   SubmitContainer,
 } from './styles.js';
-import jwt from 'jwt-decode';
 
 const jwtToken = localStorage.token;
 
@@ -83,8 +81,9 @@ const  UpdateUserForm = (props) => {
 
   if(dataLoaded === true){
     if(success){
+      const route = `/user/account_info/${id}`;
       return(
-        <Redirect to='/user/account_info/${id}' />
+        <Redirect to={route} />
       )
     } else {
       return ( 

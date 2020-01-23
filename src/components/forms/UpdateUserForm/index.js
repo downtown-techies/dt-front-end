@@ -4,8 +4,6 @@ import  UpdateUserForm from './form.js';
 import { StyledUpdateUser } from './styles.js';
 import jwt from 'jwt-decode';
 
-const jwtToken = localStorage.token;
-
 const UpdateUser = (props) => {
   const [data, setData] = useState({});
   const [dataLoaded, setDataLoaded] = useState({});

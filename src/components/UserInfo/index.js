@@ -5,17 +5,12 @@ import Link from '../shared/Link';
 import theme from '../../theme/primaryTheme';
 import jwt from 'jwt-decode';
 import { 
-  ListContainer,
-  UserCard,
   StyledUserInfo,
   HeaderWrapper, 
 } from './styles';
 
-const jwtToken = localStorage.token;
-
 const UserInfo= (props) => {
   const [data, setData] = useState({});
-  const [accountId, setAccountId] = useState(null);
   const [id, setId] = useState(null);
 
   useEffect(() => {
@@ -39,9 +34,7 @@ const UserInfo= (props) => {
     .then(function (response) {
       if (response.status === 200){
         setData(response.data);
-        const {account_id: accountId} = response.data;
         const {id} = response.data;
-        if(accountId !== null){setAccountId(accountId)}
         if(id !== null){setId(id)}
       } else {
         console.log(response.status);
@@ -55,19 +48,15 @@ const UserInfo= (props) => {
   const UserInfo = (data) => {
     if ( data !== {} ) {
         const {
-          id, account_id: accountId, active, address_line_1: addressLineOne, 
+          account_id: accountId, address_line_1: addressLineOne, 
           address_line_2: addressLineTwo, address_line_3: addressLineThree, 
-          address_line_4: addressLineFour, city, state, first_name: firstName, 
+          address_line_4: addressLineFour, state, first_name: firstName, 
           last_name: lastName, email, state_abbr: stateAbbr, postal_code: postalCode, 
           preferred_contact: preferredContact, ph_number: phoneNumber, website, 
-          opt_in: optIn, follow_up: followUp, intro_description: intro, location, 
-          createdAt, gig_category: category, type
+          intro_description: intro, createdAt, gig_category: category
         } = data;
 
         const name = `${firstName} ${lastName}`;
-
-        const address = (addressLineOne !== null || city !== null || stateAbbr !== null || postalCode !== null) ? 
-          `${addressLineOne} ${city}, ${stateAbbr} ${postalCode}` : null;
 
         return (
           <>
