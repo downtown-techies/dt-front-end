@@ -86,7 +86,6 @@ class LoginUser extends Component {
   }
 
   render() {
-    console.log(this.state.accountType === 'admin'); 
     if(localStorage.token && localStorage.token.length > 1){
       if (this.state.accountType === 'admin') {
         return <Redirect to='/admin' />

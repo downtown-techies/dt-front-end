@@ -22,10 +22,7 @@ const MenuList= (props) => {
       accountType = data.accountType
       id = data.id;
     }
-    console.log(id);
-
     const loggedIn = jwtToken && jwtToken.length > 1 ? true : false;
-    console.log(id);
 
     return menuItems.map((item) => {
       if (item) {

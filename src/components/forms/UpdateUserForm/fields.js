@@ -1,6 +1,6 @@
 const inputFields = [
   {
-    label: 'accountId',
+    label: 'account_id',
     key: 'account_id',
     displayName: 'Account Id',
     initialValue: '',
@@ -8,7 +8,21 @@ const inputFields = [
     type: 'input'
   },
   {
-    label: 'addressLine1',
+    label: 'first_name',
+    key: 'first_name',
+    displayName: 'First Name',
+    initialValue: '',
+    type: 'input'
+  },
+  {
+    label: 'last_name',
+    key: 'last_name',
+    displayName: 'Last Name',
+    initialValue: '',
+    type: 'input'
+  },
+  {
+    label: 'address_line_1',
     key: 'address_line_1',
     displayName: 'Address',
     initialValue: '',
@@ -29,16 +43,23 @@ const inputFields = [
     type: 'multiSelect'
   },
   {
-    label: 'postalCode',
+    label: 'postal_code',
     key: 'postal_code',
     displayName: 'Postal Code',
     initialValue: '',
     type: 'input'
   },
   {
-    label: 'phoneNumber',
+    label: 'ph_number',
     key: 'phone_number',
     displayName: 'Phone Number',
+    initialValue: '',
+    type: 'input'
+  },
+  {
+    label: 'email',
+    key: 'email',
+    displayName: 'Email',
     initialValue: '',
     type: 'input'
   },

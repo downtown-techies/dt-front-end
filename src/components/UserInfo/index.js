@@ -3,6 +3,7 @@ import { apiRequest, apiBaseUrl } from '../../helpers/api';
 import Text from '../shared/Text';
 import Link from '../shared/Link';
 import theme from '../../theme/primaryTheme';
+import jwt from 'jwt-decode';
 import { 
   ListContainer,
   UserCard,
@@ -22,8 +23,17 @@ const UserInfo= (props) => {
   }, []);
 
   const getUserInfo = () => {
+    let id;
+    const jwtToken = localStorage.token;
+    const token = jwt(jwtToken);
+    const {data: userData} = token;
+
+    if(userData){
+      id = userData.id;
+    }
+
     apiRequest.get(
-      `${apiBaseUrl}/user/account_info/2`,
+      `${apiBaseUrl}/user/account_info/${id}`,
       jwtToken
     )
     .then(function (response) {
@@ -31,7 +41,6 @@ const UserInfo= (props) => {
         setData(response.data);
         const {account_id: accountId} = response.data;
         const {id} = response.data;
-
         if(accountId !== null){setAccountId(accountId)}
         if(id !== null){setId(id)}
       } else {
@@ -55,7 +64,6 @@ const UserInfo= (props) => {
           createdAt, gig_category: category, type
         } = data;
 
-
         const name = `${firstName} ${lastName}`;
 
         const address = (addressLineOne !== null || city !== null || stateAbbr !== null || postalCode !== null) ? 
@@ -77,13 +85,23 @@ const UserInfo= (props) => {
             {( addressLineOne || addressLineTwo || addressLineThree || addressLineFour) ? 
               (
                 <>
-                  {(addressLineOne) ? (<><Text color='white'>Address Line 1: {addressLineOne}</Text><br/></>) : null}
-                  {(addressLineTwo) ? (<><Text color='white'>Address Line 2: {addressLineTwo}</Text><br/></>) : null}
-                  {(addressLineThree) ? (<><Text color='white'>Address Line 3: {addressLineThree}</Text><br/></>) : null}
-                  {(addressLineFour) ? (<><Text color='white'>Address Line 4: {addressLineFour}</Text><br/></>) : null}
+                  {(addressLineOne) ? (<><Text color='white'>Address Line 1: {addressLineOne}</Text></>) : null}
+                  {(addressLineTwo) ? (<><Text color='white'>Address Line 2: {addressLineTwo}</Text></>) : null}
+                  {(addressLineThree) ? (<><Text color='white'>Address Line 3: {addressLineThree}</Text></>) : null}
+                  {(addressLineFour) ? (<><Text color='white'>Address Line 4: {addressLineFour}</Text>></>) : null}
                 </>
               ) : null
             }
+            {state ? (
+              <>
+                <Text color='white'>State: {state}</Text>
+              </>
+            ) : (null)}
+            {stateAbbr ? (
+              <>
+                <Text color='white'>State Abbreviation: {stateAbbr}</Text>
+              </>
+            ) : (null)}
             {postalCode? (
               <>
                 <Text color='white'>Postal Code: {postalCode}</Text>
