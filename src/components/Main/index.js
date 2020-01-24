@@ -8,12 +8,10 @@ import LogoutSuccessful from '../LogoutSuccessful';
 import NotFound from         '../NotFound';
 import UserList from         '../UserList';
 import UserInfo from         '../UserInfo';
-import TicketList from       '../TicketList';
 import AddAccount from       '../forms/AddAccountForm';
 import AddUser from          '../forms/AddUserForm';
 import DeleteAccount from    '../forms/DeleteAccountForm';
 import DeleteUser from       '../forms/DeleteUserForm';
-import Ticket from           '../forms/TicketForm';
 import UpdateUser from       '../forms/UpdateUserForm';
 
 import {
@@ -69,12 +67,10 @@ function Main() {
         <Switch>
           <Route          path="/add_account"           component={AddAccount}       exact={true} /> 
           <ProtectedRoute path="/admin"                 component={Admin}            exact={true} />
-          <ProtectedRoute path="/admin/ticket_list"     component={TicketList}       exact={true} />
           <ProtectedRoute path="/admin/user_list"       component={UserList}         exact={true} />
           <ProtectedRoute path="/delete_account"        component={DeleteAccount}    exact={true} />
           <Route          path="/login"                 component={Login}            exact={true} />
           <LogoutHandler  path="/logout"                component={LogoutSuccessful} exact={true} />
-          <Route          path="/new_ticket"            component={Ticket}           exact={true} />
           <Route          path="/signup"                component={AddUser}          exact={true} />
           <Route          path="/user_update/:id"       component={UpdateUser}       exact={true} />
           <ProtectedRoute path="/user_delete"           component={DeleteUser}       exact={true} />

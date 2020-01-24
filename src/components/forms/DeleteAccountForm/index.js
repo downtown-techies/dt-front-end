@@ -98,7 +98,7 @@ class DeleteUser extends Component {
                       if (field.type === 'input') {
                         return (
                           <div key={field.label}>
-                            <Label color='white'>
+                            <Label>
                               {field.displayName}
                             </Label>
                             <Input

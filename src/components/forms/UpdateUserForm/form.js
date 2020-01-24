@@ -115,7 +115,7 @@ const  UpdateUserForm = (props) => {
                         const {disabled, label, displayName}=field;
                         return (
                           <div key={label}>
-                            <Label color='white'>
+                            <Label>
                               {displayName}
                             </Label>
                             <Input
@@ -139,7 +139,7 @@ const  UpdateUserForm = (props) => {
 
                               return (
                                 <div key={field.label}>
-                                  <Label color='white'>
+                                  <Label>
                                     {field.displayName}
                                   </Label>
                                   <Select
@@ -176,7 +176,7 @@ const  UpdateUserForm = (props) => {
         </Formik>
       );
     }
-  } else return <Text color='white'>Loading...</Text>
+  } else return <Text>Loading...</Text>
 }
 
 export default UpdateUserForm;

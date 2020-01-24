@@ -68,15 +68,15 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 20px;
     box-sizing: border-box;
-    background-color: ${primaryTheme.colors.primary};
+    background-color: ${primaryTheme.colors.background};
   }
 
   body {
-    background-color: ${primaryTheme.colors.primary};
+    background-color: ${primaryTheme.colors.background};
   }
 
   #root {
-    background-color: ${primaryTheme.colors.primary};
+    background-color: ${primaryTheme.colors.background};
   }
 
 
@@ -97,7 +97,6 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: ${primaryTheme.colors.primary};
-    background-color: #ffffff;
   }
 
   *,

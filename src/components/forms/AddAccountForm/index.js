@@ -146,7 +146,7 @@ class AddAccount extends Component {
                         if (field.type === 'input' || 'password') {
                           return (
                             <div key={field.label}>
-                              <Label color='white'>
+                              <Label>
                                 {field.displayName}
                               </Label>
                               <Input

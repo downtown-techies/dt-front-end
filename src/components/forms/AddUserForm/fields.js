@@ -39,32 +39,6 @@ const inputFields = [
     type: 'input'
   },
   {
-    label: 'gig_category',
-    displayName: 'I am a(n)...',
-    options: [
-      {value: 'investor', label: 'Investor'},
-      {value: 'founder', label: 'Founder'},
-      {value: 'developer', label: 'Developer'},
-      {value: 'networker', label: 'Networker'},
-      {value: 'seeker', label: 'Seeker'}
-    ],
-    initialValue: [],
-    type: 'multiSelect'
-  },
-  {
-    label: 'gig_needs',
-    displayName: 'I am looking to connect with',
-    options: [
-      {value: 'freelance_talent', label: 'Freelance Talent'}, 
-      {value: 'investors', label: 'Investors'},
-      {value: 'mentor', label: 'Mentor'},
-      {value: 'recruiter', label: 'Recruiter'},
-      {value: 'event_sponsor', label: 'Event Sponsor'}
-    ],
-    initialValue: [],
-    type: 'multiSelect'
-  },
-  {
     label: 'opt_in',
     displayName: 'Opt in to Notifications',
     initialValue: 'true',

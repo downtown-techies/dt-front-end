@@ -1,15 +1,5 @@
 export const menuItems = [
   {
-    'key': 'join-the-hustle',
-    'hrefRoot': '/signup',
-    'linkText': 'Join the Hustle',
-  },
-  {
-    'key': 'new-ticket',
-    'hrefRoot': '/new_ticket',
-    'linkText': 'Create a Ticket',
-  },
-  {
     'key': 'add-account',
     'hrefRoot': '/add_account',
     'linkText': 'Create Account',

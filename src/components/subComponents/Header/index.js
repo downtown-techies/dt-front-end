@@ -34,7 +34,8 @@ class Header extends Component {
 
   render() {
     const mobile = this.state.width < 724;
-    const viewBoxWidth = mobile ? 45 : 355;
+    const viewBoxWidth = mobile ? 68.2 : 244.372;
+    const viewBoxHeight = mobile ? 54 : 28;
     const { isOpen } = this.state;
 
     const style = isOpen ? {position: 'fixed', width: '100vw', zIndex: 2} : {};
@@ -48,8 +49,8 @@ class Header extends Component {
               <SvgIcon
                 name={mobile ? 'mobileLogo' : 'altLogo'}
                 height={28}
-                width={mobile ? 39.65 : 322.67}
-                viewBox={`0 0 ${viewBoxWidth} 21.75`}
+                width={mobile ? 34.13 : 244.372}
+                viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
                 style={{cursor: 'pointer'}}
                 fill={theme.colors.reverse}/>
             </ Link>
@@ -70,7 +71,6 @@ class Header extends Component {
                 )
               }
             </MenuRight>
-
           </ StyledHeader>
         </HeaderContainer>
         <div style={fillerStyle} />
