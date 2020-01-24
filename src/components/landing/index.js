@@ -33,13 +33,6 @@ class Landing extends Component {
   return (
     <>
       <LandingWrapper>
-        <EyeBrow>
-          <a target='_blank' rel='noopener noreferrer' href='https://www.instagram.com/explore/tags/giglifehustle/'>
-            <Text textStyle='eyebrow' color={theme.colors.primary}>
-              #adaptAndBuild
-            </Text>
-          </a>
-        </EyeBrow>
         <TaglineWrapper>
           <Tagline>
             <Text textStyle='tagLine' color={theme.colors.primary}>

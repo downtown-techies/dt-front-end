@@ -1,47 +1,66 @@
 import React, { Component } from 'react';
 import Button from '../shared/Button';
-import { ButtonSection, ButtonWrapper } from '../shared/Button/styles';
-import Partners from '../subComponents/Partners';
-import MeetupList from '../subComponents/MeetupList';
+import { ButtonSection } from '../shared/Button/styles';
 import Text from '../shared/Text';
+import SvgIcon from '../../assets/svgs';
+import AddUserForm from '../forms/AddUserForm';
 import theme from '../../theme/primaryTheme';
 import {  
   LandingWrapper,
+  SVGWrapper,
   TaglineWrapper, 
+  UserFormWrapper,
   Tagline, 
-  EyeBrow
+  EyeBrow,
 } from './styles.js';
 
-
 class Landing extends Component {
-  render() {
-    return (
-      <>
-        <LandingWrapper>
-          <EyeBrow>
-            <a target='_blank' rel='noopener noreferrer' href='https://www.instagram.com/explore/tags/giglifehustle/'>
-              <Text textStyle='eyebrow' color={theme.colors.reverse}>
-                #gigLifeHustle
-              </Text>
-            </a>
-          </EyeBrow>
-          <TaglineWrapper>
-            <Tagline>
-              <Text textStyle='tagLine' color={theme.colors.reverse}>
-                We partner with local influencers to bring techies together through the best events and community
-              </Text>
-              <ButtonSection>
-                <ButtonWrapper ref='signup' action='/signup'>
-                  <Button buttonStyle='big' type='submit'>Join Us</ Button>
-                </ ButtonWrapper>
-              </ButtonSection>
-            </Tagline>
-          </TaglineWrapper>
-        </LandingWrapper>
-        <MeetupList />
-        <Partners />
-      </>
-    );
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false 
+    };
+  }
+  
+  handleClick = () => {
+    this.setState({
+      visible: !this.state.visible 
+    });
+    return
+  }
+
+  render(){
+  return (
+    <>
+      <LandingWrapper>
+        <TaglineWrapper>
+          <Tagline>
+            <Text textStyle='tagLine' color={theme.colors.primary}>
+              We are a group of developers, designers and entrepreneurs solving problems.
+            </Text>
+          { !this.state.visible ? (
+            <ButtonSection>
+              <Button handleClick={this.handleClick} buttonStyle='big'>Join Us</ Button>
+            </ButtonSection>
+          ) : (
+            <SVGWrapper>
+              <Button buttonStyle='unstyled' handleClick={this.handleClick}>
+                <SvgIcon
+                  name='carrotUp'
+                  viewBox='0 0 320 512'
+                  style={{cursor: 'pointer'}}
+                  fill={theme.colors.primary}/>
+                </Button>
+            </SVGWrapper>
+          )}
+          </Tagline>
+        </TaglineWrapper>
+        <UserFormWrapper>
+          { this.state.visible ? (<AddUserForm />) : null }
+        </UserFormWrapper>
+      </LandingWrapper>
+    </>
+  );
   }
 }
 

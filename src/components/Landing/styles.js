@@ -14,43 +14,25 @@ const EyeBrow = styled.div`
 const LandingWrapper = styled.div`
   position: relative;
   overflow: hidden;
-  margin-top: -72px;
-  padding-top: 72px;
-  height: 110vh;
-  background: center no-repeat, 
-              url(${cityBackground}),
-              #222;
-  @media (max-width: 1120px) {
-    height: 100vh;
-    background: center  no-repeat, 
-              url(${mobileCityBackground}),
-              #222;
-  }
-  @media (max-width: 700px) {
-    height: 120vh;
-  }
-  @media (max-width: 400px) {
-    height: 140vh;
-  }
-  @media (max-width: 350px) {
-    height: 180vh;
-  }
-  @media (orientation: landscape) {
-    height: 100vh;
-  }
-  @media (orientation: landscape) and (max-width: 900px) {
-    height: 180vh;
-  }
+  min-height: 85vh;
+`;
+
+const SVGWrapper = styled.div`
+  position: relative;
+  text-align: center;
+  padding: 2rem 0 0;
+`;
+
+const UserFormWrapper = styled.div`
+  padding: 0 2rem;
+  display: inline-block;
+  width 100vw;
 `;
 
 const TaglineWrapper = styled.div`
-  padding: 2rem;
-  position: absolute;
-  top: 20vh;
+  padding: 22vh 2rem 4rem;
+  display: inline-block;
   width 100vw;
-  @media (min-width: 700px) {
-    top: 20vh;
-  }
 `;
 
 const Tagline = styled.div`
@@ -68,6 +50,8 @@ const Tagline = styled.div`
 export {
   LandingWrapper,
   TaglineWrapper,
+  SVGWrapper,
+  UserFormWrapper,
   Tagline,
   EyeBrow
 };
