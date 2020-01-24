@@ -68,7 +68,7 @@ export const buttonStyles = {
   unstyled: css`
     padding: 0;
     margin: 0;
-    background-color: transparent;
+    background-color: transparent !important;
 
     &:hover {
       background-color: transparent;
