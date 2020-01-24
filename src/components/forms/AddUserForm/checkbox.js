@@ -19,7 +19,6 @@ const Checkbox = ({
         onBlur={onBlur}
       />
       <Label 
-        color='white' 
         labelStyle='radioLabel'>
         {label}
       </Label>

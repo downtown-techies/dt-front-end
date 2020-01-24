@@ -140,7 +140,7 @@ class AddUser extends Component {
                         if (field.type === 'input') {
                           return (
                             <div key={field.label}>
-                              <Label color='white'>
+                              <Label>
                                 {field.displayName}
                               </Label>
                               <Input
@@ -163,7 +163,7 @@ class AddUser extends Component {
 
                             return (
                               <div key={field.label}>
-                                <Label color='white'>
+                                <Label>
                                   {field.displayName}
                                 </Label>
                                 <Select

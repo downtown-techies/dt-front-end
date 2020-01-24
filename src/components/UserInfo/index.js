@@ -7,7 +7,6 @@ import jwt from 'jwt-decode';
 import moment from 'moment';
 import { 
   StyledUserInfo,
-  HeaderWrapper, 
 } from './styles';
 
 const UserInfo= (props) => {
@@ -63,75 +62,75 @@ const UserInfo= (props) => {
 
         return (
           <>
-            <Text tag='h3' textStyle='big' color='white'>{name ? name : 'empty'}</Text>
+            <Text tag='h3' textStyle='big'>{name ? name : 'empty'}</Text>
             {category ? (
               <>
-                <Text color='white'>Category: {category}</Text>
+                <Text>Category: {category}</Text>
               </>
             ) : (null)}
             {accountId ? (
               <>
-                <Text color='white'>AccountId: {`1005${accountId}`}</Text>
+                <Text>AccountId: {`1005${accountId}`}</Text>
               </>
             ) : (null)}
             {( addressLineOne || addressLineTwo || addressLineThree || addressLineFour) ? 
               (
                 <>
-                  {(addressLineOne) ? (<><Text color='white'>Address Line 1: {addressLineOne}</Text></>) : null}
-                  {(addressLineTwo) ? (<><Text color='white'>Address Line 2: {addressLineTwo}</Text></>) : null}
-                  {(addressLineThree) ? (<><Text color='white'>Address Line 3: {addressLineThree}</Text></>) : null}
-                  {(addressLineFour) ? (<><Text color='white'>Address Line 4: {addressLineFour}</Text>></>) : null}
+                  {(addressLineOne) ? (<><Text>Address Line 1: {addressLineOne}</Text></>) : null}
+                  {(addressLineTwo) ? (<><Text>Address Line 2: {addressLineTwo}</Text></>) : null}
+                  {(addressLineThree) ? (<><Text>Address Line 3: {addressLineThree}</Text></>) : null}
+                  {(addressLineFour) ? (<><Text>Address Line 4: {addressLineFour}</Text>></>) : null}
                 </>
               ) : null
             }
             {state ? (
               <>
-                <Text color='white'>State: {state}</Text>
+                <Text>State: {state}</Text>
               </>
             ) : (null)}
             {stateAbbr ? (
               <>
-                <Text color='white'>State Abbreviation: {stateAbbr}</Text>
+                <Text>State Abbreviation: {stateAbbr}</Text>
               </>
             ) : (null)}
             {postalCode? (
               <>
-                <Text color='white'>Postal Code: {postalCode}</Text>
+                <Text>Postal Code: {postalCode}</Text>
               </>
             ) : (null)}
             {email ? (
               <>
-                <Text color='white'>Email: {email}</Text>
+                <Text>Email: {email}</Text>
               </>
             ) : (null)}
             {phoneNumber ? (
               <>
-                <Text color='white'>Phone Number: {phoneNumber}</Text>
+                <Text>Phone Number: {phoneNumber}</Text>
               </>
             ) : (null)}
             {website ? (
               <>
-                <Text color='white'>Website: {website}</Text>
+                <Text>Website: {website}</Text>
               </>
             ) : (null)}
             {preferredContact ? (
               <>
-                <Text color='white'>Preferred Contact: {preferredContact}</Text>
+                <Text>Preferred Contact: {preferredContact}</Text>
               </>
             ) : (null)}
             {intro ? (
               <>
-                <Text color='white'>Intro: {intro}</Text>
+                <Text>Intro: {intro}</Text>
               </>
             ) : (null)}
             {category ? (
               <>
-                <Text color='white'>Category: {category}</Text>
+                <Text>Category: {category}</Text>
               </>
             ) : (null)}
             {joinedDate ? (
               <>
-                <Text color='white'>Member Since: {joinedDate}</Text>
+                <Text>Member Since: {joinedDate}</Text>
               </>
             ) : (null)}
           </>
@@ -146,11 +145,8 @@ const UserInfo= (props) => {
   return (
     <>
       <StyledUserInfo>
-        <HeaderWrapper>
-          <Text tag='h3' color={theme.colors.accent} textStyle='callToAction'>Users</Text> 
-        </ HeaderWrapper>
         {UserInfo(data)}
-        <Link address={`/user_update/${id}`} data={data} color='white' target='_self'>Edit</Link>
+        <Link address={`/user_update/${id}`} data={data} target='_self'>Edit</Link>
       </StyledUserInfo>
     </>
   )

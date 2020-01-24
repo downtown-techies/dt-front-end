@@ -2,25 +2,16 @@ import styled from '../../theme';
 import theme from '../../theme/primaryTheme';
 
 const StyledUserInfo = styled.div`
-  background-color: ${theme.colors.primary};
+  background-color: ${theme.colors.background}
   text-align: center;
   color: ${theme.colors.primary};
   padding: 1rem 0;
+  min-height: 85vh;
   @media (max-width: 700px) {
     padding-bottom: 0;
   }
   z-index: 1;
   position: relative;
-`;
-
-const HeaderWrapper = styled.div`
-  width: 65vw;
-  margin: 2rem auto;
-  overflow: hidden;
-  @media (max-width: 1120px) {
-    width: 75vw;
-    padding-top: 5rem;
-  }
 `;
 
 const ImageContainer = styled.div`
@@ -58,7 +49,6 @@ export {
   ListContainer,
   ImageContainer,
   UserCard,
-  HeaderWrapper,
   StyledUserInfo
 };
 

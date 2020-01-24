@@ -1,9 +1,10 @@
 import styled from '../../../theme';
+import primaryTheme from '../../../theme/primaryTheme';
 
 const MenuContainer = styled.div`
   padding: 2.5em 1.5em 0;
   font-size: 0.9em;
-  background: rgba(0, 0, 0, 0.9);
+  background: ${primaryTheme.colors.backgroundTransparent};
   height: calc(100vh - 72px);
 `;
 

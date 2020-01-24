@@ -46,25 +46,25 @@ const UserList= (props) => {
 
         return (
           <UserCard key={`${user.name}-${user.id}`}>
-            <Text tag='h3' textStyle='big' color='white'>{name ? name : 'empty'}</Text>
+            <Text tag='h3' textStyle='big'>{name ? name : 'empty'}</Text>
             {postalCode ? (
               <>
-                <Text color='white'>Postal Code: {postalCode}</Text>
+                <Text>Postal Code: {postalCode}</Text>
               </>
             ) : (null)}
             {skills ? (
               <>
-                <Text color='white'>Skills: {skills}</Text>
+                <Text>Skills: {skills}</Text>
               </>
             ) : (null)}
             {category ? (
               <>
-                <Text color='white'>Category: {category}</Text>
+                <Text>Category: {category}</Text>
               </>
             ) : (null)}
             {needs ? (
               <>
-                <Text color='white'>Needs: {needs}</Text>
+                <Text>Needs: {needs}</Text>
               </>
             ) : (null)}
           </UserCard>
