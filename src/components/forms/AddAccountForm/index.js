@@ -89,8 +89,8 @@ class AddAccount extends Component {
     )
     .then(function (response) {
       console.log(response);
-      if (response.data && response.data.newLoginCreated) {
-        handler({message: 'Thanks for signing up! Look for a follow up email from us soon.', errors: false, hidden: false});
+      if (response.data && response.data.userCreation) {
+        handler({message: 'Thanks for signing up!', errors: false, hidden: false});
       } else if ( response.data && !response.data.newLoginCreated && response.data.message === 'exists' ) {
           handler({message: 'Looks like this user already exists!', errors: true, hidden: false});
       } else if ( response.data && !response.data.newLoginCreated && response.data.message === 'error' ) {
