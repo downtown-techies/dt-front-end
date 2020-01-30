@@ -23,14 +23,14 @@ import {
 
 const jwtToken = localStorage.token; 
 
+let accountType;
+
 if (jwtToken && jwtToken.length > 1){
   const token = jwt(jwtToken);
   const {data} = token;
 
   accountType = data.accountType
 } 
-
-let accountType;
 
 const ProtectedRoute = ({ component: Component, ...rest }) => 
 {

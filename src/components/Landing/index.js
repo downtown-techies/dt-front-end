@@ -10,8 +10,7 @@ import {
   SVGWrapper,
   TaglineWrapper, 
   UserFormWrapper,
-  Tagline, 
-  EyeBrow,
+  Tagline
 } from './styles.js';
 
 class Landing extends Component {

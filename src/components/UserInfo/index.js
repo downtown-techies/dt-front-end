@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { apiRequest, apiBaseUrl } from '../../helpers/api';
 import Text from '../shared/Text';
 import Link from '../shared/Link';
-import theme from '../../theme/primaryTheme';
 import jwt from 'jwt-decode';
 import moment from 'moment';
 import {Redirect} from 'react-router-dom';

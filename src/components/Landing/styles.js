@@ -1,6 +1,4 @@
 import styled from '../../theme';
-import cityBackground from '../../assets/images/cityBackground.jpg';
-import mobileCityBackground from '../../assets/images/mobileCityBackground.jpg';
 
 const EyeBrow = styled.div`
   position: relative;
