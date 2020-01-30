@@ -45,7 +45,7 @@ class Header extends Component {
       <>
         <HeaderContainer style={style}>
           <StyledHeader className="header">
-            <Link linkStyle='headerLogo' address='/'>
+            <Link linkStyle='headerLogo' target='_self' address='/'>
               <SvgIcon
                 name={mobile ? 'mobileLogo' : 'altLogo'}
                 height={28}

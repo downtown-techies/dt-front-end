@@ -5,6 +5,7 @@ import Link from '../shared/Link';
 import theme from '../../theme/primaryTheme';
 import jwt from 'jwt-decode';
 import moment from 'moment';
+import {Redirect} from 'react-router-dom';
 import { 
   StyledUserInfo,
 } from './styles';
@@ -12,6 +13,7 @@ import {
 const UserInfo= (props) => {
   const [data, setData] = useState({});
   const [id, setId] = useState(null);
+  const [loginRedirect, setLoginRedirect] = useState(false);
 
   useEffect(() => {
     getUserInfo();
@@ -20,7 +22,16 @@ const UserInfo= (props) => {
   const getUserInfo = () => {
     let id;
     const jwtToken = localStorage.token;
-    const token = jwt(jwtToken);
+
+    let token;
+
+    if(jwtToken && jwtToken.length > 1) {
+      token = jwt(jwtToken);
+    } else {
+      setLoginRedirect(true);
+      return;
+    }
+    
     const {data: userData} = token;
 
     if(userData){
@@ -142,6 +153,11 @@ const UserInfo= (props) => {
     )}
   }
 
+  if (loginRedirect) {
+    return(
+      <Redirect to='/login' />
+    )
+  }
   return (
     <>
       <StyledUserInfo>
