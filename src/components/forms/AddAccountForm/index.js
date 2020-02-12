@@ -7,6 +7,7 @@ import ErrorModal from '../../modals/ErrorModal';
 import * as yup from 'yup';
 import { inputFields, hiddenFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../../helpers/api';
+import { emailFormat, stringFormat } from '../../../helpers/yupValidationFormats.js';
 import { 
   StyledAddAccount,
   StyledSubmit,
@@ -35,8 +36,7 @@ hiddenFields.map((field) => {
 });
 
 // YUP VALIDATIONS
-const emailFormat = new RegExp(/[a-z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/);
-const usernameFormat = new RegExp(/^[a-zA-Z0-9_]*$/);
+const usernameFormat = stringFormat;
 
 const userSchema = yup.object().shape({
   username:        yup

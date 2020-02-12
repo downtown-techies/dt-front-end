@@ -11,7 +11,7 @@ class Logout extends Component {
   render() {
     return (
       <StyledLogout>
-        Logged out successfully <br/> but sad to see you go!
+        Logged out successfully, <br/> until next time friend!
       </ StyledLogout>
     );
   }

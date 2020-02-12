@@ -3,25 +3,19 @@ import { Formik } from 'formik';
 import jwt from 'jwt-decode';
 import Input from '../../shared/Input';
 import Label from '../../shared/Label';
-import Link from '../../shared/Link';
-import Text from '../../shared/Text';
 import ErrorHandler from '../../shared/ErrorHandler';
 import ErrorResponseHandler from '../../shared/ErrorResponseHandler';
 import * as yup from 'yup';
 import { inputFields } from './fields.js';
 import { apiRequest, apiBaseUrl } from '../../../helpers/api';
-import { 
-  StyledLogin,
-  StyledSubmit,
-  SubmitContainer
-} from './styles.js';
+import { stringFormat} from '../../../helpers/yupValidationFormats';
+import { StyledReset, StyledSubmit, SubmitContainer } from './styles.js';
 
 import { Redirect } from 'react-router-dom';
 
 let initializeValues = {};
 
 const publicKey = process.env.REACT_APP_PUBLIC_KEY;
-
 
 inputFields.map((field) => { 
   const label = field.label;
@@ -32,34 +26,50 @@ inputFields.map((field) => {
 const hiddenValues = {'key': publicKey };
 
 // YUP VALIDATIONS
+const usernameFormat = stringFormat;
+
 const userSchema = yup.object().shape({
-  username: yup.string().required('Username is Required.'),
-  password: yup.string().required('Password is Required.'),
+  username:           yup
+                      .string()
+                      .matches(usernameFormat, 'Can only contain alphanumeric and underscore')
+                      .required('Username is Required.'),
+  oldPassword:           yup
+                      .string()
+                      .required(''),
+  newPassword:        yup
+                      .string()
+                      .required('')
+                      .notOneOf([yup.ref('oldPassword'), null], 'Passwords cannot match')
+                      .min(10, 'Must be at least 10 characters'),
+  confirmNewPassword: yup
+                      .string()
+                      .oneOf([yup.ref('newPassword'), null], 'Passwords must match'),
 })
 
-class LoginUser extends Component {
+class ResetUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
       formClean: true,
       accountType: 'user',
       submitting: false,
-      loginSuccessful: false,
+      resetSuccessful: false,
       errorMessage: '',
       errors: {},
     }
   }
 
-  submitLogin = (values) => {
+  submitReset = (values) => {
     this.setState({
       submitting: true
     });
     apiRequest.post(
-      `${apiBaseUrl}/login`,
+      `${apiBaseUrl}/reset`,
       values
     )
     .then((response) => {
       const {data} = response;
+      console.log(data);
   
       if (data && data.error && data.message){
         this.setState({errorMessage: data.message});
@@ -73,7 +83,7 @@ class LoginUser extends Component {
         const {data} = token;
 
         this.setState({accountType: data.accountType});
-        this.setState({loginSuccessful: true});
+        this.setState({resetSuccessful: true});
         this.setState({submitting: false});
         if (data.accountType === 'admin') {
           return <Redirect to='/admin' />
@@ -88,15 +98,8 @@ class LoginUser extends Component {
   }
 
   render() {
-    if(localStorage.token && localStorage.token.length > 1){
-      if (this.state.accountType === 'admin') {
-        return <Redirect to='/admin' />
-      } else{
-        return <Redirect to='/' />
-      }
-    } else {
     return (
-      <StyledLogin>
+      <StyledReset>
         <Formik
           initialValues={ 
             {
@@ -110,7 +113,7 @@ class LoginUser extends Component {
             });
           }}
           onSubmit={(values, { setSubmitting }) => {
-            this.submitLogin(JSON.stringify(values, null, 2));
+            this.submitReset(JSON.stringify(values, null, 2));
             setSubmitting(false);
           }}
           validationSchema={userSchema}
@@ -162,12 +165,11 @@ class LoginUser extends Component {
                     color='red' 
                     errors={this.state.errors} 
                   />
-                  <Link address='/reset'><Text textStyle='small'>reset password</Text></Link>
                   <SubmitContainer>
                     <StyledSubmit 
                       buttonStyle='submit'
                       type='submit' 
-                      disabled={isSubmitting || Object.keys(errors).length > 0 || this.state.formClean}
+                      disabled={this.state.submitting || Object.keys(errors).length > 0 || this.state.formClean}
                     >
                       {this.state.submitting ? '...submitting' : 'Submit'}
                     </StyledSubmit>
@@ -177,10 +179,9 @@ class LoginUser extends Component {
             }
           }
         </Formik>
-      </ StyledLogin>
+      </ StyledReset>
     );
   }
-    }
 }
 
-export default LoginUser;
+export default ResetUser;

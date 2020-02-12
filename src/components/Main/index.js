@@ -4,6 +4,7 @@ import jwt from              'jwt-decode';
 import Admin from            '../Admin';
 import Landing from          '../Landing';
 import Login from            '../Login';
+import Reset from            '../Reset';
 import LogoutSuccessful from '../LogoutSuccessful';
 import NotFound from         '../NotFound';
 import UserList from         '../UserList';
@@ -69,6 +70,7 @@ function Main() {
           <ProtectedRoute path="/admin/user_list"       component={UserList}         exact={true} />
           <ProtectedRoute path="/delete_account"        component={DeleteAccount}    exact={true} />
           <Route          path="/login"                 component={Login}            exact={true} />
+          <Route          path="/reset"                 component={Reset}            exact={true} />
           <LogoutHandler  path="/logout"                component={LogoutSuccessful} exact={true} />
           <Route          path="/signup"                component={AddUser}          exact={true} />
           <Route          path="/user_update/:id"       component={UpdateUser}       exact={true} />
