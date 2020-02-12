@@ -67,7 +67,6 @@ class LoginUser extends Component {
         this.setState({submitting: false});
       } else if (response.status === 200 && data && !data.error){
         const jwtKey = ( response.data ) || '';
-        localStorage.setItem('token', jwtKey);
 
         const token = jwt(jwtKey);
         const {data} = token;
