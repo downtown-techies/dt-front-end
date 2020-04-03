@@ -161,7 +161,7 @@ class LoginUser extends Component {
                     color='red' 
                     errors={this.state.errors} 
                   />
-                  <Link address='/reset'><Text textStyle='small'>reset password</Text></Link>
+                  <Link address='/reset'><Text sizeFactor={0.6}>reset password</Text></Link>
                   <SubmitContainer>
                     <StyledSubmit 
                       buttonStyle='submit'

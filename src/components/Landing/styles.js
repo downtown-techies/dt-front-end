@@ -1,4 +1,7 @@
 import styled from '../../theme';
+import primaryTheme from '../../theme/primaryTheme';
+import wrightBackground from '../../assets/images/wrightBackground.jpg';
+import edisonBackground from '../../assets/images/edisonBackground.jpg';
 
 const EyeBrow = styled.div`
   position: relative;
@@ -12,7 +15,16 @@ const EyeBrow = styled.div`
 const LandingWrapper = styled.div`
   position: relative;
   overflow: hidden;
+  min-width: 100vw;
   min-height: 85vh;
+  background: center,
+              url(${wrightBackground}) no-repeat ${primaryTheme.colors.primary};
+  background-size: 100vw; 
+  @media (max-width: 900px) {
+    background: center,
+                url(${edisonBackground}) no-repeat ${primaryTheme.colors.primary};
+    background-size: 100%; 
+  }
 `;
 
 const SVGWrapper = styled.div`
@@ -28,7 +40,7 @@ const UserFormWrapper = styled.div`
 `;
 
 const TaglineWrapper = styled.div`
-  padding: 22vh 2rem 4rem;
+  padding: 22vh 0rem 4rem;
   display: inline-block;
   width 100vw;
 `;
@@ -36,13 +48,13 @@ const TaglineWrapper = styled.div`
 const Tagline = styled.div`
   position: relative;
   height: 0;
-  max-width: 90%;
   margin: 0 auto;
   z-index: 1;
-
-  @media (min-width: 700px) {
-    max-width: 50%;
+  max-width: 50%;
+  @media (max-width: 700px) {
+    max-width: 100%;
   }
+
 `;
 
 export {

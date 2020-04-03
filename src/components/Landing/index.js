@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Button from '../shared/Button';
 import { ButtonSection } from '../shared/Button/styles';
 import Text from '../shared/Text';
@@ -13,54 +13,46 @@ import {
   Tagline
 } from './styles.js';
 
-class Landing extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false 
-    };
-  }
+const Landing = (props) => {
+  const [visible, toggleVisible] = useState(false);
   
-  handleClick = () => {
-    this.setState({
-      visible: !this.state.visible 
-    });
+  const handleClick = () => {
+    toggleVisible(!visible);
+
     return
   }
 
-  render(){
   return (
     <>
       <LandingWrapper>
         <TaglineWrapper>
           <Tagline>
-            <Text textStyle='tagLine' color={theme.colors.primary}>
-              We are a group of developers, designers and entrepreneurs solving problems.
+            <Text sizeFactor={2} bold textStyle="tagLine" color={theme.colors.backgroundDark}>
+              Limitless Possibility
             </Text>
-          { !this.state.visible ? (
+          { !visible ? (
             <ButtonSection>
-              <Button handleClick={this.handleClick} buttonStyle='big'>Join Us</ Button>
+              <Button handleClick={()=>handleClick()} buttonStyle="big">Join Us</ Button>
             </ButtonSection>
           ) : (
             <SVGWrapper>
-              <Button buttonStyle='unstyled' handleClick={this.handleClick}>
+              <Button buttonStyle="unstyled" handleClick={()=>handleClick()}>
                 <SvgIcon
-                  name='carrotUp'
-                  viewBox='0 0 320 512'
+                  name="carrotUp"
+                  viewBox="0 0 320 512"
                   style={{cursor: 'pointer'}}
-                  fill={theme.colors.primary}/>
+                  fill={theme.colors.backgroundDark}/>
                 </Button>
             </SVGWrapper>
           )}
           </Tagline>
         </TaglineWrapper>
         <UserFormWrapper>
-          { this.state.visible ? (<AddUserForm />) : null }
+          { visible && <AddUserForm />}
         </UserFormWrapper>
       </LandingWrapper>
     </>
   );
-  }
 }
 
 export default Landing;

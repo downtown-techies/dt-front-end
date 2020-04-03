@@ -5,7 +5,7 @@ import theme from '../../../theme/primaryTheme';
 
 const StyledLabel = styled.label`
   ${({ labelStyle = 'default' }) => labelStyles[labelStyle]};
-  color: ${({ color }) => (color ? color : theme.colors.primary)};
+  color: ${({ color }) => (color ? color : theme.colors.backgroundDark)};
 `;
 
 const labelStyles = {
@@ -33,7 +33,7 @@ class Label extends React.Component {
       >
         <Text
           bold={bold || false}
-          color={color}
+          color={color || theme.colors.backgroundDark}
           tag='span'
           textStyle='label'
           {...this.props}

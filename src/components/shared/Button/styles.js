@@ -64,6 +64,9 @@ export const buttonStyles = {
   `,
   big: css`
     padding: 0.5rem 4rem;
+    &:hover{
+      box-shadow: 0px 2px 5px ${theme.colors.backgroundDark}
+    }
   `,
   unstyled: css`
     padding: 0;
@@ -88,9 +91,9 @@ export const StyledButton = styled.button`
   ${baseStyles}
   ${({ buttonStyle = 'default' }) => buttonStyles[buttonStyle]}
   color: ${({ color }) => (color ? color: theme.colors.primary)};
-  background-color: ${({ backgroundColor }) => (backgroundColor ? backgroundColor : theme.colors.accent)};
+  background-color: ${({ backgroundColor }) => (backgroundColor ? backgroundColor : theme.colors.backgroundDark)};
   &:hover{
-    background-color: ${({ backgroundColorHover }) => (backgroundColorHover ? backgroundColorHover : theme.colors.accentHover)};
+    background-color: ${({ backgroundColorHover }) => (backgroundColorHover ? backgroundColorHover : theme.colors.backgroundDark)};
   }
 `;
 

@@ -2,9 +2,10 @@ import styled from '../../../theme';
 import primaryTheme from '../../../theme/primaryTheme';
 
 const HeaderContainer = styled.div`
-  background-color: ${primaryTheme.colors.primary};
+  background-color: ${primaryTheme.colors.backgroundDark};
   display: flex;
   align-items: center;
+  box-shadow: 0px 5px 10px #000D0D;
   flex-wrap: nowrap;
   z-index: 1;
   position: relative;
@@ -19,7 +20,7 @@ const HeaderContainer = styled.div`
 const StyledHeader = styled.div`
   display: flex;
   width: 100%;
-  height: 32px;
+  height: 33px;
   top: 5px;
   position: relative;
 `;

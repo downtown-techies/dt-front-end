@@ -1,6 +1,6 @@
 const primaryTheme = {
   colors: {
-    primary: '#091B65',
+    primary: '#A9E0DD',
     secondary: '#67FF47',
     tertiary: '#1FCFEC',
     reverse: '#FFFFFF',
@@ -15,6 +15,7 @@ const primaryTheme = {
     backgroundDark: '#050E33',
     backgroundLight: '#F4F6F7',
     backgroundTransparent: 'rgba( 5, 14, 51, 0.95 )',
+    transparent: 'transparent',
     border: '#F0F0F0',
   },
   breakpoints: {

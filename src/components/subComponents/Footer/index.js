@@ -8,7 +8,7 @@ class Footer extends Component {
   render() {
     return (
       <StyledFooter className='footer'>
-        <Text tag='p' textStyle='small' color='rgba( 45,45,45,1 )'>Give us a follow and help us grow the community</Text>
+        <Text tag='p' sizeFactor={0.6} color='rgba( 45,45,45,1 )'>Give us a follow and help us grow the community</Text>
         <Links>
           <Link name='linkedIn'
             linkStyle='inlineFooter'

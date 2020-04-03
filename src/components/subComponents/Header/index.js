@@ -52,7 +52,7 @@ class Header extends Component {
                 width={mobile ? 34.13 : 244.372}
                 viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
                 style={{cursor: 'pointer'}}
-                fill={theme.colors.reverse}/>
+                fill={theme.colors.primary}/>
             </ Link>
             <MenuRight onClick={this.handleClick}>
               {isOpen ? (
@@ -60,14 +60,14 @@ class Header extends Component {
                    name='close'
                    viewBox='0 0 320 512'
                    style={{cursor: 'pointer'}}
-                   fill={theme.colors.reverse}/>
+                   fill={theme.colors.primary}/>
               )
                 : (
                   <SvgIcon
                     name='bars'
                     viewBox='0 0 448 512'
                     style={{cursor: 'pointer'}}
-                    fill={theme.colors.reverse}/>
+                    fill={theme.colors.primary}/>
                 )
               }
             </MenuRight>
