@@ -4,8 +4,9 @@ import primaryTheme from '../../../theme/primaryTheme';
 const MenuContainer = styled.div`
   padding: 2.5em 1.5em 0;
   font-size: 0.9em;
-  background: ${primaryTheme.colors.backgroundTransparent};
-  height: calc(100vh - 72px);
+  background: ${primaryTheme.colors.backgroundDark};
+  height: 100vh;
+ //  height: calc(100vh - 72px);
 `;
 
 const MenuLink = styled.a`

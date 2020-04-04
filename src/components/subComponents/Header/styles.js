@@ -2,15 +2,14 @@ import styled from '../../../theme';
 import primaryTheme from '../../../theme/primaryTheme';
 
 const HeaderContainer = styled.div`
-  background-color: ${primaryTheme.colors.backgroundDark};
+  position: absolute;
   display: flex;
-  align-items: center;
-  box-shadow: 0px 5px 10px #000D0D;
   flex-wrap: nowrap;
-  z-index: 1;
-  position: relative;
-  color: white;
+  align-items: center;
+  width: 100vw;
   padding: 1rem 3vw 1rem 10vw;
+  background-color: ${primaryTheme.colors.transparent};
+  z-index: 9999;
 
   @media (max-width: 1024px) {
     padding: 1rem 10vw;

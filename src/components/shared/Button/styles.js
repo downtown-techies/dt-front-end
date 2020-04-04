@@ -35,7 +35,7 @@ export {
 
 const baseStyles = css`
   display: inline-block;
-  font-family: 'Akkurat', sans-serif;
+  font-family: 'Roboto', sans-serif;
   appearance: none;
   border: none;
   border-radius: 0.25rem;
@@ -53,8 +53,13 @@ const baseStyles = css`
 
   &:disabled {
     background-color: ${theme.colors.disabled};
+    color: ${theme.colors.backgroundDark};
     opacity: 0.5;
     cursor: not-allowed;
+    &:hover{
+      background-color: ${theme.colors.disabled};
+      color: ${theme.colors.backgroundDark};
+    }
   }
 `;
 
@@ -90,10 +95,10 @@ export const buttonStyles = {
 export const StyledButton = styled.button`
   ${baseStyles}
   ${({ buttonStyle = 'default' }) => buttonStyles[buttonStyle]}
-  color: ${({ color }) => (color ? color: theme.colors.primary)};
+  color: ${({ color }) => (color ? color: theme.colors.reverse)};
   background-color: ${({ backgroundColor }) => (backgroundColor ? backgroundColor : theme.colors.backgroundDark)};
   &:hover{
-    background-color: ${({ backgroundColorHover }) => (backgroundColorHover ? backgroundColorHover : theme.colors.backgroundDark)};
+    background-color: ${({ backgroundColorHover }) => (backgroundColorHover ? backgroundColorHover : theme.colors.backgroundDarker)};
   }
 `;
 

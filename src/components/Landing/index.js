@@ -32,7 +32,7 @@ const Landing = (props) => {
             </Text>
           { !visible ? (
             <ButtonSection>
-              <Button handleClick={()=>handleClick()} buttonStyle="big">Join Us</ Button>
+              <Button handleClick={()=>handleClick()} buttonStyle="big">Build Your Dream</ Button>
             </ButtonSection>
           ) : (
             <SVGWrapper>

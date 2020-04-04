@@ -33,12 +33,6 @@ const inputFields = [
     type: 'input'
   },
   {
-    label: 'postal_code',
-    displayName: 'Postal Code',
-    initialValue: '',
-    type: 'input'
-  },
-  {
     label: 'opt_in',
     displayName: 'Opt in to Notifications',
     initialValue: 'true',

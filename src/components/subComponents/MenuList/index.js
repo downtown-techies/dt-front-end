@@ -37,6 +37,7 @@ const MenuList= (props) => {
           rel='noopener noreferrer',
           linkText,
         } = item;
+
         let href = hrefRoot;
 
         if(key==='userInfo'){

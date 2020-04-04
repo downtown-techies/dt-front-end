@@ -38,8 +38,8 @@ class Header extends Component {
     const viewBoxHeight = mobile ? 54 : 28;
     const { isOpen } = this.state;
 
-    const style = isOpen ? {position: 'fixed', width: '100vw', zIndex: 2} : {};
-    const fillerStyle = isOpen ? {height: '72px'} : {display: 'none'};
+    const style = isOpen ? {position: 'fixed', width: '100vw', zIndex: 9999} : {};
+    const fillerStyle = isOpen ? {height: '0'} : {display: 'none'};
 
     return (
       <>
@@ -52,25 +52,27 @@ class Header extends Component {
                 width={mobile ? 34.13 : 244.372}
                 viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
                 style={{cursor: 'pointer'}}
-                fill={theme.colors.primary}/>
+                fill={theme.colors.backgroundDark} />
             </ Link>
+            {/*
             <MenuRight onClick={this.handleClick}>
               {isOpen ? (
                  <SvgIcon
                    name='close'
                    viewBox='0 0 320 512'
                    style={{cursor: 'pointer'}}
-                   fill={theme.colors.primary}/>
+                   fill={theme.colors.white} />
               )
                 : (
                   <SvgIcon
                     name='bars'
                     viewBox='0 0 448 512'
                     style={{cursor: 'pointer'}}
-                    fill={theme.colors.primary}/>
+                    fill={theme.colors.backgroundDark} />
                 )
               }
             </MenuRight>
+            */}
           </ StyledHeader>
         </HeaderContainer>
         <div style={fillerStyle} />

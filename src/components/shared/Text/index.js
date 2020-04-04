@@ -13,11 +13,16 @@ const textStyles = {
     }
   `,
   tagLine: css`
-    font-size: ${props => parseFloat(props.sizeFactor) * 2.4}rem;
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 700;
+    font-size: ${props => parseFloat(props.sizeFactor) * 2.8}rem;
     text-align: center;
 
     @media (max-width: 1320px) {
       font-size: ${props => parseFloat(props.sizeFactor) * 1.8}rem;
+    }
+    @media (max-width: 700px) {
+      font-size: ${props => parseFloat(props.sizeFactor) * 1.4}rem;
     }
   `,
   headline: css`
@@ -32,7 +37,7 @@ const textStyles = {
     border-radius: 0.25rem 0.25rem 0 0;
   `,
   callToAction: css`
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: ${props => parseFloat(props.sizeFactor) * 4.5}rem;
     line-height: 1.2;
@@ -45,7 +50,7 @@ const textStyles = {
   `,
   // TODO:  get rid of this 
   bigTitle: css`
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 4.5rem;
 

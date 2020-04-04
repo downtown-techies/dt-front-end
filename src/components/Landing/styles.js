@@ -16,7 +16,7 @@ const LandingWrapper = styled.div`
   position: relative;
   overflow: hidden;
   min-width: 100vw;
-  min-height: 85vh;
+  min-height: calc(95vh);
   background: center,
               url(${wrightBackground}) no-repeat ${primaryTheme.colors.primary};
   background-size: 100vw; 
@@ -50,11 +50,7 @@ const Tagline = styled.div`
   height: 0;
   margin: 0 auto;
   z-index: 1;
-  max-width: 50%;
-  @media (max-width: 700px) {
-    max-width: 100%;
-  }
-
+  max-width: 100%;
 `;
 
 export {

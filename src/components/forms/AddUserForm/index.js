@@ -33,8 +33,6 @@ hiddenFields.map((field) => {
   return hiddenValues[label] = value;
 });
 
-const zipFormat = new RegExp(/^\d{5}([-]?\d{4})?$/);
-
 const userSchema = yup.object().shape({
   first_name: yup.string().required('Name is Required.'),
   last_name: yup.string().required('Name is Required.'),
@@ -42,12 +40,6 @@ const userSchema = yup.object().shape({
     .string()
     .email('Please Enter a valid Email')
     .required('Email is Required.'),
-  postal_code: yup
-    .string()
-    .matches(zipFormat, 'Please provide a valid postal code')
-    .required('Please provide a valid postal code')
-    .max(8,'Too long')
-    .min(5,'Too short'),
 })
 
 class AddUser extends Component {
