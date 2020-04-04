@@ -96,7 +96,7 @@ const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: ${primaryTheme.colors.primary};
+    color: ${primaryTheme.colors.backgroundDark};
   }
 
   *,

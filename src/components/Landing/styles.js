@@ -3,46 +3,26 @@ import primaryTheme from '../../theme/primaryTheme';
 import wrightBackground from '../../assets/images/wrightBackground.jpg';
 import edisonBackground from '../../assets/images/edisonBackground.jpg';
 
-const EyeBrow = styled.div`
-  position: relative;
-  margin: 0 auto;
-  text-align: center;
-  height: 0;
-  top: 1rem;
-  z-index: 1;
-`;
-
 const LandingWrapper = styled.div`
-  position: relative;
-  overflow: hidden;
-  min-width: 100vw;
-  min-height: calc(95vh);
-  background: center,
-              url(${wrightBackground}) no-repeat ${primaryTheme.colors.primary};
-  background-size: 100vw; 
+  min-height: 95vh;
+  background-color: ${primaryTheme.colors.backgroundLight};
+`;
+
+const AboveTheFold = styled.div`
+  display:           inline-block;
+  position:          relative;
+  padding:           45vh 0rem 30vh;
+  overflow:          hidden;
+  width              100vw;
+  min-height:        65vh;
+  background:        center,
+                     url(${wrightBackground}) no-repeat ${primaryTheme.colors.primary};
+  background-size:   100vw;
   @media (max-width: 900px) {
-    background: center,
-                url(${edisonBackground}) no-repeat ${primaryTheme.colors.primary};
-    background-size: 100%; 
+    background:      center,
+                     url(${edisonBackground}) no-repeat ${primaryTheme.colors.primary};
+    background-size: 100%;
   }
-`;
-
-const SVGWrapper = styled.div`
-  position: relative;
-  text-align: center;
-  padding: 2rem 0 0;
-`;
-
-const UserFormWrapper = styled.div`
-  padding: 0 2rem;
-  display: inline-block;
-  width 100vw;
-`;
-
-const TaglineWrapper = styled.div`
-  padding: 22vh 0rem 4rem;
-  display: inline-block;
-  width 100vw;
 `;
 
 const Tagline = styled.div`
@@ -55,9 +35,5 @@ const Tagline = styled.div`
 
 export {
   LandingWrapper,
-  TaglineWrapper,
-  SVGWrapper,
-  UserFormWrapper,
-  Tagline,
-  EyeBrow
+  AboveTheFold
 };

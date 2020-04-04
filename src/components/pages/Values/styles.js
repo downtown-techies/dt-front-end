@@ -1,7 +1,7 @@
 import styled from '../../../theme';
 import primaryTheme from '../../../theme/primaryTheme';
 
-const WorkContainer = styled.div`
+const ValuesContainer = styled.div`
   position: relative;
   margin: 0 auto;
   text-align: center;
@@ -11,5 +11,5 @@ const WorkContainer = styled.div`
 `;
 
 export {
-  WorkContainer
+  ValuesContainer
 };

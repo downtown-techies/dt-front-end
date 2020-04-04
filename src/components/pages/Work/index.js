@@ -14,7 +14,8 @@ const Work = (props) => {
 
   return (
     <>
-      Work
+     <Text>What we have done</Text>
+
     </>
   );
 }
