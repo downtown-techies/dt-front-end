@@ -16,23 +16,23 @@ const Values = (props) => {
     <>
      <Text>We are:</Text>
 
-        Efficient
-        Design-oriented
-        Community-focuse
-        Adaptive
-        Creative
+        <Text>Efficient</Text>
+        <Text>Design-oriented</Text>
+        <Text>Community-focused</Text>
+        <Text>Adaptive</Text>
+        <Text>Creative</Text>
 
-      What we do: 
-        Build visions
-        Empower community
-        Improve lives
-        Maximize efficiency & revenue
-        Design intuitive interfaces
+     <Text> What we do: </Text>
+        <Text>Build visions</Text>
+        <Text>Empower community</Text>
+        <Text>Improve lives</Text>
+        <Text>Maximize efficiency & revenue</Text>
+        <Text>Design intuitive interfaces</Text>
 
-      How we do it: 
-        Bridge implementation, value and ROI
-        Break down big dreams into achievable tasks
-        Create aesthetically pleasing user experiences
+      <Text>How we do it: </Text>
+        <Text>Bridge implementation, value and ROI</Text>
+        <Text>Break down big dreams into achievable tasks</Text>
+        <Text>Create aesthetically pleasing user experiences</Text>
 
     </>
   );

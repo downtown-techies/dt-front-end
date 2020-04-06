@@ -8,7 +8,6 @@ import {
   ResponseMessage
 } from './styles';
 
-
 const ErrorsModal = (props) => {
   const [showModal, setShowModal] = useState(true);
   const { errors, response } = props;

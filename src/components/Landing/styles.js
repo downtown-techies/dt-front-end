@@ -6,10 +6,11 @@ import edisonBackground from '../../assets/images/edisonBackground.jpg';
 const LandingWrapper = styled.div`
   min-height: 95vh;
   background-color: ${primaryTheme.colors.backgroundLight};
+  display:           block;
 `;
 
 const AboveTheFold = styled.div`
-  display:           inline-block;
+  display:           block;
   position:          relative;
   padding:           45vh 0rem 30vh;
   overflow:          hidden;
@@ -27,7 +28,6 @@ const AboveTheFold = styled.div`
 
 const Tagline = styled.div`
   position: relative;
-  height: 0;
   margin: 0 auto;
   z-index: 1;
   max-width: 100%;

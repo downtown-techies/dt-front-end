@@ -19,8 +19,8 @@ const Landing = (props) => {
         <Signup />
       </AboveTheFold>
       <Ethos />
-      <Values />
-      <Work />
+    {/* <Values />
+      <Work /> */}
     </LandingWrapper>
   );
 }

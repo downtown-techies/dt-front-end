@@ -48,24 +48,6 @@ const textStyles = {
       line-height: 1;
     }
   `,
-  // TODO:  get rid of this 
-  bigTitle: css`
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 4.5rem;
-
-    line-height: 1.2;
-    max-width: 75vw;
-    margin: 0 auto 2rem;
-    @media (max-width: 1120px) {
-      font-size: 3rem;
-      line-height: 1;
-    }
-    @media (max-width: 600px) {
-      font-size: 2rem;
-      line-height: 1;
-    }
-  `,
   title: css`
     font-size: ${props => parseFloat(props.sizeFactor) * 1.6}rem;
     font-weight: 700;
@@ -97,7 +79,7 @@ const StyledText = styled.p`
 const Text = ({
   textStyle,
   tag,
-  sizeFactor,
+  sizeFactor=1,
   hidden,
   children,
   color,
