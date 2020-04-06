@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Text from '../../shared/Text';
+import React from 'react';
+// import Text from '../../shared/Text';
 import theme from '../../../theme/primaryTheme';
 import { 
   EthosContainer, 

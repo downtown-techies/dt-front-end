@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from '../../../theme';
-import theme from '../../../theme/primaryTheme';
 import CardFull from './FullCard';
 import ImageLeft from './ImageLeft';
 import ImageRight from './ImageRight';
@@ -29,7 +28,6 @@ const Card = ({
           {...rest}
         />
       );
-      break;
     case 'imageRight':
       return (
         <ImageRight
@@ -41,7 +39,6 @@ const Card = ({
           {...rest}
         />
       )
-      break;
     case 'fullCard':
       return (
         <CardFull
@@ -53,7 +50,6 @@ const Card = ({
           {...rest}
         />
       );
-      break;
     default:
       return (
         <StyledCard

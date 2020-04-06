@@ -26,13 +26,6 @@ const AboveTheFold = styled.div`
   }
 `;
 
-const Tagline = styled.div`
-  position: relative;
-  margin: 0 auto;
-  z-index: 1;
-  max-width: 100%;
-`;
-
 export {
   LandingWrapper,
   AboveTheFold

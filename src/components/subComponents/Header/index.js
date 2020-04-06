@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { 
   HeaderContainer, 
-  MenuRight, 
   StyledHeader 
 } from './styles';
 import Link from '../../shared/Link';

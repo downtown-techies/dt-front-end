@@ -1,14 +1,13 @@
 import * as React from 'react';
-import styled, { css } from '../../../../theme';
 import theme from '../../../../theme/primaryTheme';
 import { StyledCard } from './styles.js';
 import Text from '../../../shared/Text';
 
 
-const cardStyles = {
-  default: css`
-  `,
-};
+// const cardStyles = {
+//   default: css`
+//   `,
+// };
 
 const ImageRight = ({
   cardStyle,

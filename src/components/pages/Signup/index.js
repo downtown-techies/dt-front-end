@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../../shared/Button';
 import { ButtonSection } from '../../shared/Button/styles';
-import Text from '../../shared/Text';
 import SvgIcon from '../../../assets/svgs';
 import AddUserForm from '../../forms/AddUserForm';
 import theme from '../../../theme/primaryTheme';

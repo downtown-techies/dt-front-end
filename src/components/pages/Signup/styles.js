@@ -1,5 +1,4 @@
 import styled from '../../../theme';
-import primaryTheme from '../../../theme/primaryTheme';
 
 const UserFormWrapper = styled.div`
   padding: 0 2rem;

@@ -1,5 +1,4 @@
 import styled from '../../../../theme';
-import { css } from '../../../../theme';
 import theme from '../../../../theme/primaryTheme';
 import space from '../../../../assets/images/space.jpg';
 
