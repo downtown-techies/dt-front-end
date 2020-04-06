@@ -1,0 +1,13 @@
+.aesthetics-content {
+  padding: 10rem 0rem 10rem; 
+}
+
+.aesthetics-content__header {
+  position: relative;
+  left: 4rem;
+}
+
+.aesthetics-content__info {
+  position: relative;
+  left: 2rem;
+}

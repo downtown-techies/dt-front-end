@@ -21,6 +21,7 @@ const Landing = (props) => {
       <Ethos />
     {/* <Values />
       <Work /> */}
+      <Signup />
     </LandingWrapper>
   );
 }

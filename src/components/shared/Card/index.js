@@ -4,6 +4,8 @@ import CardFull from './FullCard';
 import ImageLeft from './ImageLeft';
 import ImageRight from './ImageRight';
 
+import './styles.css';
+
 const StyledCard = styled.div`
 `;
 
@@ -12,6 +14,7 @@ const Card = ({
   header,
   info,
   children,
+  name,
   styles,
   className,
   ...rest
@@ -20,43 +23,47 @@ const Card = ({
     case 'imageLeft':
       return (
         <ImageLeft
+          className={className}
           cardStyle={cardStyle}
           header={header}
           info={info}
+          name={name}
           styles={styles}
-          className={className}
           {...rest}
         />
       );
     case 'imageRight':
       return (
         <ImageRight
+          className={className}
           cardStyle={cardStyle}
           header={header}
           info={info}
+          name={name}
           styles={styles}
-          className={className}
           {...rest}
         />
       )
     case 'fullCard':
       return (
         <CardFull
+          className={className}
           cardStyle={cardStyle}
           header={header}
           info={info}
+          name={name}
           styles={styles}
-          className={className}
           {...rest}
         />
       );
     default:
       return (
         <StyledCard
+          className={className}
           cardStyle={cardStyle}
           header={header}
+          name={name}
           styles={styles}
-          className={className}
           {...rest}
         >
           {children}

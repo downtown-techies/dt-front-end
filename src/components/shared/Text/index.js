@@ -55,9 +55,22 @@ const textStyles = {
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
   `,
+  cardHeadline: css`
+    white-space: pre-line;
+    font-size: ${props => parseFloat(props.sizeFactor) * 3.2}rem;
+    font-weight: 300;
+    line-height: 1.2;
+  `,
+  cardCopy: css`
+    white-space: pre-line;
+    font-size: ${props => parseFloat(props.sizeFactor) * 1.4}rem;
+    font-weight: 100;
+    line-height: 1.2;
+  `,
   cardTitle: css`
+    white-space: pre-line;
     font-size: ${props => parseFloat(props.sizeFactor) * 2}rem;
-    font-weight: 700;
+    font-weight: 100;
     line-height: 1.2;
     margin: 1.5rem 0;
   `,
@@ -71,7 +84,13 @@ const textStyles = {
 };
 
 const StyledText = styled.p`
-  font-weight: ${({ bold }) => (bold ? '700' : '400')};
+  ${({ bold=undefined }) => {
+      if(bold){
+        return(
+        'font-weight: 700'
+        )
+      }
+    }};
   ${({ textStyle = 'default' }) => textStyles[textStyle]};
   color: ${({ color }) => (color ? color : theme.colors.backgroundDark)};
 `;

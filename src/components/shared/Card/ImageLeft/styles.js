@@ -1,24 +1,42 @@
-import styled from '../../../../theme';
+import styled, { css }from '../../../../theme';
 import theme from '../../../../theme/primaryTheme';
-import space from '../../../../assets/images/space.jpg';
+import defaultImage from '../../../../assets/images/default.png';
 
-const StyledCard = styled.div`
-  display:           block;
-  position:          relative;
-  padding:           30vh 0rem 35vh;
-  overflow:          hidden;
-  width:             100vw;
-  min-height:        65vh;
-  background:        center,
-                     url(${space}) no-repeat ${theme.colors.primary};
-  background-size:   100vw;
-  @media (max-width: 900px) {
-    background:      center,
-                     url(${space}) no-repeat ${theme.colors.primary};
-    background-size: 100%;
-  }
+export const textStyles = {
+  firstFlight: css`
+    position: relative;
+    right: 10rem;
+    text-align: right;
+  `,
+  default: css`
+  `,
+};
+
+export const TextContainer = styled.div`
+  ${({ name = 'default' }) => textStyles[name]}
 `;
 
-export {
-  StyledCard
-}
+const baseStyles = css`
+  display:           block;
+  position:          relative;
+  padding:           10rem 0rem 15rem;
+  overflow:          hidden;
+  width:             100vw;
+`;
+
+export const cardStyles = {
+  firstFlight: css`
+    padding: 10rem 0rem 15rem;
+  `,
+  default: css`
+  `,
+};
+
+export const StyledCard = styled.div`
+  ${baseStyles}
+  ${({ name = 'default' }) => cardStyles[name]}
+  background:        url(${({ image }) => (image ? image : defaultImage)});
+  background-repeat: no-repeat;
+  background-size:   contain;
+  background-color:  white;
+`;
