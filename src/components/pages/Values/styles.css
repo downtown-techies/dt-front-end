@@ -1,0 +1,12 @@
+{/* aesthetics matter */}
+.values-content {
+  padding: 7rem 0rem 13rem; 
+  text-align: center;
+  width: 100vw;
+}
+
+.values-content__header {
+  position: relative;
+  line-height: 3.5rem;
+  right: 12rem;
+}

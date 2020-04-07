@@ -1,41 +1,60 @@
-import React from 'react';
-// import React, { useState } from 'react';
-import Text from '../../shared/Text';
-// import theme from '../../../theme/primaryTheme';
-// import {  } from './styles.js';
+import React, { useState, useEffect, useRef } from 'react';
+// import Text from '../../shared/Text';
+import theme from '../../../theme/primaryTheme';
+import solarEclipse from '../../../assets/images/solarEclipse.jpg';
+import { valuesList } from './values.js';
+
+import { 
+  ValuesContainer,
+  SolarContainer,
+  Solar,
+} from './styles.js';
+
+import './styles.css';
+
+const useInterval = (callback, delay) => {
+  const savedCallback = useRef();
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  useEffect(() => {
+    const tick = () => {
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+}
 
 const Values = (props) => {
-  // const [visible, toggleVisible] = useState(false);
-  // 
-  // const handleClick = () => {
-  //   toggleVisible(!visible);
+  let [count, setCount] = useState(0);
 
-  //   return
-  // }
+  useInterval(() => {
+    if (count === 4) {
+      setCount(0);
+    } else {
+      setCount(count + 1);
+    }
+    console.log(count);
+  }, 2000);
 
   return (
-    <>
-     <Text>We are:</Text>
-
-        <Text>Efficient</Text>
-        <Text>Design-oriented</Text>
-        <Text>Community-focused</Text>
-        <Text>Adaptive</Text>
-        <Text>Creative</Text>
-
-     <Text> What we do: </Text>
-        <Text>Build visions</Text>
-        <Text>Empower community</Text>
-        <Text>Improve lives</Text>
-        <Text>Maximize efficiency & revenue</Text>
-        <Text>Design intuitive interfaces</Text>
-
-      <Text>How we do it: </Text>
-        <Text>Bridge implementation, value and ROI</Text>
-        <Text>Break down big dreams into achievable tasks</Text>
-        <Text>Create aesthetically pleasing user experiences</Text>
-
-    </>
+    <ValuesContainer>
+      <SolarContainer>
+        <Solar 
+          className="values-content"
+          header={{
+              'className':'values-content__header',
+              'color': theme.colors.white, 
+              'content': valuesList[count]}}
+          image={solarEclipse}
+          name="values"
+          cardStyle="fullCard" />
+      </SolarContainer>
+    </ValuesContainer>
   );
 }
 

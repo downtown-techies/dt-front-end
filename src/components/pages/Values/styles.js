@@ -1,13 +1,25 @@
 import styled from '../../../theme';
-import primaryTheme from '../../../theme/primaryTheme';
+import Card from '../../shared/Card';
 
 const ValuesContainer = styled.div`
   position: relative;
+  display: block;
   margin: 0 auto;
   text-align: center;
   z-index: 1;
 `;
 
+const SolarContainer = styled.div`
+  padding: 0 0 4rem;
+  background-color: white;
+`;
+
+const Solar = styled(Card)`
+  padding: 1rem 0;
+`;
+
 export {
-  ValuesContainer
+  ValuesContainer,
+  SolarContainer,
+  Solar,
 };
