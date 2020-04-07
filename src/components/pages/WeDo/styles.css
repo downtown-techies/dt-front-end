@@ -1,0 +1,11 @@
+{/* aesthetics matter */}
+.we-do-content {
+  padding: 11rem 0rem 9rem; 
+  text-align: center;
+  width: 100vw;
+}
+
+.we-do-content__header {
+  position: relative;
+  line-height: 3.5rem;
+}

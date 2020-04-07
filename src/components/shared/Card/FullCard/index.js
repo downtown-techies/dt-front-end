@@ -17,6 +17,7 @@ const CardFull = ({
     className: headerClassName='',
     content: headerContent='',
     color: headerColor=theme.colors.backgroundDark,
+    sizeFactor: headerSizeFactor=1.3,
     textStyle: headerTextStyle='cardHeadline'
   } = header;
   const {
@@ -37,7 +38,7 @@ const CardFull = ({
       <TextContainer>
         <Text 
           className={headerClassName}
-          sizeFactor={1.3}
+          sizeFactor={headerSizeFactor}
           color={headerColor}
           textStyle={headerTextStyle}>
           {headerContent}
