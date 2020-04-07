@@ -32,11 +32,11 @@ const Signup = (props) => {
                 name="carrotUp"
                 viewBox="0 0 320 512"
                 style={{cursor: 'pointer'}}
-                fill={theme.colors.backgroundDark}/>
+                fill={theme.colors.reverse}/>
               </Button>
           </SVGWrapper>
         )}
-      <UserFormWrapper>
+      <UserFormWrapper visible={visible}>
         { visible && <AddUserForm />}
       </UserFormWrapper>
     </SignupWrapper>

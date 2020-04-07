@@ -8,12 +8,12 @@ import theme from '../../theme/primaryTheme';
 
 import { LandingWrapper, AboveTheFold } from './styles.js';
 
-const Landing = (props) => {
-
+const Landing = () => {
+  console.log(theme.colors.reverse);
   return (
     <LandingWrapper>
       <AboveTheFold>
-        <Text sizeFactor={2} bold textStyle="tagLine" color={theme.colors.backgroundDark}>
+        <Text sizeFactor={2} bold textStyle="tagLine" color={theme.colors.reverse}>
           Limitless Possibility
         </Text>
         <Signup />
@@ -21,7 +21,7 @@ const Landing = (props) => {
       <Ethos />
     {/* <Values />
       <Work /> */}
-      <Signup />
+      <Signup formColor={theme.colors.reverse} />
     </LandingWrapper>
   );
 }

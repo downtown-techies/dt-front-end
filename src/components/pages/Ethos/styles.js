@@ -11,63 +11,44 @@ const EthosContainer = styled.div`
   z-index: 1;
 `;
 
+const AestheticsContainer = styled.div`
+  padding: 3rem 0;
+  background-color: white;
+`;
+
 const Aesthetics = styled(Card)`
+  padding: 1rem 0;
 `;
 
-const Technology = styled(Card)`
-  display:           block;
-  position:          relative;
-  padding:           45vh 0rem 30vh;
-  overflow:          hidden;
-  width:             100vw;
-  min-height:        65vh;
-  background:        center,
-                     url(${space}) no-repeat ${primaryTheme.colors.primary};
-  background-size:   100vw;
-  @media (max-width: 900px) {
-    background:      center,
-                     url(${space}) no-repeat ${primaryTheme.colors.primary};
-    background-size: 100%;
-  }
+const InformationContainer = styled.div`
+  padding: 3rem 0;
+  background-color: white;
 `;
-
-const Simplify = styled(Card)`
-  display:           block;
-  position:          relative;
-  padding:           45vh 0rem 30vh;
-  overflow:          hidden;
-  width:             100vw;
-  min-height:        65vh;
-  background:        center,
-                     url(${space}) no-repeat ${primaryTheme.colors.primary};
-  background-size:   100vw;
-  @media (max-width: 900px) {
-    background:      center,
-                     url(${space}) no-repeat ${primaryTheme.colors.primary};
-    background-size: 100%;
-  }
-`;
-
-
 const Information = styled(Card)`
-  display:           block;
-  position:          relative;
-  padding:           45vh 0rem 30vh;
-  overflow:          hidden;
-  width:             100vw;
-  min-height:        65vh;
-  background:        center,
-                     url(${space}) no-repeat ${primaryTheme.colors.primary};
-  background-size:   100vw;
-  @media (max-width: 900px) {
-    background:      center,
-                     url(${space}) no-repeat ${primaryTheme.colors.primary};
-    background-size: 100%;
-  }
+`;
+
+const TechnologyContainer = styled.div`
+  padding: 3rem 0;
+  background-color: white;
+`;
+const Technology = styled(Card)`
+  padding: 10rem 0;
+`;
+
+const SimplifyContainer = styled.div`
+  padding: 3rem 0;
+  background-color: white;
+`;
+const Simplify = styled(Card)`
+  padding: 1rem 0;
 `;
 
 export {
   EthosContainer,
+  AestheticsContainer,
+  TechnologyContainer,
+  SimplifyContainer,
+  InformationContainer,
   Aesthetics,
   Technology,
   Simplify,

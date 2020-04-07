@@ -6,6 +6,7 @@ const Checkbox = ({
   form: { errors, touched, setFieldValue },
   id,
   label,
+  color,
   ...props
 }) => {
   return (
@@ -14,11 +15,13 @@ const Checkbox = ({
         name={name}
         type='checkbox'
         value={!!value}
+        color={color}
         checked={!!value}
         onChange={onChange}
         onBlur={onBlur}
       />
       <Label 
+        color={color}
         labelStyle='radioLabel'>
         {label}
       </Label>

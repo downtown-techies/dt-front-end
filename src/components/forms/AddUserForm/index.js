@@ -54,6 +54,7 @@ class AddUser extends Component {
     }
   }
 
+
   responseHandler = (response) => {
     const { errors, responseStatus, message, hidden } = response; 
 
@@ -118,6 +119,7 @@ class AddUser extends Component {
                 values,
                 errors,
                 touched,
+                formColor,
                 setFieldValue,
                 setFieldTouched,
                 handleChange,
@@ -132,7 +134,7 @@ class AddUser extends Component {
                         if (field.type === 'input') {
                           return (
                             <div key={field.label}>
-                              <Label>
+                              <Label color="white">
                                 {field.displayName}
                               </Label>
                               <Input
@@ -155,7 +157,7 @@ class AddUser extends Component {
 
                             return (
                               <div key={field.label}>
-                                <Label>
+                                <Label color="white">
                                   {field.displayName}
                                 </Label>
                                 <Select
@@ -176,6 +178,7 @@ class AddUser extends Component {
                                 <Field
                                   component={Checkbox}
                                   name={field.label}
+                                  color="white"
                                   label={field.displayName}
                                 />
                               </StyledRadioContainer>

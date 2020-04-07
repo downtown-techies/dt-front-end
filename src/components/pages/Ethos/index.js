@@ -2,13 +2,20 @@ import React from 'react';
 // import Text from '../../shared/Text';
 import theme from '../../../theme/primaryTheme';
 import firstFlight from '../../../assets/images/firstFlight.jpg';
+import printingPress from '../../../assets/images/printingPress.jpg';
+import space from '../../../assets/images/space.jpg';
+import modelT from '../../../assets/images/modelT.jpg';
 
 import { 
-  EthosContainer, 
+  EthosContainer,
+  AestheticsContainer,
+  TechnologyContainer,
+  SimplifyContainer,
+  InformationContainer,
   Aesthetics,
-  Technology, 
+  Technology,
   Simplify,
-  Information
+  Information,
 } from './styles.js';
 
 import './styles.css';
@@ -16,59 +23,66 @@ import './styles.css';
 const Ethos = (props) => {
   return (
     <EthosContainer>
-      <Aesthetics 
-        className="aesthetics-content"
-        header={{
-            'className':'aesthetics-content__header',
-            'color': theme.colors.backgroundDark, 
-            'content': 'Aesthetics matter'}}
-        info={{
-            'color': theme.colors.backgroundDark, 
-            'className':'aesthetics-content__info',
-            'content': 'Intuitive user-experiences lead to\nbeautiful user-interfaces'}}
-        image={firstFlight}
-        name="firstFlight"
-        cardStyle="imageLeft">
-      </Aesthetics>
-      <Technology
-        className="technology-content"
-        header={{
-            'className':'technology-content__header',
-            'color': theme.colors.accent, 
-            'content': 'Technology is a tool to make our lives easier' }}
-        info={{
-            'color': theme.colors.accent, 
-            'className':'technology-content__info',
-            'content': 'Well-crafted tools bring joy'}}
-        image={'firstFlight'}
-        cardStyle="imageRight">
-      </Technology>
-      <Simplify
-        className="simplify-content"
-        header={{
-            'className':'simplify-content__header',
-            'color': theme.colors.accent, 
-            'content': 'Complex problems must be made simple'}}
-        info={{
-            'color': theme.colors.accent, 
-            'className':'simplify-content__info',
-            'content': 'A solution that is difficult to understand, is not yet solved'}}
-        image={'firstFlight'}
-        cardStyle="imageLeft">
-      </Simplify>
-      <Information
-        className="information-content"
-        header={{
-            'className':'information-content__header',
-            'color': theme.colors.accent, 
-            'content': 'Information is freedom'}}
-        info={{
-            'color': theme.colors.accent, 
-            'className':'information-content__info',
-            'content': 'Technology empowers the commmunity'}}
-        image={'firstFlight'}
-        cardStyle="imageRight">
-      </Information>
+      <AestheticsContainer>
+        <Aesthetics 
+          className="aesthetics-content"
+          header={{
+              'className':'aesthetics-content__header',
+              'color': theme.colors.backgroundDark, 
+              'content': 'Aesthetics matter'}}
+          info={{
+              'className':'aesthetics-content__info',
+              'color': theme.colors.backgroundDark, 
+              'content': 'Intuitive user-experiences lead to\nbeautiful user-interfaces'}}
+          image={space}
+          name="space"
+          cardStyle="imageLeft" />
+      </AestheticsContainer>
+      <TechnologyContainer>
+        <Technology
+          className="technology-content"
+          header={{
+              'className':'technology-content__header',
+              'color': theme.colors.backgroundDark, 
+              'content': 'Well-crafted\ntools bring joy' }}
+          info={{
+              'className':'technology-content__info',
+              'color': theme.colors.backgroundDark, 
+              'content': 'Technology is a tool\nto make our lives easier'}}
+          image={modelT}
+          name="model T"
+          cardStyle="imageRight" />
+      </TechnologyContainer>
+      <InformationContainer>
+        <Information
+          className="information-content"
+          header={{
+              'className':'information-content__header',
+              'color': theme.colors.backgroundDark, 
+              'content': 'Information\nis Freedom'}}
+          info={{
+              'color': theme.colors.backgroundDark, 
+              'className':'information-content__info',
+              'content': 'Technology empowers\nthe commmunity'}}
+          image={printingPress}
+          name="printingPress"
+          cardStyle="imageLeft" />
+      </InformationContainer>
+      <SimplifyContainer>
+        <Simplify
+          className="simplify-content"
+          header={{
+              'className':'simplify-content__header',
+              'color': theme.colors.backgroundDark, 
+              'content': 'Simplify\nthe complex'}}
+          info={{
+              'className':'simplify-content__info',
+              'color': theme.colors.backgroundDark, 
+              'content': 'A solution that is\ndifficult to understand,\nis not yet solved'}}
+          image={firstFlight}
+          name="firstFlight"
+          cardStyle="imageRight" />
+      </SimplifyContainer>
     </EthosContainer>
   );
 }

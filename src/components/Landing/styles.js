@@ -1,27 +1,26 @@
 import styled from '../../theme';
 import primaryTheme from '../../theme/primaryTheme';
-import wrightBackground from '../../assets/images/wrightBackground.jpg';
+import moonLanding from '../../assets/images/moonLanding.jpg';
 import edisonBackground from '../../assets/images/edisonBackground.jpg';
 
 const LandingWrapper = styled.div`
-  min-height: 95vh;
-  background-color: ${primaryTheme.colors.backgroundLight};
+  min-height:        95vh;
   display:           block;
 `;
 
 const AboveTheFold = styled.div`
   display:           block;
   position:          relative;
-  padding:           45vh 0rem 30vh;
+  padding:           35vh 0rem 30vh;
   overflow:          hidden;
   width              100vw;
   min-height:        65vh;
   background:        center,
-                     url(${wrightBackground}) no-repeat ${primaryTheme.colors.primary};
+                     url(${moonLanding}) no-repeat;
   background-size:   100vw;
   @media (max-width: 900px) {
     background:      center,
-                     url(${edisonBackground}) no-repeat ${primaryTheme.colors.primary};
+                     url(${edisonBackground}) no-repeat;
     background-size: 100%;
   }
 `;

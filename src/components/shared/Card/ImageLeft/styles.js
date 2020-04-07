@@ -5,7 +5,7 @@ import defaultImage from '../../../../assets/images/default.png';
 export const textStyles = {
   firstFlight: css`
     position: relative;
-    right: 10rem;
+    right: 5rem;
     text-align: right;
   `,
   default: css`
@@ -25,9 +25,6 @@ const baseStyles = css`
 `;
 
 export const cardStyles = {
-  firstFlight: css`
-    padding: 10rem 0rem 15rem;
-  `,
   default: css`
   `,
 };
