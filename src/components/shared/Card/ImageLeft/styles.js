@@ -1,5 +1,4 @@
 import styled, { css }from '../../../../theme';
-import theme from '../../../../theme/primaryTheme';
 import defaultImage from '../../../../assets/images/default.png';
 
 export const textStyles = {

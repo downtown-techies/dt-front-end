@@ -1,5 +1,4 @@
 import styled from '../../theme';
-import primaryTheme from '../../theme/primaryTheme';
 import moonLanding from '../../assets/images/moonLanding.jpg';
 import edisonBackground from '../../assets/images/edisonBackground.jpg';
 

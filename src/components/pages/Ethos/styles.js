@@ -1,6 +1,4 @@
 import styled from '../../../theme';
-import primaryTheme from '../../../theme/primaryTheme';
-import space from '../../../assets/images/space.jpg';
 import Card from '../../shared/Card';
 
 const EthosContainer = styled.div`

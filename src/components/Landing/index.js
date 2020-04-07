@@ -1,7 +1,7 @@
 import React from 'react';
 import Signup from '../pages/Signup';
 import Ethos from '../pages/Ethos';
-// import Values from '../pages/Values';
+import Values from '../pages/Values';
 // import Work from '../pages/Work';
 import Text from '../shared/Text';
 import theme from '../../theme/primaryTheme';
@@ -18,9 +18,9 @@ const Landing = () => {
         </Text>
         <Signup />
       </AboveTheFold>
+      <Values />
       <Ethos />
-    {/* <Values />
-      <Work /> */}
+      {/* <Work /> */}
       <Signup formColor={theme.colors.reverse} />
     </LandingWrapper>
   );
