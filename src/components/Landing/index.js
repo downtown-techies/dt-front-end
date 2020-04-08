@@ -8,7 +8,12 @@ import Work from '../pages/Work';
 import Text from '../shared/Text';
 import theme from '../../theme/primaryTheme';
 
-import { LandingWrapper, AboveTheFold } from './styles.js';
+import { 
+  AboveTheFold, 
+  BottomOfPage,
+  CallToAction,
+  LandingWrapper, 
+} from './styles.js';
 
 const Landing = () => {
   console.log(theme.colors.reverse);
@@ -25,7 +30,12 @@ const Landing = () => {
       <WeDo />
       <Work />
       <Beliefs />
-      <Signup formColor={theme.colors.reverse} />
+      <BottomOfPage>
+        <CallToAction sizeFactor={1.7} bold textStyle="cardHeadline" color={theme.colors.secondary}>
+          Let's connect
+        </CallToAction>
+        <Signup formColor={theme.colors.reverse} />
+      </BottomOfPage>
     </LandingWrapper>
   );
 }

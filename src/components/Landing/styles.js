@@ -1,6 +1,7 @@
 import styled from '../../theme';
 import moonLanding from '../../assets/images/moonLanding.jpg';
 import edisonBackground from '../../assets/images/edisonBackground.jpg';
+import Text from '../shared/Text';
 
 const LandingWrapper = styled.div`
   min-height:        95vh;
@@ -24,7 +25,22 @@ const AboveTheFold = styled.div`
   }
 `;
 
+const CallToAction = styled(Text)`
+  padding:           3rem 0 0rem;
+`;
+
+const BottomOfPage = styled.div`
+  min-height:        20vh;
+  padding:           5rem 0;
+  margin:            0 auto;
+  text-align:        center;
+  width:             100vw;
+  display:           block;
+`;
+
 export {
-  LandingWrapper,
-  AboveTheFold
+  AboveTheFold,
+  BottomOfPage,
+  CallToAction,
+  LandingWrapper
 };
