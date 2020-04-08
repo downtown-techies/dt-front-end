@@ -33,12 +33,11 @@ const Beliefs = (props) => {
   let [count, setCount] = useState(0);
 
   useInterval(() => {
-    if (count === 4) {
+    if (count === 2) {
       setCount(0);
     } else {
       setCount(count + 1);
     }
-    console.log(count);
   }, 3000);
 
   const content = `${beliefsList[count]}`;

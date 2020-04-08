@@ -38,7 +38,6 @@ const WeDo = (props) => {
     } else {
       setCount(count + 1);
     }
-    console.log(count);
   }, 2000);
 
   const content = `We ${weDoList[count]}`;

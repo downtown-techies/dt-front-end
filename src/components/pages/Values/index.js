@@ -38,7 +38,6 @@ const Values = (props) => {
     } else {
       setCount(count + 1);
     }
-    console.log(count);
   }, 2000);
 
   return (

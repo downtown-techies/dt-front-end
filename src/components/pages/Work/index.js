@@ -1,22 +1,24 @@
 import React from 'react';
 import Text from '../../shared/Text';
-// import {  } from './styles.js';
+import theme from '../../../theme/primaryTheme';
+import { WorkContainer } from './styles.js';
 
 const Work = (props) => {
-  // const [visible, toggleVisible] = useState(false);
-  // 
-  // const handleClick = () => {
-  //   toggleVisible(!visible);
-
-  //   return
-  // }
-
   return (
-    <>
-     <Text>What we have done</Text>
+    <WorkContainer>
+        <Text
+          className="work-container__header"
+          sizeFactor={1}
+          color={theme.colors.secondary}
+          textStyle="cardHeadline">
+          Where our<br/>developers’ code lives
+        </Text>
+    logos
 
-    </>
+
+    </WorkContainer>
   );
 }
 
 export default Work;
+
