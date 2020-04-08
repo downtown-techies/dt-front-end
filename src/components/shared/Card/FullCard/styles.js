@@ -1,5 +1,4 @@
 import styled, { css }from '../../../../theme';
-import defaultImage from '../../../../assets/images/default.png';
 
 export const textStyles = {
   firstFlight: css`
@@ -30,9 +29,8 @@ export const cardStyles = {
 export const StyledCard = styled.div`
   ${baseStyles}
   ${({ name = 'default' }) => cardStyles[name]}
-  background:        url(${({ image }) => (image ? image : defaultImage)});
+  background:        url(${({ image }) => (image ? image : null)});
   background-repeat: no-repeat;
   background-size:   contain;
-  background-color:  white;
 `;
 
