@@ -2,6 +2,11 @@ import styled from '../../../theme';
 import { css } from '../../../theme';
 import theme from '../../../theme/primaryTheme';
 
+const UnstyledButtonSection = styled.section`
+  width: 100%;
+  text-align: center;
+`;
+
 const ButtonSection = styled.section`
   margin-top: 2rem;
   width: 100%;
@@ -28,6 +33,7 @@ const ButtonWrapper = styled.form`
 `;
 
 export {
+  UnstyledButtonSection,
   HeaderButtonContainer,
   ButtonSection,
   ButtonWrapper

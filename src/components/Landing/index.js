@@ -13,18 +13,20 @@ import {
   BottomOfPage,
   CallToAction,
   LandingWrapper, 
+  SignupContainer
 } from './styles.js';
 
 const Landing = () => {
-  console.log(theme.colors.reverse);
   return (
     <LandingWrapper>
       <AboveTheFold>
         <Text sizeFactor={2} bold textStyle="tagLine" color={theme.colors.reverse}>
           Limitless Possibility
         </Text>
-        <Signup />
       </AboveTheFold>
+      <SignupContainer>
+        <Signup />
+      </SignupContainer>
       <Values />
       <Ethos />
       <WeDo />

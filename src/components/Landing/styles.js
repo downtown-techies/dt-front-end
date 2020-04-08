@@ -8,10 +8,16 @@ const LandingWrapper = styled.div`
   display:           block;
 `;
 
+const SignupContainer = styled.div`
+  display:           block;
+  position:          absolute;
+  bottom:            33vh;
+`;
+
 const AboveTheFold = styled.div`
   display:           block;
   position:          relative;
-  padding:           35vh 0rem 30vh;
+  padding:           35vh 0rem 45vh;
   overflow:          hidden;
   width              100vw;
   min-height:        65vh;
@@ -42,5 +48,6 @@ export {
   AboveTheFold,
   BottomOfPage,
   CallToAction,
-  LandingWrapper
+  LandingWrapper,
+  SignupContainer
 };

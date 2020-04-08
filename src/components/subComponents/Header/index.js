@@ -51,7 +51,7 @@ class Header extends Component {
                 width={mobile ? 34.13 : 244.372}
                 viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
                 style={{cursor: 'pointer'}}
-                fill={theme.colors.backgroundDark} />
+                fill={theme.colors.reverse} />
             </ Link>
             {/*
             <MenuRight onClick={this.handleClick}>

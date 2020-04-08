@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../../shared/Button';
-import { ButtonSection } from '../../shared/Button/styles';
+import { UnstyledButtonSection } from '../../shared/Button/styles';
 import SvgIcon from '../../../assets/svgs';
 import AddUserForm from '../../forms/AddUserForm';
 import theme from '../../../theme/primaryTheme';
@@ -22,9 +22,9 @@ const Signup = (props) => {
   return (
     <SignupWrapper>
         { !visible ? (
-          <ButtonSection>
+          <UnstyledButtonSection>
             <Button handleClick={()=>handleClick()} buttonStyle="big">Build Your Dream</ Button>
-          </ButtonSection>
+          </UnstyledButtonSection>
         ) : (
           <SVGWrapper>
             <Button buttonStyle="unstyled" handleClick={()=>handleClick()}>
@@ -36,9 +36,11 @@ const Signup = (props) => {
               </Button>
           </SVGWrapper>
         )}
-      <UserFormWrapper visible={visible}>
-        { visible && <AddUserForm />}
-      </UserFormWrapper>
+        {visible === true ? (
+          <UserFormWrapper visible={visible}>
+            <AddUserForm />
+           </UserFormWrapper>
+        ) : (null)}
     </SignupWrapper>
   );
 }

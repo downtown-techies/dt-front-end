@@ -10,9 +10,7 @@ const UserFormWrapper = styled.div`
 
 const SignupWrapper = styled.div`
   padding: 0;
-  display: inline-block;
   width 100vw;
-
 `;
 
 const SVGWrapper = styled.div`
