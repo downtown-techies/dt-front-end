@@ -10,7 +10,7 @@ const WeDoContainer = styled.div`
 `;
 
 const RockyVectorContainer = styled.div`
-  padding: 0 0 4rem;
+  padding: 6rem 0 0rem;
   background-color: white;
 `;
 
