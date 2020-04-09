@@ -4,8 +4,6 @@ import CardFull from './FullCard';
 import ImageLeft from './ImageLeft';
 import ImageRight from './ImageRight';
 
-import './styles.css';
-
 const StyledCard = styled.div`
 `;
 

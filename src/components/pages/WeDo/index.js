@@ -10,8 +10,6 @@ import {
   RockyVector,
 } from './styles.js';
 
-import './styles.css';
-
 const useInterval = (callback, delay) => {
   const savedCallback = useRef();
   useEffect(() => {

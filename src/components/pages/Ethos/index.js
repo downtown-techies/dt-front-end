@@ -18,8 +18,6 @@ import {
   Information,
 } from './styles.js';
 
-import './styles.css';
-
 const Ethos = (props) => {
   return (
     <EthosContainer>

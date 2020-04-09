@@ -7,7 +7,6 @@ import Link from '../../shared/Link';
 import theme from '../../../theme/primaryTheme';
 import SvgIcon from '../../../assets/svgs'; 
 import MenuList from '../MenuList';
-import '../MenuList/styles.css';
 import { slide as Menu } from 'react-burger-menu'
 
 class Header extends Component {
