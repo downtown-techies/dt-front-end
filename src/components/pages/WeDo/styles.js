@@ -11,7 +11,6 @@ const WeDoContainer = styled.div`
 
 const RockyVectorContainer = styled.div`
   padding: 6rem 0 0rem;
-  background-color: black;
 `;
 
 const RockyVector = styled(Card)`
