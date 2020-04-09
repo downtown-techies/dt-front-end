@@ -13,7 +13,8 @@ import {
   BottomOfPage,
   CallToAction,
   LandingWrapper, 
-  SignupContainer
+  SignupContainer,
+  Others
 } from './styles.js';
 
 const Landing = () => {
@@ -38,6 +39,7 @@ const Landing = () => {
         </CallToAction>
         <Signup formColor={theme.colors.reverse} />
       </BottomOfPage>
+      <Others />
     </LandingWrapper>
   );
 }

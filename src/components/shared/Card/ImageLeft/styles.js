@@ -2,13 +2,6 @@ import styled, { css }from '../../../../theme';
 import defaultImage from '../../../../assets/images/default.png';
 
 export const textStyles = {
-  firstFlight: css`
-    position: relative;
-    right: 5rem;
-    text-align: right;
-  `,
-  default: css`
-  `,
 };
 
 export const TextContainer = styled.div`
@@ -18,7 +11,7 @@ export const TextContainer = styled.div`
 const baseStyles = css`
   display:           block;
   position:          relative;
-  padding:           10rem 0rem 15rem;
+  padding:           10rem 0rem 10rem;
   overflow:          hidden;
   width:             100vw;
 `;

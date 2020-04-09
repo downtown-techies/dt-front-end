@@ -1,12 +1,6 @@
 import styled, { css }from '../../../../theme';
 
 export const textStyles = {
-  firstFlight: css`
-    position: relative;
-    text-align: center;
-  `,
-  default: css`
-  `,
 };
 
 export const TextContainer = styled.div`

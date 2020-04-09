@@ -8,8 +8,8 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <ThemeProvider theme={primaryTheme}> 
     <>
-      <GlobalStyle />
       <App />
+      <GlobalStyle />
     </>
   </ ThemeProvider>, 
   document.getElementById('root')

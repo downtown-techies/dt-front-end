@@ -2,6 +2,7 @@ import styled from '../../theme';
 import moonLanding from '../../assets/images/moonLanding.jpg';
 import edisonBackground from '../../assets/images/edisonBackground.jpg';
 import Text from '../shared/Text';
+import { createGlobalStyle } from 'styled-components';
 
 const LandingWrapper = styled.div`
   min-height:        95vh;
@@ -44,10 +45,142 @@ const BottomOfPage = styled.div`
   display:           block;
 `;
 
+const Others = createGlobalStyle`
+/* Other styles */
+
+  {/* aesthetics matter */}
+  .beliefs-content {
+    padding: 11rem 0rem 9rem;
+    left: 22.5rem;
+    text-align: center;
+    width: 100vw;
+  }
+
+  .beliefs-bottom-content {
+    padding: 2.5rem 0 5rem;
+    text-align: center;
+    width: 100vw;
+  }
+
+  .beliefs-bottom-content__header {
+    position: relative;
+    line-height: 3.5rem;
+  }
+
+  {/* aesthetics matter */}
+  .aesthetics-content {
+    padding: 10rem 0rem 10rem;
+    text-align: right;
+    width: 100vw;
+  }
+
+  .aesthetics-content__header {
+    position: relative;
+    line-height: 3.5rem;
+    right: 6rem;
+  }
+
+  .aesthetics-content__info {
+    position: relative;
+    line-height: 1.8rem;
+    right: 3rem;
+  }
+
+  {/* freedom */}
+  .information-content {
+    padding: 10rem 0rem 10rem;
+    text-align: right;
+  }
+
+  .information-content__header {
+    position: relative;
+    line-height: 3.5rem;
+    right: 8rem;
+  }
+
+  .information-content__info {
+    position: relative;
+    line-height: 1.8rem;
+    right: 6rem;
+  }
+
+  {/* well crafted tools */}
+  .technology-content {
+    padding: 10rem 0rem 10rem;
+    text-align: left;
+  }
+
+  .technology-content__header {
+    position: relative;
+    line-height: 3.5rem;
+    left: 4rem;
+  }
+
+  .technology-content__info {
+    position: relative;
+    padding-top: 1rem;
+    line-height: 1.8rem;
+    left: 8rem;
+  }
+
+  {/* simplify the complex */}
+  .simplify-content {
+    padding: 10rem 0rem 10rem;
+    text-align: left;
+  }
+
+  .simplify-content__header {
+    position: relative;
+    line-height: 3.5rem;
+    left: 0rem;
+  }
+
+  .simplify-content__info {
+    position: relative;
+    padding-top: 1rem;
+    line-height: 1.8rem;
+    left: 2rem;
+  }
+
+  {/* aesthetics matter */}
+  .values-content {
+    padding: 7rem 0rem 13rem;
+    text-align: center;
+    width: 100vw;
+  }
+
+  .values-content__header {
+    position: relative;
+    line-height: 3.5rem;
+    right: 12rem;
+  }
+
+  {/* aesthetics matter */}
+  .we-do-content {
+    padding: 11rem 0rem 9rem;
+    text-align: center;
+    width: 100vw;
+  }
+
+  .we-do-content__header {
+    position: relative;
+    line-height: 3.5rem;
+  }
+
+  .bm-burger-button {
+    display: none !important;
+  }
+
+  .bm-cross-button {
+    display: none !important;
+  }
+`;
+
 export {
   AboveTheFold,
   BottomOfPage,
   CallToAction,
   LandingWrapper,
-  SignupContainer
+  SignupContainer,
+  Others
 };

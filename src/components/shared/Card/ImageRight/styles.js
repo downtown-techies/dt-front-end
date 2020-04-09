@@ -18,18 +18,12 @@ export const TextContainer = styled.div`
 const baseStyles = css`
   display:           block;
   position:          relative;
-  padding:           10rem 0rem 15rem;
+  padding:           10rem 0rem 10rem;
   overflow:          hidden;
   width:             100vw;
 `;
 
 export const cardStyles = {
-  firstFlight: css`
-    padding: 10rem 0rem 15rem;
-  `,
-  SpaceXDualLanding: css`
-    padding: 15rem 0rem 10rem;
-  `,
   default: css`
   `,
 };
