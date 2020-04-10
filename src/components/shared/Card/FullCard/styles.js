@@ -37,7 +37,7 @@ const baseStyles = css`
 const mobileOverload = css`
   @media (max-width:     630px) {
     background-image:      none;
-    background-color:      ${theme.colors.backgroundDark};
+    background-color:      ${theme.colors.backgroundDarker};
     text-align:            center;
     margin:                0 auto;
   }

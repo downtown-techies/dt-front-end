@@ -24,10 +24,10 @@ const Landing = () => {
         <Text sizeFactor={2} bold textStyle="tagLine" color={theme.colors.reverse}>
           Limitless Possibility
         </Text>
+        <SignupContainer>
+          <Signup />
+        </SignupContainer>
       </AboveTheFold>
-      <SignupContainer>
-        <Signup />
-      </SignupContainer>
       <Values />
       <Ethos />
       <WeDo />

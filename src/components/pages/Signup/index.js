@@ -39,7 +39,7 @@ const Signup = (props) => {
         {visible === true ? (
           <UserFormWrapper visible={visible}>
             <AddUserForm />
-           </UserFormWrapper>
+          </UserFormWrapper>
         ) : (null)}
     </SignupWrapper>
   );

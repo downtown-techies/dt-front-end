@@ -102,9 +102,9 @@ export const StyledButton = styled.button`
   ${baseStyles}
   ${({ buttonStyle = 'default' }) => buttonStyles[buttonStyle]}
   color: ${({ color }) => (color ? color: theme.colors.reverse)};
-  background-color: ${({ backgroundColor }) => (backgroundColor ? backgroundColor : theme.colors.backgroundDark)};
+  background-color: ${({ backgroundColor }) => (backgroundColor ? backgroundColor : theme.colors.secondary)};
   &:hover{
-    background-color: ${({ backgroundColorHover }) => (backgroundColorHover ? backgroundColorHover : theme.colors.backgroundDarker)};
+    background-color: ${({ backgroundColorHover }) => (backgroundColorHover ? backgroundColorHover : theme.colors.secondaryHover)};
   }
 `;
 

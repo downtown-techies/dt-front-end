@@ -11,7 +11,6 @@ const LandingWrapper = styled.div`
 
 const SignupContainer = styled.div`
   display:           block;
-  position:          absolute;
   bottom:            33vh;
 `;
 
@@ -176,12 +175,22 @@ const Others = createGlobalStyle`
   .values-content {
     text-align: center;
     width: 100vw;
+    padding: 5rem 0rem 13rem;
+    @media (max-width: 1200px) {
+      padding: 5rem 0rem 13rem;
+    }
+    @media (max-width: 950px) {
+      padding: 3rem 0rem 13rem;
+    }
   }
 
   .values-content__header {
     position: relative;
-    @media (min-width: 630px) {
+    @media (min-width: 1020px) {
       right: 12rem;
+    }
+    @media (min-width: 630px) {
+      right: 6rem;
     }
   }
 
