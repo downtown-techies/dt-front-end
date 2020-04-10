@@ -19,6 +19,13 @@ const CompaniesContainer = styled.div`
 
 const ImageContainer = styled.div`
   flex: 0 33%;
+  @media (max-width: 900px) {
+    flex: 0 50%;
+  }
+  @media (max-width: 630px) {
+    flex: 0 100%;
+  }
+
   height: 7rem;
   padding: 2rem 1rem;
   text-align: center;
