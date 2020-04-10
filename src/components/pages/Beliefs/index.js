@@ -46,10 +46,6 @@ const Beliefs = (props) => {
         <FlashingLight 
           className="beliefs-content"
           image={flashingLight}
-          name="beliefs"
-          cardStyle="fullCard" />
-        <FlashingLight 
-          className="beliefs-bottom-content"
           header={{
               'className':'beliefs-bottom-content__header',
               'color': theme.colors.white, 

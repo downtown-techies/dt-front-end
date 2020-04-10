@@ -57,22 +57,51 @@ const textStyles = {
   `,
   cardHeadline: css`
     white-space: pre-line;
-    font-size: ${props => parseFloat(props.sizeFactor) * 3.2}rem;
     font-weight: 300;
-    line-height: 1.2;
+    font-size: ${props => parseFloat(props.sizeFactor) * 3.2}rem;
+    @media (max-width: 1380px) {
+      font-size: ${props => parseFloat(props.sizeFactor) * 2.5}rem;
+    }
+    @media (max-width: 1060px) {
+      font-size: ${props => parseFloat(props.sizeFactor) * 2}rem;
+    }
+    @media (max-width: 700px) {
+      font-size: ${props => parseFloat(props.sizeFactor) * 1.6}rem;
+    }
+    @media (max-width: 630px) {
+      font-size: ${props => parseFloat(props.sizeFactor) * 1.3}rem;
+      padding-bottom: 0.7rem;
+    }
   `,
   cardCopy: css`
     white-space: pre-line;
-    font-size: ${props => parseFloat(props.sizeFactor) * 1.4}rem;
     font-weight: 100;
-    line-height: 1.2;
+    font-size: ${props => parseFloat(props.sizeFactor) * 1.4}rem;
+    @media (max-width: 1380px) {
+      font-size: ${props => parseFloat(props.sizeFactor) * 1}rem;
+    }
+    @media (max-width: 1060px) {
+      font-size: ${props => parseFloat(props.sizeFactor) * 0.9}rem;
+    }
+    @media (max-width: 700px) {
+      font-size: ${props => parseFloat(props.sizeFactor) * 0.8}rem;
+      padding-bottom: 1rem;
+    }
   `,
   cardTitle: css`
-    white-space: pre-line;
-    font-size: ${props => parseFloat(props.sizeFactor) * 2}rem;
-    font-weight: 100;
-    line-height: 1.2;
     margin: 1.5rem 0;
+    white-space: pre-line;
+    font-weight: 100;
+    font-size: ${props => parseFloat(props.sizeFactor) * 2}rem;
+    @media (max-width: 1380px) {
+      font-size: ${props => parseFloat(props.sizeFactor) * 1.8}rem;
+    }
+    @media (max-width: 1060px) {
+      font-size: ${props => parseFloat(props.sizeFactor) * 1.4}rem;
+    }
+    @media (max-width: 700px) {
+      font-size: ${props => parseFloat(props.sizeFactor) * 1.2}rem;
+    }
   `,
   info: css`
     font-weight: 300;

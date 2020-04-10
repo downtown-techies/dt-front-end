@@ -15,7 +15,6 @@ const SolarContainer = styled.div`
 `;
 
 const Solar = styled(Card)`
-  padding: 1rem 0;
 `;
 
 export {

@@ -14,7 +14,6 @@ const RockyVectorContainer = styled.div`
 `;
 
 const RockyVector = styled(Card)`
-  padding: 1rem 0;
 `;
 
 export {

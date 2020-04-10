@@ -4,7 +4,6 @@ const beliefsList = [
   'Create aesthetically pleasing user experiences'
 ];
 
-
 export {
   beliefsList 
 };
