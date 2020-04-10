@@ -20,7 +20,7 @@ const AboveTheFold = styled.div`
   position:          relative;
   padding:           35vh 0rem 45vh;
   overflow:          hidden;
-  width              100vw;
+  max-width          100%;
   min-height:        65vh;
   background:        center,
                      url(${moonLanding}) no-repeat;
@@ -51,7 +51,7 @@ const Others = createGlobalStyle`
   {/* aesthetics matter */}
   .beliefs-content {
     padding: 11rem 0rem 9rem;
-    left: 22.5rem;
+    background-position: center;
     text-align: center;
     width: 100vw;
   }
@@ -166,7 +166,6 @@ const Others = createGlobalStyle`
     position: relative;
     line-height: 3.5rem;
   }
-
   .bm-burger-button {
     display: none !important;
   }

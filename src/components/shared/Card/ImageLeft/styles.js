@@ -13,7 +13,7 @@ const baseStyles = css`
   position:          relative;
   padding:           10rem 0rem 10rem;
   overflow:          hidden;
-  width:             100vw;
+  max-width:         100%;
 `;
 
 export const cardStyles = {

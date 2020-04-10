@@ -1,5 +1,4 @@
 import styled from '../../../theme';
-// import primaryTheme from '../../../theme/primaryTheme';
 
 const WorkContainer = styled.div`
   position: relative;
